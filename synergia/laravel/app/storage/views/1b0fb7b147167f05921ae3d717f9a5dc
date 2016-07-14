@@ -1,0 +1,564 @@
+<?php /* Web site Title */ ?>
+
+
+
+<?php $__env->startSection('title'); ?>
+
+
+
+<?php echo $entrada->titulo; ?>
+
+
+
+@parent
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+
+
+
+
+<?php /* Content */ ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+
+
+
+    <!--=== Content Part ===-->
+
+    <div class="container content">
+
+        <div class="row blog-page blog-item">
+
+            <!-- Left Sidebar -->
+
+            <div class="col-md-9 md-margin-bottom-60">
+
+                <!--Blog Post-->
+
+                <div class="blog margin-bottom-40" align="justify">
+
+                    <h2><a><?php echo $entrada->titulo; ?></a></h2>
+
+                    <div class="blog-post-tags">
+
+                        <ul class="list-unstyled list-inline blog-info">
+
+                            <li><i class="fa fa-calendar"></i> <?php echo date('d/m/Y', strtotime($entrada->created_at)); ?></li>
+
+
+
+                        </ul>
+
+                        <!--<ul class="list-unstyled list-inline blog-tags">
+
+                            <li>
+
+                                <i class="fa fa-tags"></i>
+
+                                <a href="#">Technology</a>
+
+                                <a href="#">Education</a>
+
+                                <a href="#">Internet</a>
+
+                                <a href="#">Media</a>
+
+                            </li>
+
+                        </ul>-->
+
+                    </div>
+
+
+
+                    <p><?php echo HTML::decode($entrada->contenido); ?> </p>
+
+
+
+                    <div class="row  margin-bottom-30">
+
+                        <div class="blog-img">
+
+                            <?php foreach($entrada->urls as $enlace): ?>
+
+
+
+                                <?php if(Str::lower($enlace->tipo) == "jpg"): ?>
+
+                                    <div class="col-sm-6 sm-margin-bottom-30">
+
+                                        <a href="<?php echo asset('entradas/'.$enlace->url); ?>" rel="gallery" class="fancybox img-hover-v1" title="Image 1">
+
+                                            <span><img  class="img-responsive" src="<?php echo asset('entradas/'.$enlace->url); ?>" alt="<?php echo $entrada->titulo; ?>"></span>
+
+                                        </a>
+
+                                    </div>
+
+                                <?php elseif(Str::lower($enlace->tipo) == "pdf"): ?>
+
+
+
+                                    <center><iframe frameborder='0'  class='feature-image img-mask-effect zoom photo_link' width='90%' height="400" title='<?php echo $entrada->titulo; ?>' src='<?php echo $enlace->url; ?>' type='text/html' allowfullscreen='true' scrolling='no' marginwidth='0' marginheight='0'></iframe></center>
+
+                                    <br />
+
+                                <?php else: ?>
+
+                                    <?php echo HTML::decode($enlace->url); ?>
+
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--End Blog Post-->
+
+
+
+                
+
+
+
+                <!--
+
+                <div class="media">
+
+                    <h3>Comments</h3>
+
+                    <a class="pull-left" href="#">
+
+                        <img class="media-object" src="assets/img/testimonials/img1.jpg" alt="" />
+
+                    </a>
+
+                    <div class="media-body">
+
+                        <h4 class="media-heading">Media heading <span>5 hours ago / <a href="#">Reply</a></span></h4>
+
+                        <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
+
+
+
+                        <hr>
+
+
+
+                        <div class="media">
+
+                            <a class="pull-left" href="#">
+
+                                <img class="media-object" src="assets/img/testimonials/img2.jpg" alt="" />
+
+                            </a>
+
+                            <div class="media-body">
+
+                                <h4 class="media-heading">Media heading <span>17 hours ago / <a href="#">Reply</a></span></h4>
+
+                                <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum anibhut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <hr>
+
+
+
+                        <div class="media">
+
+                            <a class="pull-left" href="#">
+
+                                <img class="media-object" src="assets/img/testimonials/img3.jpg" alt="" />
+
+                            </a>
+
+                            <div class="media-body">
+
+                                <h4 class="media-heading">Media heading <span>2 days ago / <a href="#">Reply</a></span></h4>
+
+                                <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum anibhut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div><!--/media-->
+
+
+
+
+
+                <!-- End Recent Comments -->
+
+
+
+                <hr>
+
+
+
+                <!--
+
+                <div class="post-comment">
+
+                    <h3>Leave a Comment</h3>
+
+                    <form>
+
+                        <label>Name</label>
+
+                        <div class="row margin-bottom-20">
+
+                            <div class="col-md-7 col-md-offset-0">
+
+                                <input type="text" class="form-control">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <label>Email <span class="color-red">*</span></label>
+
+                        <div class="row margin-bottom-20">
+
+                            <div class="col-md-7 col-md-offset-0">
+
+                                <input type="text" class="form-control">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <label>Message</label>
+
+                        <div class="row margin-bottom-20">
+
+                            <div class="col-md-11 col-md-offset-0">
+
+                                <textarea class="form-control" rows="8"></textarea>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <p><button class="btn-u" type="submit">Send Message</button></p>
+
+                    </form>
+
+                </div>
+
+                <!-- End Comment Form -->
+
+            </div>
+
+            <!-- End Left Sidebar -->
+
+
+
+            <!-- Right Sidebar -->
+
+            <div class="col-md-3 magazine-page">
+
+
+
+
+
+                <!-- Posts -->
+
+                <div class="posts margin-bottom-40">
+
+                    <div class="headline headline-md"><h2>Últimas entradas</h2></div>
+
+
+
+                    <?php /**/ $entradas = Entrada::where('categoria','=','noticias')->orderby('created_at','desc')->take(4)->get() /**/ ?>
+
+
+
+
+
+                    <dl class="dl-horizontal">
+
+                        <?php foreach($entradas as $entrada): ?>
+
+                            <?php /**/ $enlace = $entrada->urls->first() /**/ ?>
+
+                                <?php if($enlace != null): ?>
+
+                                    <?php if(Str::lower($enlace->tipo) == "jpg"): ?>
+
+                                        <dt>
+
+                                            <a href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">
+
+                                                <img class="img-responsive" src="<?php echo asset('entradas/'.$enlace->url); ?>" alt="<?php echo $entrada->titulo; ?>">
+
+                                            </a>
+
+                                        </dt>
+
+                                    <?php elseif(Str::lower($enlace->tipo) == "pdf"): ?>
+
+                                        <dt>
+
+                                            <iframe frameborder='0'  class='feature-image img-mask-effect zoom photo_link' width='60' height='60'  title='<?php echo $entrada->titulo; ?>' src='<?php echo $enlace->url; ?>' type='text/html' allowfullscreen='true' scrolling='no' marginwidth='0' marginheight='0'></iframe>                                            
+
+                                        </dt>
+
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+
+                                    <dt>
+
+                                        <a href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">
+
+                                            <img class="img-responsive" src="<?php echo asset('template/images/design/portada/escudo.jpg'); ?>" alt="<?php echo $entrada->titulo; ?>">
+
+                                        </a>
+
+                                    </dt>
+
+                                <?php endif; ?>                           
+
+
+
+                            <dd>
+
+                                <p><a href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>"><?php echo Str::limit($entrada->titulo, 30); ?></a></p>
+
+                            </dd>
+
+                        <?php endforeach; ?>
+
+
+
+                    </dl>
+
+
+
+                </div><!--/posts-->
+
+                <!-- End Posts -->
+
+
+
+                <!--
+
+                <div class="headline headline-md"><h2>Tabs Widget</h2></div>
+
+                <div class="tab-v2 margin-bottom-40">
+
+                    <ul class="nav nav-tabs">
+
+                        <li class="active"><a data-toggle="tab" href="#home-1">About Us</a></li>
+
+                        <li><a data-toggle="tab" href="#home-2">Quick Links</a></li>
+
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <div id="home-1" class="tab-pane active">
+
+                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac ac adipiscing nunc.</p> <p>Pellentesque fermentum, ante ac felis consectetur id. Donec eget orci metusvivamus imperdiet.</p>
+
+                        </div>
+
+                        <div id="home-2" class="tab-pane magazine-sb-categories">
+
+                            <div class="row">
+
+                                <ul class="list-unstyled col-xs-6">
+
+                                    <li><a href="#">Best Sliders</a></li>
+
+                                    <li><a href="#">Parralax Page</a></li>
+
+                                    <li><a href="#">Backgrounds</a></li>
+
+                                    <li><a href="#">Parralax Slider</a></li>
+
+                                    <li><a href="#">Responsive</a></li>
+
+                                    <li><a href="#">800+ Icons</a></li>
+
+                                </ul>
+
+                                <ul class="list-unstyled col-xs-6">
+
+                                    <li><a href="#">60+ Pages</a></li>
+
+                                    <li><a href="#">Layer Slider</a></li>
+
+                                    <li><a href="#">Bootstrap 3</a></li>
+
+                                    <li><a href="#">Fixed Header</a></li>
+
+                                    <li><a href="#">Best Template</a></li>
+
+                                    <li><a href="#">And Many More</a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- End Tabs Widget -->
+
+
+
+                <!-- Photo
+
+                <div class="headline headline-md"><h2>Photo Stream</h2></div>
+
+                <ul class="list-unstyled blog-photos margin-bottom-30">
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/5.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/6.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/8.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/10.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/11.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/1.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/2.jpg"></a></li>
+
+                    <li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/7.jpg"></a></li>
+
+                </ul>
+
+                <!-- End Photo Stream -->
+
+
+
+                <!--
+
+                <div class="headline headline-md"><h2>Blog Tags</h2></div>
+
+                <ul class="list-unstyled blog-tags margin-bottom-30">
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Business</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Music</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Internet</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Money</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Google</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> TV Shows</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Education</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> People</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> People</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Math</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Photos</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Electronics</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Apple</a></li>
+
+                    <li><a href="#"><i class="fa fa-tags"></i> Canada</a></li>
+
+                </ul>
+
+                <!-- End Blog Tags -->
+
+
+
+                <!-- Blog Latest Tweets -->
+
+                <!--<div class="blog-twitter margin-bottom-30">
+
+                    <div class="headline headline-md"><h2>Últimos Tweets</h2></div>
+
+                    <div class="magazine-sb-categories margin-bottom-20">
+
+                        <h3><a href="#" ali>Twitter</a></h3>
+
+                        <a class="twitter-timeline" href="https://twitter.com/Hdad_Valme" data-widget-id="620621864960978944">Tweets por el @Hdad_Valme.</a>
+
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    </div>
+
+                </div>-->
+
+                <!-- End Blog Latest Tweets -->
+
+            </div>
+
+            <!-- End Right Sidebar -->
+
+        </div><!--/row-->
+
+    </div><!--/container-->
+
+    <!--=== End Content Part ===-->
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php $__env->startSection('scripts'); ?>
+
+    <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+
+    <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+
+            App.init();
+
+            FancyBox.initFancybox();
+
+        });
+
+    </script>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

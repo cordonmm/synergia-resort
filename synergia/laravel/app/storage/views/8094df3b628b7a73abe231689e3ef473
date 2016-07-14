@@ -1,0 +1,84 @@
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    Junta de Gobierno | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    
+    
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        
+
+        <div class="row">
+        
+            <div class="col-md-7">
+                <div>
+                    <a href="<?php echo e(asset('template/images/design/junta.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/junta.jpg')); ?>" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-5" align="justify">
+                <h2 class="title-v2">Junta de Gobierno</h2>
+                
+
+                <ul>
+                    <li>Hermano mayor: Hugo Santos Gil.</li>
+                    <li>Teniente de hermano mayor: Mariano Fernández Castillo.</li>
+                    <li>Mayordomo 1º: Agustín López González.</li>
+                    <li>Mayordomo 2º: Luis Jesús Jiménez Pérez.</li>
+                    <li>Secretaria 1ª: Isabel María Caballero Holgado.</li>
+                    <li>Secretario 2º: David del Toro Arévalo.</li>
+                    <li>Fiscal: Francisco González Camacho.</li>
+                    <li>Tesorero: Francisco Javier Díaz Terrero.</li>
+                    <li>Contador: Jesús Martínez Velasco.</li>
+                    <li>Prioste Carreta Virgen: Francisco Miguel Jiménez González.</li>
+                    <li>Prioste Ermita: Jesús María Díaz Cardona.</li>
+                    <li>Prioste Casa Hermandad: Francisco Rodríguez Caro.</li>
+                    <li>Alcalde 1º de Romería y Carretas: Antonio López López.</li>
+                    <li>Alcalde 2º de Romería y Carretas: Manuel Rodríguez Caro.</li>
+                    <li>Diputado de Cultos y Protocolo: Jesús Ríos Sutil.</li>
+                    <li>Diputado de Formación y Juventud: Mario Conde Carpena.</li>
+                    <li>Diputado de Obras Sociales y Asistenciales: Francisco Alanís Chamorro.</li>
+                    <li>Vocales: Álvaro Díaz Osuna, José Ramón Gómez Tinoco, Juan Lozano Navarro,
+
+                        Carlos Marín Jiménez, Magdalena Romero Navarro, Tomás Ruiz López y José Manuel
+
+                        Varela Ávila.</li>
+                </ul>
+                <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                <a href="#" class="btn-u">Purchase Now</a>-->
+            </div>
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+            <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+            <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    FancyBox.initFancybox();
+                });
+            </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

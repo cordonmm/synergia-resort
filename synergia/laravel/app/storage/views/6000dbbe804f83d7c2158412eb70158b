@@ -1,0 +1,558 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    La Virgen de Valme | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">La Virgen de Valme</h2>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen13.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div>
+                            <p>
+                                La imagen de Nuestra Señora de Valme, Protectora de Dos Hermanas, es una talla gótica de las
+
+                                denominadas “fernandinas”, por su vinculación con Fernando III “el Santo”. Precisamente, toma su
+
+                                nombre de la súplica del Santo Rey –“¡Valme Señora!”– pronunciada en el Cortijo de Cuartos durante el
+
+                                asedio a la ciudad de Sevilla en 1248.
+                            </p>
+
+                            <p>
+                                Según los estudiosos, la imagen corresponde a la iniciación de la Baja Edad Media, y más concretamente
+
+                                al período de transición entre el románico y el gótico. Autorizadas opiniones sitúan su cronología en el
+
+                                segundo tercio del siglo XIII.
+                            </p>
+
+                            <p>
+                                La imagen fue venerada durante siglos en su Ermita o Capilla del Cortijo de Cuartos, construida por
+
+                                mandato del rey San Fernando. A mediados del siglo XVII, la talla original fue mutilada para vestirla
+
+                                según la moda barroca, adaptándosele un candelero y unos brazos postizos a fin de poderle colocar
+
+                                manto, saya, rostrillo, corona y joyas. Es muy posible que a comienzos del siglo XIX, coincidiendo con
+
+                                su venida a Dos Hermanas con motivo de la epidemia de fiebre amarilla, la imagen de la Virgen fuera
+
+                                nuevamente intervenida para ataviarla según los gustos de la época. En una fecha indeterminada –quizás
+
+                                coincidente con este momento–, se le introdujeron ojos de cristal. Los primeros testimonios iconográficos
+
+                                de la Virgen de Valme nos la muestran precisamente "en candelero" y corresponden a la segunda mitad
+
+                                del siglo XIX, coincidiendo con el resurgimiento de su culto auspiciado por los duques de Montpensier.
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+                
+                <br />
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <div>
+                            <p>
+                                En 1894, por iniciativa del poeta José Lamarque de Novoa y debido al precario estado de conservación en
+
+                                que se encontraba la talla, la Hermandad decidió restaurarla y restituirla a su estado primitivo. Los
+
+                                trabajos fueron encomendados al escultor Adolfo López, bajo la dirección del pintor Virgilio Mattoni, que
+
+                                repuso artísticamente las partes que habían sido mutiladas en épocas anteriores (p. ej. las manos). La
+
+                                policromía que actualmente puede observarse fue fruto, también, de esta restauración.
+                            </p>
+
+                            <p>
+                                Durante el siglo XX parece seguro que hubo intervenciones puntuales sobre la imagen, posiblemente por
+
+                                artistas aficionados, para reparar desperfectos ocasionales. En 1990, la Hermandad encarga un estudio al
+
+                                grupo Isbilia, que emite un informe en base al cual se decide acometer un somero proceso de
+
+                                conservación. La intervención se llevó a cabo en un salón de la Parroquia de Santa María Magdalena y
+
+                                duró aproximadamente 20 días (entre el 2 y el 24 de mayo), a lo largo de los cuales se procedió a la
+
+                                desinsectación y consolidación de la talla, así como a la reintegración de las lagunas más visibles que
+
+                                presentaba la policromía. Igualmente, se procedió a la sustitución de los elementos ocasionales (peana
+
+                                inferior y pernos para sujeción de las coronas).
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen1.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen2.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen3.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <div>
+                            <p>
+                                En febrero de 2002, se ponen de manifiesto grietas y desperfectos en la imagen, razón por la cual la
+
+                                Hermandad se dirige al Instituto Andaluz del Patrimonio Histórico (IAPH), solicitando que un equipo
+
+                                técnico de este organismo se desplazara hasta Dos Hermanas para examinar el estado de conservación de
+
+                                la talla. El informe preliminar fue emitido en junio de 2002, exponiendo los daños que se habían
+
+                                advertido, así como las recomendaciones que debían seguirse con carácter preventivo (entre ellas, la de
+
+                                suprimir los besamanos, al ser esta la principal causa del deterioro de la policromía de la imagen). Con
+
+                                fundamento en este informe, la Hermandad decide, a partir de entonces, dar a los fieles la opción de besar
+
+                                una medalla colocada a los pies de la Virgen, en lugar de la mano, para así frenar el deterioro.
+                            </p>
+
+                            <p>
+                                En octubre de 2012, tras la celebración de la Romería, se advierte el agrandamiento de un pequeño
+
+                                orificio detectado en la parte superior de la cabeza de la Virgen. Ante la sospecha de que pudiera ser
+
+                                indicativo de un ataque de insectos xilófagos, se hacen gestiones con la dirección del IAPH y se solicita
+
+                                un reconocimiento de urgencia. A resultas de ello, y con las autorizaciones preceptivas, en marzo de 2013
+
+                                se acuerda trasladar a la imagen hasta la sede del IAPH durante diez días, a fin de realizar un informe-
+
+                                diagnóstico sobre su estado de conservación, con objeto de profundizar en el conocimiento de la talla y de
+
+                                las patologías detectadas.
+                            </p>
+
+                            <p>
+                                Sobre la base del proyecto de conservación realizado por el mencionado organismo, el Cabildo General
+
+                                de la Hermandad, en reunión celebrada el 28 de noviembre de 2013, decidió acometer la restauración de
+
+                                la imagen de la Santísima Virgen. El proceso se llevó a cabo en las dependencias del IAPH, en la Isla de
+
+                                la Cartuja de Sevilla, entre los días 3 de febrero y 27 de mayo de 2014, regresando nuestra Titular a Dos
+
+                                Hermanas en la víspera del día de San Fernando. Con este motivo, se expuso a la veneración de los fieles
+
+                                en la antigua capilla del Ave María, desde la tarde del 29 de mayo hasta la finalización de la Solemne
+
+                                Función conmemorativa de la festividad del Santo Rey, que ese año se ofreció también en acción de
+
+                                gracias por la feliz culminación de la restauración.
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen14.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen15.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen16.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <h3>RESUMEN DEL PROCESO DE CONSERVACIÓN LLEVADO A CABO EN 2014 POR EL IAPH</h3>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen11.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                La imagen de la Virgen de Valme posee un notable interés artístico, histórico y etnológico. También un
+
+                                significativo aprecio social, reflejo de un importante sentir devocional. Todos estos valores la caracterizan
+
+                                como obra destacada del Patrimonio Histórico de Andalucía. Es titular de la Pontificia, Real e Ilustre
+
+                                Hermandad de Nuestra Señora de Valme Coronada y San Fernando, de la ciudad de Dos Hermanas.
+                            </p>
+
+                            <p>
+                                Para corregir los problemas de conservación que presentaba, esta escultura gótica ha sido restaurada por
+
+                                el Instituto Andaluz del Patrimonio Histórico (IAPH), agencia pública de la Consejería de Educación,
+
+                                Cultura y Deporte de la Junta de Andalucía.
+                            </p>
+
+                            <p>
+                                El Proyecto de Conservación es el instrumento técnico, metodológico, operativo y de gestión que define
+
+                                las investigaciones y actividades técnico-operativas consideradas necesarias para la conservación
+
+                                científica de la obra de arte. También indica los criterios de intervención a seguir en el proceso. En este
+
+                                sentido, con arreglo al artículo 22.1 de la Ley 14/2007, de Patrimonio Histórico de Andalucía, el IAPH
+
+                                redactó, a instancias de la Hermandad, el Proyecto de Conservación de la imagen de la Virgen de Valme
+
+                                (20 de mayo de 2013). El Cabildo General Extraordinario de hermanos y hermanas aprobó dicho
+
+                                documento en sesión celebrada el 28 de noviembre de 2013.
+                            </p>
+
+                            <p>
+                                Como corresponde a la metodología del IAPH, la restauración ha estado precedida de un riguroso proceso
+
+                                de análisis, estudio e investigación en el que no sólo se han tenido en cuenta las necesidades de
+
+                                conservación de su materialidad. Como en todos los casos de restauración de imágenes de valor
+
+                                devocional, en esta excepcional escultura medieval la intervención ha conllevado, con carácter previo,
+
+                                una profunda reflexión en cuanto a la percepción de la obra artística como soporte de la práctica
+
+                                devocional y la conveniencia de la recuperación de su imagen más consolidada. El trabajo conjunto de
+
+                                técnicos del IAPH y representantes de la Hermandad, a través de una Comisión Mixta de Seguimiento, ha
+
+                                permitido dar respuesta a los retos planteados.
+                            </p>
+
+                            <p>
+                                El IAPH ha puesto al servicio de este proyecto su amplia experiencia en la intervención de bienes
+
+                                culturales, así como los recursos humanos, técnicos y científicos de sus laboratorios de investigación y de
+
+                                sus talleres de conservación. Un total de diez técnicos de cinco áreas de conocimiento han constituido el
+
+                                equipo del proyecto.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+
+                    <div class="col-md-8">
+                        <div>
+                            <h4>Estudio histórico-artístico</h4>
+                            <p>
+                                La Virgen de Valme es una de las imágenes marianas introducidas en tierras sevillanas a partir de la
+
+                                segunda mitad del siglo XIII, en el marco del primer impulso repoblador llevado a cabo tras la
+
+                                Reconquista castellana del bajo Guadalquivir. La advocación de Valme está documentada desde el siglo
+
+                                XVII, ubicándose su ermita en el denominado Cortijo de Cuarto. En este lugar se celebraban durante los
+
+                                siglos XVII y XVIII fiestas en honor a la Virgen. Dichas fiestas constituyen el antecedente de la romería
+
+                                que desde finales del siglo XIX se celebra cada año y que es una de las más populares y concurridas de
+
+                                Andalucía. La romería de Valme fue declarada Fiesta de Interés Turístico por Resolución de 15 de junio
+
+                                de 1976.
+                            </p>
+
+                            <p>
+                                Con el culto público a la Virgen de Valme, pervive la mayor devoción de la ciudad de Dos Hermanas
+
+                                expresada en el cariño a esta imagen mariana que la tradición vincula a la figura del rey castellano
+
+                                Fernando III, monarca de Sevilla desde 1248 y hasta su muerte en 1252.
+                            </p>
+
+                            <p>
+                                La imagen de la Virgen de Valme es una talla de bulto redondo en madera policromada y dorada cuyas
+
+                                dimensiones son 68 x 28 x 17 cm. Se trata de una escultura anónima de origen medieval cuya iconografía
+
+                                deriva de modelos bizantinos presentes en el románico. Representa a la Virgen en majestad, como trono
+
+                                de Dios sosteniendo al Niño en la rodilla. Ahora bien, su composición supera la frontalidad e hieratismo
+
+                                del modelo iconográfico tradicional, avanzando hacia propuestas más realistas, al decidir el autor
+
+                                presentar al Hijo sobre la pierna izquierda y no en el centro de la misma. Se muestra Jesús Niño en actitud
+
+                                de bendecir con su mano derecha, mientras que en la izquierda porta un pájaro (símbolo de la
+
+                                Resurrección). La Virgen sostiene en su mano derecha una rosa incorporada tras la restauración de 1894
+
+                                (antes portaba un cetro). Los rasgos físicos de ambas figuras están suavemente modelados y se
+
+                                caracterizan por tener unas facciones individualizadas, aunque conservan el idealismo propio del gótico
+
+                                internacional; en todo caso, dichas facciones presentan gran refinamiento y solemnidad.
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen10.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen7.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div>
+                            <p>
+                                La imagen se construyó a partir de una única pieza obtenida del centro del árbol (chopo o álamo blanco).
+
+                                Esta pieza está seccionada en la actualidad en tres partes,  ya que en el siglo XVII fue transformada para
+
+                                poder ser vestida según la moda barroca. En ese momento se mutiló la obra, eliminándose la mano
+
+                                derecha de ambas figuras con objeto de colocar nueva indumentaria. En 1894, la Hermandad decide
+
+                                recuperar el aspecto morfológico original, reponiéndose las manos en su posición inicial, en la que
+
+                                permanecen.
+                            </p>
+
+                            <p>
+                                A lo largo de su historia material, la imagen ha sido objeto de intervenciones que han modificado su
+
+                                forma y su aspecto cromático. Como se ha mencionado, con anterioridad a 1669 la talla fue modificada
+
+                                para ser vestida y adaptada a un candelero. La restauración de 1894 fue realizada por el escultor Adolfo
+
+                                López, quien la despojó de las citadas vestimentas con la intención indicada. En el siglo XX (1990) la
+
+                                imagen fue de nuevo intervenida por el taller Isbilia.
+                            </p>
+
+                            <p>
+                                Hasta ahora se creía que la talla fue seccionada por la cintura de la Virgen en la intervención del siglo
+
+                                XVII. El estudio realizado en el IAPH con técnica de tomografía axial computerizada (TAC) permite
+
+                                desmentir lo anterior y asegurar que lo seccionado en la mencionada intervención fue el volumen de
+
+                                madera que representa la figura del Niño, comprobándose por la continuidad de las vetas que después fue
+
+                                restituido a su primitiva posición.
+                            </p>
+
+                            <p>
+                                Por último, indicar que la investigación ha permitido comprobar que se conservan, al menos, tres
+
+                                policromías consecutivas. La hoy visible (1894), y la inmediatamente inferior, guardan el mismo
+
+                                cromatismo. En ambas, las vestimentas, decoradas mediante  la técnica del estofado, coinciden en el
+
+                                color: manto azul y túnica roja en la Virgen, y gris en el Niño. Por su parte, la policromía medieval tiene
+
+                                un cromatismo diferente: el manto de la Virgen es rojo y la túnica azul; ambos están decorados con un
+
+                                pequeño dibujo.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-9">
+                        <div>
+                            <h4>Estudio de conservación y tratamiento</h4>
+                            <p>
+                                El análisis de la escultura se ha basado en el conocimiento científico. Se han realizado inspecciones
+
+                                organolépticas, estudios analíticos y otros con técnicas de examen por imagen.
+                            </p>
+
+                            <p>
+                                Los principales problemas de conservación tenían su origen en el envejecimiento natural de los materiales
+
+                                y en las operaciones de manipulación y uso.
+                            </p>
+
+                            <p>
+                                Las mayores alteraciones se centraban en la policromía. Se detectaba falta de adhesión entre los estratos
+
+                                polícromos, así como algunos golpes y roces accidentales que habían provocado  erosiones y pérdidas.
+
+                                También se observaba la acumulación de productos cosméticos en las manos y en la zona de las rodillas.
+                            </p>
+
+                            <p>
+                                Con respecto al soporte se observaban varias fendas, algunas apreciables a simple vista porque habían
+
+                                roto los estratos de policromía. Alrededor de estas fendas y en la base de la imagen, se detectaba una
+
+                                antigua infestación por insectos xilófagos, de la familia Anobiidae.
+                            </p>
+
+                            <p>
+                                La intervención de conservación y restauración –desarrollada entre el 3 de febrero y el 27 de mayo de
+
+                                2014 en la sede del IAPH– se ha fundamentado en el principio de mínima intervención, el respeto a la
+
+                                autenticidad de la obra, la inocuidad de los productos y materiales utilizados en los distintos tratamientos,
+
+                                y la reversibilidad de los procedimientos aplicados. La intervención ha garantizado la correcta percepción
+
+                                de la imagen y de sus valores patrimoniales, máxime cuando se trata de un bien mueble que a su
+
+                                condición de obra de arte, une su función vinculada al culto religioso y su valor devocional, como ocurre
+
+                                en el caso de la Virgen de Valme.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen6.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/virgen/virgen5.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div>
+                            <p>
+                                El primer tratamiento realizado fue la desinsectación mediante gases inertes. La siguiente operación
+
+                                consistió en la eliminación de la suciedad superficial, de los barnices alterados y de las reintegraciones
+
+                                efectuadas en la última intervención documentada. Esta limpieza permitió una observación más
+
+                                exhaustiva de las capas de policromía subyacentes y un mejor acceso para realizar el tratamiento de
+
+                                fijación de estratos y la consolidación del soporte. En último lugar, se repuso el estrato de preparación en
+
+                                aquellas zonas de pérdidas y posteriormente se reintegraron cromáticamente las zonas estucadas.
+
+                                Considerando los valores descritos de la imagen, el criterio de reintegración adoptado ha tenido como fin
+
+                                mantener testimonio de la devoción.
+                            </p>
+
+                            <p>
+                                En definitiva, la imagen de la Virgen de Valme vuelve a mostrarse en toda su plenitud y en buen estado
+
+                                de conservación. Es ahora el momento de que la Hermandad, custodia secular de esta venerada imagen,
+
+                                siga velando por su conservación como hasta ahora ha venido haciendo, siguiendo pautas básicas para la
+
+                                conservación preventiva y el mantenimiento de la obra y su entorno.
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

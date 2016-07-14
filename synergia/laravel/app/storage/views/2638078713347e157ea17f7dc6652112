@@ -1,0 +1,79 @@
+<?php /* content */ ?>
+<?php $__env->startSection('content'); ?>
+	<!-- Tabs -->
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
+		</ul>
+	<!-- ./ tabs -->
+
+	<?php /* Edit entrada Form */ ?>
+	<form class="form-horizontal" method="post" action="<?php echo (isset($enlace)) ? URL::to('admin/enlace/' . $enlace->id . '/edit'): URL::to('admin/enlace/create'); ?>" autocomplete="off">
+		<!-- CSRF Token -->
+		<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+		<!-- ./ csrf token -->
+
+		<!-- Tabs contenido -->
+		<div class="tab-content">
+			<!-- General tab -->
+			<div class="tab-pane active" id="tab-general">
+				<!-- entrada titulo -->
+				<div class="form-group <?php echo e($errors->has('nombre') ? 'error' : ''); ?>">
+                    <div class="col-md-12">
+                        <label class="control-label" for="nombre">Nombre</label>
+						<input class="form-control" type="text" name="nombre" id="nombre" value="<?php echo e(Input::old('nombre', isset($enlace) ? $enlace->nombre : null)); ?>" />
+						<?php echo $errors->first('nombre', '<span class="help-block">:message</span>'); ?>
+					</div>
+				</div>
+				<!-- ./ entrada titulo -->
+
+
+
+				<!-- contenido -->
+				<div class="form-group <?php echo e($errors->has('url') ? 'has-error' : ''); ?>">
+					<div class="col-md-12">
+                        <label class="control-label" for="url">Contenido</label>
+						<input class="form-control" type="text" name="url" id="url"  value="<?php echo e(Input::old('url', isset($enlace) ? $enlace->url : null)); ?>" />
+						<?php echo $errors->first('url', '<span class="help-block">:message</span>'); ?>
+					</div>
+				</div>
+				<!-- ./ contenido -->
+				<div class="form-group">
+					<div class="col-md-12">
+						<label class="control-label" for="tipo">Tipo</label>
+						<?php echo Form::select('tipo', array('jpg'=>'JPG','pdf' => 'PDF', 'video' => 'Video'),Input::old('tipo', isset($enlace) ? Str::upper($enlace->tipo) : null)); ?>
+					</div>
+
+				</div>
+				<?php if(!isset($enlace)): ?>
+				<input type="hidden" name="entrada" value="<?php echo $entrada->id; ?>" />
+				<?php endif; ?>
+
+			</div>
+			<!-- ./ general tab -->
+		
+			
+		</div>
+		<!-- ./ tabs contenido -->
+		<?php if(isset($enlace)): ?>
+			<img src="<?php echo asset('entradas/'.$enlace->url); ?>" alt="Foto" style="max-width: 12em">
+			<br>
+		<?php endif; ?>
+        
+        <br />
+		<!-- Form Actions -->
+		<div class="form-group">
+			<div class="col-md-12">
+				<button class="btn btn-danger"><element class="btn-cancel close_popup">Cerrar</element></button>
+				<button type="reset" class="btn btn-default">Limpiar</button>
+				<button type="submit" class="btn btn-success">Actualizar</button>
+			</div>
+		</div>
+		<!-- ./ form actions -->
+	</form>
+
+	</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

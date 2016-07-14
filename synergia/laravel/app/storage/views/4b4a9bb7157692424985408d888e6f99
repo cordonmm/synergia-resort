@@ -1,0 +1,166 @@
+
+
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    Coro de Valme | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="<?php echo e(asset('template/images/design/coro/coro1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/coro/coro1.jpg')); ?>" alt="">
+                    </a>
+                </div>
+            
+                <div class="col-md-6">
+                    <a href="<?php echo e(asset('template/images/design/coro/coro2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/coro/coro2.jpg')); ?>" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <br />
+            
+            <div>
+                <a href="<?php echo e(asset('template/images/design/coro/coro3.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                    <img class="img-responsive" src="<?php echo e(asset('template/images/design/coro/coro3.jpg')); ?>" alt="">
+                </a>
+            </div>
+            <br>
+            <div>
+                <a href="<?php echo e(asset('template/images/design/coro/coro4.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                    <img class="img-responsive" src="<?php echo e(asset('template/images/design/coro/coro4.jpg')); ?>" alt="">
+                </a>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" align="justify">
+                <h2 class="title-v2">Coro de Valme</h2>
+                <p>
+                    El Coro de la Hermandad de Valme fue fundado en 1988, siendo por entonces hermano mayor 
+
+                    Juan Varela Gómez. Bajo la dirección de Ana Trujillo Rubio, hace su primera actuación el día de 
+                    
+                    la Inmaculada de ese mismo año, ante el Monumento de nuestra Protectora.
+                </p>
+
+                <p>
+                    Desde entonces, el Coro ha cantado dedicando las más bellas oraciones a nuestra celestial y
+
+                    amada Madre en los actos y cultos de la Hermandad, siendo de estilo musical flamenco.
+                    
+                    Como dijo San Agustín, "el que reza cantando, reza dos veces".
+                </p>
+
+                <p>
+                    En 1991 graba su primer y único disco, titulado "Al lao de la carreta" , bajo la dirección
+
+                    Alfonso Sánchez y editado por Pasarela. Ha colaborado también en varios trabajos 
+                    
+                    discográficos dedicados a la Virgen y a su Romería. Actualmente, tiene en proyecto la 
+                    
+                    grabación de un segundo disco, que esperamos pueda ser una realidad a corto plazo.
+                </p>
+
+                <p>
+                    Muchos son los temas cantados por el Coro a lo largo de estos años, siendo en su mayoría 
+
+                    composiciones de Ana Trujillo, Manolo Delgado, Curro Varela, José Manuel Pavón, Pablo Oñós, 
+                    
+                    Daniel Vaquero, Raúl García... entre otros muchos,  y también letras populares como las 
+                    
+                    famosas sevillanas de "El Pali" dedicadas a la Virgen de Valme. En septiembre de 2007, el Coro 
+                    
+                    presentó en el Teatro Municipal de Dos Hermanas el espectáculo “Sabe mi pueblo a Valme”, 
+                    
+                    con gran éxito de público.
+                </p>
+
+                <p>
+                    Unas vísperas muy intensas y una Romería muy especial fueron las vividas en el año 2012,
+
+                    siendo director de este grupo José Antonio Cruz, pues se hizo realidad unos de los sueños del 
+                    
+                    Coro: que la Virgen estrenase un manto bordado en plata y oro, con dos cartelas en hilo de 
+                    
+                    seda de colores que representan a la Hermandad y al propio Coro, sobre terciopelo color 
+                    
+                    cardenal. Realizado por José Antonio Grande de León y diseñado por Antonio Bejarano, este 
+                    
+                    manto lo vistió por primera vez Nuestra Madre de Valme el tercer domingo de octubre de 
+                    
+                    aquel año.
+                </p>
+
+                <p>
+                    En la actualidad, el Coro organiza varios eventos en las instalaciones de nuestra Hermandad, 
+
+                    que se han consolidado con el paso de los años: el ya tradicional concierto de villancicos en 
+                    
+                    vísperas de la Navidad y el desfile de moda flamenca, ambos acogidos con mucho cariño y gran 
+                    
+                    afluencia de público. Además, colabora con las hermandades, asociaciones y entidades que 
+                    
+                    requieren su participación, sobre todo para fines benéficos.
+                </p>
+
+                <p>
+                    Treinta personas componen hoy día este grupo de la Hermandad; treinta corazones esperan 
+
+                    con ansias que estalle el primer cohete, que nos avisa que el día más grande del año se acerca, 
+                    
+                    aguardando impacientes el momento en el que, bajo una lluvia de pétalos, imploran el 
+                    
+                    Valimiento de su Bendita Madre, pidiéndole que les deje seguir soñando un año más.
+                </p>
+                
+            </div>
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('scripts'); ?>
+            <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+            <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    FancyBox.initFancybox();
+                });
+            </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

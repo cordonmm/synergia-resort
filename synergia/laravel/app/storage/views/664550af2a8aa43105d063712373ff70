@@ -1,0 +1,79 @@
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    Junta de Gobierno | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="col-md-6">
+            <div>
+                <img class="img-responsive" src="<?php echo e(asset('template/images/design/junta.jpg')); ?>" alt="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" align="justify">
+                <h2 class="title-v2">Junta de Gobierno</h2>
+                <p>
+                    La actual Junta de Gobierno de la Hermandad de Valme se encuentra integrada por las
+                    siguientes personas:
+                </p>
+
+                <ul>
+                    <li>Hermano mayor: Hugo Santos Gil.</li>
+                    <li>Teniente de hermano mayor: Mariano Fernández Castillo.</li>
+                    <li>Mayordomo 1º: Agustín López González.</li>
+                    <li>Mayordomo 2º: Luis Jesús Jiménez Pérez.</li>
+                    <li>Secretaria 1ª: Isabel María Caballero Holgado.</li>
+                    <li>Secretario 2º: David del Toro Arévalo.</li>
+                    <li>Fiscal: Francisco González Camacho.</li>
+                    <li>Tesorero: Francisco Javier Díaz Terrero.</li>
+                    <li>Contador: Jesús Martínez Velasco.</li>
+                    <li>Prioste Carreta Virgen: Francisco Miguel Jiménez González.</li>
+                    <li>Prioste Ermita: Jesús María Díaz Cardona.</li>
+                    <li>Prioste Casa Hermandad: Francisco Rodríguez Caro.</li>
+                    <li>Alcalde 1º Carreta y Romería: Antonio López López.</li>
+                    <li>Alcalde 2º Carreta y Romería: Manuel Rodríguez Caro.</li>
+                    <li>Diputado de Cultos y Protocolo: Jesús Ríos Sutil.</li>
+                    <li>Diputado de Formación y Juventud: Mario Conde Carpena.</li>
+                    <li>Diputado de Obras Sociales y Asistenciales: Francisco Alanís Chamorro.</li>
+                    <li>Vocales: Álvaro Díaz Osuna, José Ramón Gómez Tinoco, Juan Lozano Navarro,
+
+                        Carlos Marín Jiménez, Magdalena Romero Navarro, Tomás Ruiz López y José Manuel
+
+                        Varela Ávila.</li>
+                </ul>
+                <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                <a href="#" class="btn-u">Purchase Now</a>-->
+            </div>
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

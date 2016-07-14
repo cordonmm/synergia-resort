@@ -1,0 +1,319 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    La Ermita de Cuarto | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">La Ermita de Cuarto</h2>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/ermita/ermita6.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                La Ermita de Valme fue edificada, según la tradición, por mandato del rey Fernando III
+
+                                el Santo, sobre el cerro o cortijo de Cuartos, como muestra de agradecimiento a la Virgen María
+
+                                por el valimiento que en dicho lugar le otorgó durante la conquista de Sevilla.
+                            </p>
+                            <p>
+                                Aunque son muy escasos los testimonios documentales que existen sobre esta primitiva
+
+                                capilla, podemos aventurar que debió de ser pequeña y sencilla, casi un oratorio, exclusivamente
+
+                                destinado a albergar a la imagen gótica invocada por San Fernando, que recibió el nombre de
+
+                                Valme en recuerdo de la súplica del monarca. Junto a Ella, el Rey Santo colocaría el pendón
+
+                                arrebatado a los musulmanes de Isbilia, tal y como había prometido a la Señora cuando solicitó
+
+                                su auxilio en la contienda.
+                            </p>
+
+                            <p>
+                                Con el tiempo, a la capilla originaria se le fueron adosando nuevas construcciones,
+
+                                destinadas a albergar al santero y a los peregrinos que hasta allí llegaban para venerar a la
+
+                                Santísima Virgen, especialmente el día de su fiesta, que se celebraba entonces el segundo día de
+
+                                la Pascua de Pentecostés.
+                            </p>
+                            <p>
+                                A través de los Anales de Sevilla recopilados por Diego Ortiz de Zúñiga se tiene noticia
+
+                                de que el 27 de octubre de 1667, a las cuatro de la tarde, volaron la casa y molino de la pólvora,
+
+                                que estaban a una legua de la ciudad, «junto a la ermita de Nuestra Señora del Valme, donde
+
+                                tuvo sus alojamientos y reales nuestro conquistador San Fernando». Debido a ello, la capilla
+
+                                quedó en ruinas, siendo reconstruida en los años siguientes con mayor amplitud de la que tenía
+
+                                en origen. Por entonces, el cuidado del santuario estaba a cargo de unos «hermanos limosneros»
+
+                                nombrados por la Hermandad de Valme, cuya fundación data, cuando menos, del año 1628,
+
+                                fecha en la que ya consta documentalmente su existencia en la capilla de Cuartos.
+                            </p>
+
+                            <p>
+                                En los siglos XVII y XVIII, además, se plantearon algunos conflictos sobre la autoridad
+
+                                eclesiástica que debía nombrar a los capellanes o santeros de la ermita, interviniendo en tales
+
+                                pleitos el prior de las ermitas del arzobispado hispalense, al que finalmente se reconoció tal
+
+                                derecho, de forma definitiva, en 1725.
+                            </p>
+
+                            <p>
+                                Durante la primera mitad del siglo XVIII, se realizaron nuevas obras de mejora y
+
+                                ampliación en la ermita, sufragadas por la poderosa familia Rivas, a la que también se debe la
+
+                                construcción de la capilla sacramental de la Parroquia de Santa María Magdalena.
+                            </p>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                En el año 1800, como consecuencia de la epidemia de fiebre amarilla, la imagen de la
+
+                                Virgen fue trasladada en rogativas hasta Dos Hermanas, comenzando entonces un período de
+
+                                fuerte declive para la ermita, que acabó quedando prácticamente arruinada.
+                            </p>
+                            <p>
+                                En las primeras décadas del siglo XIX, se intentó sin éxito que fueran restituidas a la
+
+                                capilla las tierras y posesiones que, al parecer, le había donado el rey San Fernando, y que,
+
+                                según se argumentó entonces, fueron usurpadas aprovechando la Guerra de la Independencia
+
+                                (1808-1814). De esos años datan unos valiosos documentos que atestiguan el estado de
+
+                                abandono en que se encontraba la capilla, junto a la que existían otras dependencias anexas.
+                            </p>
+
+                            <p>
+                                Fue la novelista Cecilia Böhl de Faber (Fernán Caballero) quien rescató del olvido las
+
+                                ruinas de la Ermita de Valme, a través de su novela La familia de Alvareda, que conocieron los
+
+                                duques de Montpensier –Antonio de Orleans (hijo del rey de Francia) y Luisa Fernanda de
+
+                                Borbón (infanta de España)–, mostrando estos su interés por restaurar el culto a la Virgen de
+
+                                Valme en su primitivo templo. Así, el 30 de mayo de 1859, los duques decidieron llevar a cabo
+
+                                la reedificación de la capilla, como acción de gracias por el nacimiento de su primer hijo varón,
+
+                                llamado Fernando en recuerdo del Santo Rey. El proyecto de restauración fue realizado por el
+
+                                arquitecto Balbino Marrón, y las obras comenzaron a principios de junio, quedando concluidas
+
+                                el 24 de septiembre. En el proceso de reconstrucción intervinieron artistas del círculo de los
+
+                                Montpensier, como los pintores Cabral Bejarano y Juan de Lizasoain, además del arquitecto
+
+                                José María Ríos, colaborador de Marrón.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/ermita/ermita2.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    El 9 de octubre de 1859, la Virgen de Valme volvió desde la parroquia de Dos
+
+                    Hermanas a su ermita, que ese día fue inaugurada y bendecida por el cardenal-arzobispo de
+
+                    Sevilla, monseñor Manuel Joaquín Tarancón, tras haber culminado su restauración a expensas
+
+                    de los duques.
+                </p>
+
+                <p>
+                    Hasta el año 1869, la imagen de la Virgen recibió culto de nuevo en su capilla del
+
+                    Cortijo de Cuarto, ya que los Montpensier procuraron todo lo necesario para ello, sufragando
+
+                    los gastos de la capellanía, que se encomendó al sacerdote José María Ruiz y García.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/ermita/ermita4.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/ermita/ermita5.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <p>
+                                Como consecuencia de los sucesos revolucionarios de 1868, y ante el riesgo de que la
+
+                                ermita pudiera ser destruida, los vecinos de Dos Hermanas decidieron trasladar nuevamente a la
+
+                                Virgen hasta la parroquia del pueblo, permaneciendo desde entonces (1869) en la capilla
+
+                                sacramental, donde actualmente sigue siendo venerada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/ermita/ermita3.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                En 1894, se realizaron nuevas obras de mejora en la ermita, a iniciativa del poeta José
+
+                                Lamarque de Novoa, quien impulsó la recuperación de esta como lugar de culto público, al
+
+                                promover el nacimiento y celebración de la Romería de Valme, que comenzó en dicho año,
+
+                                continuando hasta el presente.
+                            </p>
+
+                            <p>
+                                Precisamente, al convertirse la ermita en el lugar de destino de la anual Romería, han
+
+                                sido frecuentes los trabajos de restauración y adecentamiento llevados a cabo durante el siglo
+
+                                XX, y más concretamente en los años 1920 (colocación de azulejos y solería en el interior),
+
+                                1927 (nuevo cercado exterior), 1968, 1990 y 2002, todos a cargo de la Hermandad de Valme y
+
+                                con la colaboración del Ayuntamiento de Dos Hermanas.
+                            </p>
+
+                            <p>
+                                El 26 de diciembre de 2002, tras un largo y complejo proceso, se firmaron las escrituras
+
+                                de propiedad de la ermita y el recinto que la circunda, quedando consolidados de esta forma los
+
+                                derechos históricos del pueblo de Dos Hermanas y de la Hermandad de Nuestra Señora de
+
+                                Valme sobre tan emblemático edificio, que constituye uno de los monumentos más importantes
+
+                                de la ciudad.
+                            </p>
+
+                            <p>
+                                Considerada desde el punto de vista artístico, la ermita tiene planta de una sola nave,
+
+                                con techumbre de madera a dos aguas y una pequeña sacristía adosada al templo. El estilo de la
+
+                                construcción es historicista y, concretamente, neomudéjar, destacando del exterior el ajimez
+
+                                sobre la puerta de entrada, con arcos de herradura que enmarcan la vidriera que representa el
+
+                                escudo de la hermandad. Asimismo, es muy airosa la espadaña que corona la fachada principal,
+
+                                bajo la que se abren, a ambos lados, unas almenas escalonadas que dan carácter singular al
+
+                                conjunto.
+                            </p>
+
+                            <p>
+                                En el interior, destaca el retablo dorado, de estilo rococó, fechado en 1788, que procede
+
+                                de La Rinconada. Sobre el camarín principal, una pequeña hornacina con fondo celeste
+
+                                estrellado contiene una pequeña imagen de San Fernando. Cerrando el referido camarín, aparece
+
+                                la reproducción del lienzo, obra del pintor Luis de Oñate, que representa la invocación del Santo
+
+                                Rey a la Virgen y que está fechado en 1894.
+                            </p>
+
+                            <p>
+                                Con motivo del 150º aniversario de la reedificación de la ermita, en 2009 se ha colocado
+
+                                en el interior una lápida conmemorativa, y también se ha dotado al recinto de una nueva
+
+                                iluminación artística, interior y exterior, instalada por la Fundación Sevillana-Endesa e
+
+                                inaugurada el 6 de octubre de 2010.
+                            </p>
+
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <br>
+
+
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

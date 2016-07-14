@@ -1,0 +1,15 @@
+[2016-04-19 06:50:17] production.ERROR: 500 - syntax error, unexpected '}' @ /
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/routes.php:553
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-19 11:28:49] production.ERROR: 500 - Call to a member function url() on a non-object @ /delete-image
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function url() on a non-object' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/routes.php:387
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-19 11:36:03] production.ERROR: 500 - Call to a member function url() on a non-object @ /delete-image
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function url() on a non-object' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/routes.php:387
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

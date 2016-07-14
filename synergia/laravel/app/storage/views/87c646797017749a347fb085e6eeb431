@@ -1,0 +1,74 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Carteles de la Romería | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!-- Three Columns -->
+    <div class="container content">
+        <div class="text-center margin-bottom-50">
+            <h2 class="title-v2 title-center">Carteles de la Romería</h2>
+            <!--<p class="space-lg-hor"></p>-->
+        </div>
+
+        <div class="row  margin-bottom-30">
+            
+            <?php /**/ $entradas = Entrada::where('categoria','=','carteles')->orderby('created_at','desc')->paginate(9) /**/ ?>
+            <?php /**/ $cont = 1; /**/ ?>
+            <?php foreach($entradas as $entrada): ?>
+                
+                <div class="col-sm-4 sm-margin-bottom-30">
+                    <h3><?php echo $entrada->titulo; ?></h3>
+                    
+                    <?php /**/ $enlace = $entrada->urls->first() /**/ ?>
+                    <?php if($enlace != null): ?>
+                        <?php if(Str::lower($enlace->tipo) == "jpg"): ?>
+                            <a href="<?php echo asset('entradas/'.$enlace->url); ?>" rel="gallery1" class="fancybox img-hover-v1" title="<?php echo $entrada->titulo; ?>">
+                                <img class="img-responsive" src="<?php echo asset('entradas/'.$enlace->url); ?>" alt="<?php echo $entrada->titulo; ?>" />
+                            </a>
+                        <?php else: ?>
+                            <?php echo HTML::decode($enlace->url); ?>
+
+                        <?php endif; ?>
+                    <?php endif; ?>                    
+                </div>
+                
+                <?php if($cont%3 == 0): ?>                
+                
+                <?php endif; ?>
+                <?php /**/ $cont++; /**/ ?>
+            <?php endforeach; ?>
+            
+        </div>
+    </div>
+    <!-- End Three Columns -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+    <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            FancyBox.initFancybox();
+        });
+    </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

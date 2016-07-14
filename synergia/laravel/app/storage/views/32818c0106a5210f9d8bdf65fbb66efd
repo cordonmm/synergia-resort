@@ -1,0 +1,114 @@
+<?php $__env->startSection('title'); ?>
+
+
+
+    Contacto
+
+
+
+    @parent
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* content */ ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title -->
+                <div class="col-sm-6 col-xs-12">
+                    <h1>Contacto</h1>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div>
+
+    <!-- Begin Map -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 no-padding" style="margin-bottom: -7px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3171.709876806883!2d-5.944335127042678!3d37.34937670272846!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x60a13f5ae2ae15d6!2sIES+Hermanos+Machado!5e0!3m2!1ses!2ses!4v1456300619012" width="100%" height="175" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- End Map -->
+    
+    <br />
+    
+    <div class="alert alert-success" role="alert">
+       <center><strong>Gracias por contactar con nosotros.</strong> Nos pondremos en contacto con usted a la mayor brevedad posible. El Equipo Directivo del <b>IES Hnos. Machado<b>.</center>
+    </b></b></div>
+
+    <!-- Begin Contact -->
+    <section class="mt40 mb40">
+        <div class="container">
+
+            <!-- Form + Sidebar -->
+            <div class="row">
+            
+                <div class="col-sm-8">
+                    <div class="heading mb20"><h4><span class="ion-android-mail mr15"></span>Envíenos un mensaje</h4></div>
+                    <p class="mb20">Puede ponerse en contacto con nosotros a través del siguiente formulario.</p>
+                    <form role="form" action="template/php/contact_me.php" name="sentMessage" id="contactForm" method="post" novalidate>
+                        <div class="form-group">
+                            <input type="name" name="name" placeholder="Nombre" class="form-control" id="InputName">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" class="form-control" id="InputEmail1">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Mensaje" id="InputMessage" rows="7"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-rw btn-primary">Enviar</button>
+                    </form>
+                </div>
+                
+                <div class="col-sm-4 mt30-xs">
+                    <div class="content-box content-box-primary mb30">
+                        <span class="ion-ios7-telephone-outline text-white border-white bordered-icon-static-sm mb10"></span>
+                        <h2 class="text-white no-margin">955 622 418</h2>
+                    </div>
+                    <div class="panel panel-primary no-margin">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="ion-android-system-home"></span> Información</h3>
+                        </div>
+                        <div class="panel-body">
+                            <address class="no-margin">
+                                <strong>IES Hermanos Machado</strong><br>
+                                Via Flaminia, S/N<br>
+                                41089 Dos Hermanas, Sevilla<br>
+                                <abbr title="Teléfono">Teléfono:</abbr> 955 622 418 <br>
+                                E-mail: <a href="mailto:41700181.edu@juntadeandalucia.es">41700181.edu@juntadeandalucia.es</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div><!-- /container -->
+    </section><!-- /section -->
+    <!-- End Contact -->
+
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+
+
+
+
+
+<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

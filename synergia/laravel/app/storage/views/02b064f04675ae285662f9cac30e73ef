@@ -1,0 +1,95 @@
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    Sede | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <a href="<?php echo e(asset('template/images/design/sede/sede1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/sede/sede1mini.jpg')); ?>" alt="">
+                    </a>
+                </div>
+                
+                <br />
+                
+                <div>
+                    <a href="<?php echo e(asset('template/images/design/sede/sede2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/sede/sede2mini.jpg')); ?>" alt="">
+                    </a>
+                </div>
+                
+            </div>
+            <div class="col-md-9" align="justify">
+                <h2 class="title-v2">La Sede</h2>
+                <p>
+                    La sede canónica de la Hermandad es la Parroquia de Santa María Magdalena de Dos Hermanas, en cuya Capilla Sacramental recibe culto la venerada imagen de Nuestra
+                    Señora de Valme.
+                </p>
+
+                <p>
+                    La Casa-Hermandad se encuentra ubicada en las antiguas Escuelas del "Ave María", recinto situado en la Avenida de Andalucía de la misma ciudad.
+                </p>
+
+                <p>
+                    El complejo que posee la Hermandad en dicho lugar consta, además de la propia Casa (antigua residencia del que fuera director de las Escuelas), de una nave de
+                    aproximadamente 1000 m2 que está a disposición de los carreteros para que puedan  realizar su trabajo de exornar las carretas que acompañan a la Virgen en la Romería; así
+                    como de otra nave anexa donde está la carreta de Nuestra Señora y la antigua Capilla de las Escuelas del “Ave María”, recientemente rehabilitada como sala de actos y
+                    exposiciones.
+                </p>
+
+                <p>
+                    Los edificios de las Escuelas del “Ave María” fueron proyectados en 1917 por el arquitecto regionalista Pablo Gutiérrez Moreno y se edificaron a expensas de Luis
+                    Ybarra González y su esposa, Concepción Gómez-Rull, a quienes se debió la fundación de dichas escuelas en Dos Hermanas, cuya actividad se desarrolló hasta finales de la
+                    década de 1960.
+                </p>
+
+                <br>
+                <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                <a href="#" class="btn-u">Purchase Now</a>-->
+            </div>
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+            <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+            <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    FancyBox.initFancybox();
+                });
+            </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

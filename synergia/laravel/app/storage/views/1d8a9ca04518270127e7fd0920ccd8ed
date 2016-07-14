@@ -1,0 +1,91 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Hermano Mayor | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">Hermano Mayor</h2>
+
+                <p>
+                    Con esta página web, la Pontificia, Real e Ilustre Hermandad de Nuestra Señora de
+
+                    Valme Coronada y San Fernando quiere contribuir a la difusión de la historia y el
+
+                    presente de una advocación mariana que tiene más de 750 años.
+                </p>
+                <p>
+                    Desde que fuera invocada por el rey San Fernando, en 1248, con la súplica que le dio
+
+                    nombre, la Virgen de Valme ha sido venerada constantemente por el pueblo de Dos
+
+                    Hermanas (Sevilla), que la eligió como especial Protectora y quiso crear en su honor
+
+                    una Romería sin par que se celebra todos los años el tercer domingo de octubre,
+
+                    constituyendo una de las principales manifestaciones de la religiosidad popular
+
+                    andaluza.
+                </p>
+
+                <p>
+                    En esta página, el lector interesado encontrará datos, hechos, noticias, imágenes e
+
+                    información sobre la imagen de la Virgen, la Hermandad y la Romería. Especialmente,
+
+                    queremos que sea un instrumento de comunicación con nuestros hermanos y con
+
+                    quienes deseen compartir nuestros fines y proyectos.
+                </p>
+
+                <p>
+                    La Hermandad de Valme es consciente del gran tesoro devocional del que es
+
+                    depositaria, y por ello está obligada a difundirlo por todos los medios a su alcance. En
+
+                    este sentido, pretendemos que, a través de Internet, se conozcan más y mejor el origen y
+
+                    la actualidad de la devoción a Santa María de Valme, nuestra Madre y Señora.
+                </p>
+
+                <p>
+                    Con este propósito, en nombre de la Hermandad, le invito a conocer los contenidos de
+
+                    nuestra página web, que confiamos enriquecer con las aportaciones y sugerencias de
+
+                    cuantos la visiten.
+                </p>
+
+                <p align="right">
+                    <b>Hugo Santos Gil</b>
+                    <br>
+                    Hermano Mayor
+                </p>
+                <br>
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

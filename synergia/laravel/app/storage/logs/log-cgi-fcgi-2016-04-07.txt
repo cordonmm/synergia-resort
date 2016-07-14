@@ -1,0 +1,5 @@
+[2016-04-07 08:11:58] production.ERROR: 500 - Class 'CURLFile' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CURLFile' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:787
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

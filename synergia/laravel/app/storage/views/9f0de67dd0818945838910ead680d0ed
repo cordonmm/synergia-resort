@@ -1,0 +1,240 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    La Capilla Sacramental | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">La Capilla Sacramental</h2>
+
+                <p>
+                    La fundación de esta capilla, dedicada en sus orígenes a San Francisco de Paula, se
+
+                    debió al patrocinio de don Francisco Domínguez de Rivas, miembro de una importante y
+
+                    acaudalada familia que ocupó un lugar destacado en la historia de Dos Hermanas durante los
+
+                    siglos XVII y XVIII. Este influyente personaje mandó erigir la capilla con el propósito de dotar
+
+                    a la Parroquia de Santa María Magdalena de un recinto digno y adecuado para venerar al
+
+                    Santísimo Sacramento.
+                </p>
+                <p>
+                    Las obras de construcción se desarrollaron entre los años 1719 y 1720, aunque las
+
+                    primeras gestiones para emprender esta magna tarea comenzaron en 1718. El trazado de la
+
+                    planta y las directrices para su edificación se deben al arquitecto sevillano Diego Antonio Díaz
+
+                    (1657-1748), por entonces maestro mayor de obras del arzobispado.
+                </p>
+                <div class="row">
+                    <div class="col-md-8">
+                    <p>
+                        De la misma época data el retablo, de estilo barroco con estípites, aunque su autor es
+
+                        desconocido, habiéndose atribuido con fundamento al círculo de José Maestre y Tomás
+
+                        Guisado. La composición del retablo atiende a la finalidad estrictamente sacramental para la que
+
+                        fue creado: sobre el sagrario, situado en la parte inferior, se alza una gran hornacina, ocupada
+
+                        actualmente por la Virgen de Valme y antes por la Inmaculada. A ambos lados, bajo sendos
+
+                        marcos mixtilíneos, están las imágenes de San Antonio de Padua (derecha) y de San José o San
+
+                        Juan (izquierda). Sobre la hornacina baja se abre el hueco del manifestador, decorado en su
+
+                        parte superior con una pintura del Espíritu Santo y, en su interior, con una aureola de cabezas de
+
+                        ángeles entre nubes, destinada a enmarcar el ostensorio. La hornacina superior acoge a San
+
+                        Francisco de Paula (primitivo titular de la capilla) y se remata con un altorrelieve de Dios Padre,
+
+                        que completa la representación iconográfica de la Santísima Trinidad (el Padre en la cúspide del
+
+                        retablo, el Hijo en el sagrario y el manifestador, y el Espíritu Santo, en forma de paloma,
+
+                        pintado sobre el lugar destinado a exponer al Santísimo Sacramento). Sendas cartelas con
+
+                        marcos orejados contribuyen, junto con la imagen de la Virgen que preside el retablo, a destacar
+
+                        la dimensión mariana del misterio eucarístico, mediante la representación de dos motivos
+
+                        íntimamente relacionados con la devoción inmaculista: la fuente y el pozo.
+                    </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/capillasacramental/sacramental1.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/capillasacramental/sacramental7.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                La historia de la capilla tuvo un notable punto de inflexión en el siglo XIX, cuando la
+
+                                Virgen de Valme fue trasladada desde su antigua ermita (situada en el Cortijo de Cuarto) hasta
+
+                                la iglesia parroquial de Dos Hermanas. Entonces se decidió que la venerada imagen recibiera
+
+                                culto, con carácter estable, en esta capilla sacramental.
+                            </p>
+
+                            <p>
+                                Ya en el siglo XX, tras la Guerra Civil, tanto el párroco, Manuel García Martín, como la
+
+                                Hermandad de Valme se plantearon la necesidad de restaurar y enriquecer la capilla, que había
+
+                                sobrevivido al incendio sufrido por la parroquia en la madrugada del 19 de julio de 1936. Así,
+
+                                en el año 1950, se acometieron importantes obras en el recinto, entre las que cabe destacar la
+
+                                realización de un nuevo sagrario en plata de ley (obra del orfebre Antonio Rangel) y la
+
+                                decoración, con pinturas al fresco, de los muros laterales y de la cúpula (realizada por el pintor
+
+                                Braulio Ruiz Sánchez). Asimismo, se hizo una nueva hornacina para la imagen de San
+
+                                Fernando, obra del escultor valenciano Vicente Tena en 1895, según dibujo de Virgilio Mattoni.
+
+                                Tales reformas fueron bendecidas por el cardenal Segura, arzobispo de Sevilla, el 14 de octubre
+
+                                de 1950.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Durante el año 1990, se llevó a cabo la restauración y limpieza de los frescos, que
+
+                                representan, en los muros laterales de la capilla, la invocación de San Fernando a la Virgen de
+
+                                Valme y las postrimerías del Santo Rey, mientras que en la cúpula aparece la exaltación de la
+
+                                Eucaristía y, en las pechinas, una representación de los cuatro evangelistas, rodeados de motivos
+
+                                eucarísticos. También se procedió en aquella fecha a la consolidación del retablo, que había sido
+
+                                restaurado en 1950 por el tallista e imaginero sevillano Manuel Cerquera, autor de las
+
+                                hornacinas laterales y de la baranda del comulgatorio.
+                            </p>
+
+                            <p>
+                                En resumen, la configuración que ofrece hoy la capilla sacramental de la Parroquia de
+
+                                Santa María Magdalena, de Dos Hermanas, es el resultado de su intensa historia, aunando de
+
+                                forma ciertamente atractiva y evocadora los recuerdos de la conquista de Sevilla por el rey San
+
+                                Fernando (origen de la devoción a la Virgen de Valme) y la presencia real de Jesucristo
+
+                                (auténtico fundamento de la capilla y, por ello, motivo central de los frescos de la cúpula).
+                            </p>
+
+                            <p>
+                                El 23 de junio de 2005, el cardenal-arzobispo de Sevilla, fray Carlos Amigo Vallejo,
+
+                                bendijo e inauguró solemnemente la nueva iluminación artística de la capilla sacramental,
+
+                                instalada a expensas de la Fundación Sevillana-Endesa, siendo presidente de la misma el
+
+                                Excmo. Sr. D. Jaime Ybarra Llosent.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/capillasacramental/sacramental4.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/capillasacramental/sacramental6.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Mediante decreto de la Penitenciaría Apostólica dado en Roma el 4 de marzo de 2010,
+
+                                se ha renovado el vínculo de unión espiritual de la capilla sacramental de la Parroquia de Santa
+
+                                María Magdalena, y también de la ermita de Cuarto, con la Basílica Papal de Santa María la
+
+                                Mayor, para que los fieles que visiten a la Virgen de Valme en ambos templos puedan ganar la
+
+                                indulgencia plenaria, en determinadas ocasiones y cumpliendo las condiciones acostumbradas
+
+                                (confesión sacramental, comunión eucarística y oración por las intenciones del Sumo Pontífice).
+
+                                Los días en los que se puede lucrar esta indulgencia son los siguientes: a) El 5 de agosto, fiesta
+
+                                de la Basílica Liberiana; b) El día de la fiesta de Nuestra Señora de Valme; c) En todas las
+
+                                solemnidades litúrgicas de la Bienaventurada Virgen María; d) Una vez al año, en un día
+
+                                libremente elegido por cada uno de los fieles; e) Cada vez que un grupo vaya en peregrinación
+
+                                por devoción a la capilla.
+                            </p>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

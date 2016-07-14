@@ -1,0 +1,102 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Aviso Legal | <b>Hermandad</b> de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+
+<!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Aviso Legal</h1>
+            <!--<ul class="pull-right breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Pages</a></li>
+                <li class="active">Aviso Legal</li>
+            </ul>-->
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content" align="justify">
+    	<div class="row-fluid privacy">
+            <p class="lead"><em>1.- Aviso Legal</em></p>
+            <p>
+            Todo el contenido de esta <b>WEB OFICIAL de la <b>Hermandad</b> de Valme</b>, (diseño, textos, fotografías, videos y músicas), exceptuando aquellos que se indique el autor, son propiedad intelectual de la Pontificia, Real e Ilustre <b>Hermandad</b> de Nuestra Señora de Valme Coronada y San Fernando.
+            </p>
+            
+            <p>
+            Al usuario que accede a esta Web no le supone permiso de la <b>Hermandad</b> para el uso o derecho de todo o parte del contenido en ella expuesto.
+            </p>
+            
+            <p>
+            El contenido de esta Web no se considera prestación de servicio alguno, sino que es considerado un medio de información general.
+            </p>
+            
+            <p>
+            Con relación a las informaciones y contenidos de esta Web, la <b>Hermandad</b> no garantiza ni el acceso en ningún momento a los usuarios que deseen acceder a la misma, ni la disponibilidad de acceder al contenido, ni su exactitud, ni su actualidad o actualización, así como el posible uso de los usuarios para finalidades propias.
+            </p>
+            
+            <p>
+            Consecuentemente, la <b>Hermandad</b>, su Junta de Gobierno y en particular su Secretaría, como responsable directo de esta Web, no se responsabilizan de la utilización de informaciones o datos vertidos en la misma, que pudiesen servir para documentar, argumentar o basar trabajos, obras, etc, de los usuarios.
+            </p>
+            
+            <p>
+            Está totalmente prohibido; alterar, cambiar o manipular esta Web sin permiso expreso de la <b>Hermandad</b> o de su Secretaría. Eximiéndose la <b>Hermandad</b> de cualquier daño o perjuicio que de esa circunstancia realizada por terceros pudiera dar lugar.
+            </p>
+            
+            <p>
+            El usuario que acceda a esta Web de la <b>Hermandad</b> se obliga a respetar y cumplir con las leyes vigentes que pudieran repercutir en el buen uso de la misma, siendo responsable directo de los daños y perjuicios que pudiera causar, quedando la <b>Hermandad</b> en posesión de su derecho a velar por sus intereses ante la Justicia competente.
+            </p>
+            
+            <p class="lead"><em>2.- Declaraciones Legales</em></p>
+            <p>
+            La información proporcionada por la <b>Hermandad</b> en esta Web oficial, es un servicio a los usuarios y al público en general y puede ser usado solo para fines informativos.
+            </p>
+            
+            <p>
+            Por el simple hecho de conectarse y visualizar el contenido el usuario acepta los términos de uso. Si el usuario no está de acuerdo con estos términos no utilice este sitio Web y no visualice su contenido.
+            </p>
+            
+            <p>
+            La información se provee tal cual sin ninguna garantía explícita o implícita, incluyendo garantías de comercialización, utilización para un fin particular, o uso indebido de propiedad intelectual. Bajo ninguna circunstancia podrá la <b>Hermandad</b> ser responsable por daños a terceros incluyendo en forma enunciativa pero no limitativa; pérdida de utilidades, interrupción de negocio, pérdida de información, etc., por el uso y/o disponibilidad de la información, aún cuando la <b>Hermandad</b> haya sido informada de la posibilidad de estos daños.
+            </p>
+            
+            <p>
+            La <b>Hermandad</b> realizará su mejor esfuerzo para proveer de información actualizada y confiable, sin embargo, la <b>Hermandad</b> no garantiza la confiabilidad y actualidad de la información, textos, imágenes, enlaces, u otros materiales contenidos en el sitio Web www.<b>Hermandad</b>devalme.es ya que pueden contener errores técnicos o tipográficos. La <b>Hermandad</b> puede modificar, corregir, eliminar, etc. estos materiales en cualquier momento sin previo aviso, sin el compromiso explícito de actualizarlos.
+            </p>
+            
+            <p>
+            Algunos hipervínculos en este sitio Web conectan a otros sitios o servicios mantenidos por terceros, sobre los cuales la <b>Hermandad</b> no tiene ningún control. Por lo mismo, la <b>Hermandad</b> no puede ofrecer o garantizar la confiabilidad o cualquier otro aspecto sobre la información proporcionada en esos sitios o servicios.
+            </p>
+            
+            <p>
+            Los hipervínculos incluidos en nuestro sitio Web se incluyen como referencia y conveniencia a nuestros usuarios, sin embargo esto no implica una recomendación por parte de la <b>Hermandad</b>.
+            </p>
+            
+            <p>
+            La <b>Hermandad</b> no monitorea los hipervínculos externos para revisar su confiabilidad o contenido y no garantiza la información contenida en ellos, ya que dicha información es de la exclusiva competencia de estos.
+            </p>
+            
+            <p class="lead"><em>3.- Copyright</em></p>
+            
+            <p>
+            Se autoriza a cualquier persona a desplegar, visualizar, reproducir e imprimir la información (texto-imágenes) y/o documentos disponibles en este sitio Web, de acuerdo a las siguientes condiciones:
+            </p>
+            <ul>
+            	<li>Los documentos (textos-imágenes) podrán ser utilizados exclusivamente para fines de información personal.</li>
+            	<li>Los documentos (textos-imágenes) podrán ser utilizados solamente para fines no comerciales y no se podrán distribuir, vender o comercializar con propósitos comerciales por terceros, aún cuando no exista ánimo de lucro.</li>
+            	<li>Los documentos (textos-imágenes) no se podrán traducir o modificar en cualquier forma o medio. Estos documentos (textos-imágenes) no podrán ser incorporados o hacer parte de otros documentos por parte de terceros, sin la autorización explícita y por escrito de la <b>Hermandad</b>.</li>
+            	<li>Los textos e imágenes de este sitio Web son propiedad exclusiva de la <b>Hermandad</b>, salvo aquellos que así se indiquen y que son propiedad de terceros.</li>
+            </ul>
+            
+        </div><!--/row-fluid-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

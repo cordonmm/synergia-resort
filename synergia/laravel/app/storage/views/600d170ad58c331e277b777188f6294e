@@ -1,0 +1,225 @@
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    El Pendón | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+
+
+        <div class="row" align="justify">
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">El Pendón de San Fernando</h2>
+                <p>
+                    <h2><b>Historia</b></h2>
+                    Cuenta la tradición que el rey San Fernando, tras la conquista de Sevilla, cumplió la
+
+                    promesa que había realizado a la Virgen en el cerro de Cuartos y mandó construir allí una
+
+                    ermita, entronizando en ella a la imagen que se llamó Nuestra Señora de Valme en recuerdo de
+
+                    la súplica del monarca y colocando a sus plantas el pendón conquistado a los musulmanes.
+                </p>
+
+                <p>
+                    Así lo recoge Fernán Caballero en su novela La familia de Alvareda (1856), donde
+
+                    alude al olvido y abandono en que se encontraban tanto la ermita como el pendón en la primera
+
+                    mitad del siglo XIX. El duque de Montpensier, tras conocer dicha novela, fue a Dos Hermanas
+
+                    para interesarse por ambos y ordenó llevar el pendón al Palacio de San Telmo, donde fue
+
+                    restaurado. La intervención de los Montpensier consistió en colocar los restos del estandarte
+
+                    primitivo sobre el reverso de una nueva bandera de tafetán color carmesí, en la que se bordó con
+
+                    letras de oro una leyenda alusiva al origen e historia de esta enseña.
+                </p>
+
+                <p>
+                    Tras la restauración, el 1 de mayo de 1857, los propios duques trajeron el pendón a Dos
+
+                    Hermanas, restituyéndolo a la Parroquia de Santa María Magdalena porque la Virgen de Valme
+
+                    se encontraba en ella desde el año 1800, debido a la ruina de su ermita. Una vez reedificada esta
+
+                    en 1859, y restablecido allí el culto también a expensas de los Montpensier, el pendón volvió a
+
+                    su primitivo emplazamiento, junto a la imagen de la Señora.
+                </p>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/pendon.jpg')); ?>" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6" align="justify">
+                    <p>
+                        El 30 de agosto de 1868, los duques, que habían sido desterrados de España y se
+
+                        encontraban en Portugal, ordenaron el traslado del pendón al Palacio de San Telmo, previendo
+
+                        sin duda la inminente revolución que destronaría pocas semanas después a la reina Isabel II, y
+
+                        ante el temor de que pudiera ocurrirle algo a tan preciada bandera durante los sucesos que se
+
+                        iban a desencadenar.
+                    </p>
+
+                    <p>
+                        A principios del año 1869, los vecinos de Dos Hermanas se dirigieron por escrito al
+
+                        arzobispado para conseguir el traslado de la Virgen de Valme a la parroquia de la villa. Esto
+
+                        motivó un duro conflicto con el capellán de la ermita, que defendía la permanencia de la Señora
+
+                        en su antigua capilla, pero, finalmente, la imagen fue traída a Dos Hermanas, quedando ya
+
+                        definitivamente en la parroquia. No así el pendón, que permaneció en Sevilla olvidado durante
+
+                        veinticinco años.
+                    </p>
+
+                    <p>
+                        En 1893, y a iniciativa del poeta José Lamarque de Novoa, se hicieron gestiones para
+
+                        recuperar el pendón, que llevaba un cuarto de siglo custodiado en el Palacio de San Telmo. El
+
+                        detonante de la reclamación fue el hecho de que la duquesa de Montpensier, ya viuda, decidiera
+
+                        depositarlo en la capilla real de la Catedral de Sevilla. Así, el 25 de agosto de 1893, el pendón
+
+                        fue recogido y trasladado a Dos Hermanas por los miembros de la Hermandad de Valme,
+
+                        organizándose con tal motivo una serie de actos festivos. A partir de dicho momento, se
+
+                        conservó en la capilla sacramental de la Parroquia de Santa María Magdalena, junto a la imagen
+
+                        de la Virgen.
+                    </p>
+                </div>
+                </div>
+                <p align="justify">
+                    <h2><b>Restauración</b></h2>
+                En el año 2002, la Hermandad solicitó al Instituto Andaluz del Patrimonio Histórico
+
+                (IAPH) la realización de un estudio detallado sobre el estado de conservación del pendón de San
+
+                Fernando. Dicho organismo emitió un exhaustivo informe en julio de 2003, destacando la
+
+                importancia de esta pieza por su valor histórico-artístico y recomendando su restauración debido
+
+                al deficiente estado de conservación que presentaba.
+                </p>
+
+                <p align="justify">
+                    Tras reiteradas solicitudes por parte de la Hermandad, los trabajos de restauración
+
+                    comenzaron en diciembre de 2007, desarrollándose hasta mayo de 2009. La intervención
+
+                    llevada a cabo por el IAPH ha consistido en la desinsectación, microaspiración, limpieza,
+
+                    alineación y consolidación de los tejidos e hilos que forman el pendón, centrándose
+
+                    especialmente este proceso en los restos primitivos. Para mejorar la conservación y visibilidad
+
+                    de estos, los técnicos optaron por separarlos de la tela añadida en la restauración de los
+
+                    Montpensier y montarlos sobre un nuevo soporte confeccionado expresamente. Por ello, ahora
+
+                    se pueden contemplar en plenitud las dos partes de que se compone el pendón: los restos
+
+                    primitivos (que se remontarían a la época de San Fernando) y la bandera de tafetán carmesí que
+
+                    se realizó en 1857. Esta última, además de la inscripción alusiva al origen del pendón, incluye
+
+                    los escudos de los duques de Montpensier bordados a realce en oro y sedas.
+                </p>
+
+                <p align="justify">
+                    Ante la imposibilidad material de volver a colocar el pendón en la hornacina que venía
+
+                    ocupando en la capilla sacramental de la Parroquia de Santa María Magdalena, por razones de
+
+                    espacio y seguridad, debido a sus dimensiones, la Hermandad ha acordado ubicarlo en la
+
+                    antigua capilla de las Escuelas del Ave María (hoy sede rehabilitada de la corporación),
+
+                    realizando unas vitrinas adecuadas para su exposición permanente, dado que los técnicos del
+
+                    IAPH recomendaron que las dos partes se exhibieran de forma extendida y separada, pero
+
+                    siempre dentro del mismo recinto. Allí se puede visitar por todas las personas que lo deseen,
+
+                    previa solicitud a la Hermandad.
+                </p>
+                <br>
+                <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                <a href="#" class="btn-u">Purchase Now</a>-->
+            </div>
+            
+            <br />
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <a href="<?php echo e(asset('template/images/design/pendon1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/pendon1.jpg')); ?>" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div>
+                        <a href="<?php echo e(asset('template/images/design/pendon2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/pendon2.jpg')); ?>" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+            <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+            <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    FancyBox.initFancybox();
+                });
+            </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

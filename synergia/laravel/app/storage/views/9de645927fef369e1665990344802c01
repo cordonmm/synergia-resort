@@ -1,0 +1,179 @@
+<?php /* content */ ?>
+<?php $__env->startSection('content'); ?>
+	<!-- Tabs -->
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
+		</ul>
+	<!-- ./ tabs -->
+
+	<?php /* Edit entrada Form */ ?>
+	<form class="form-horizontal" method="post" action="<?php if(isset($entrada)): ?><?php echo URL::to('admin/entradas/' . $entrada->id . '/edit'); ?><?php endif; ?>" autocomplete="off">
+		<!-- CSRF Token -->
+		<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+		<!-- ./ csrf token -->
+
+		<!-- Tabs contenido -->
+		<div class="tab-content">
+			<!-- General tab -->
+			<div class="tab-pane active" id="tab-general">
+				<!-- entrada titulo -->
+				<div class="form-group <?php echo e($errors->has('titulo') ? 'error' : ''); ?>">
+                    <div class="col-md-12">
+                        <label class="control-label" for="titulo">Titulo</label>
+						<input class="form-control" type="text" name="titulo" id="titulo" value="<?php echo e(Input::old('titulo', isset($entrada) ? $entrada->titulo : null)); ?>" />
+						<?php echo $errors->first('titulo', '<span class="help-block">:message</span>'); ?>
+
+					</div>
+				</div>
+				<!-- ./ entrada titulo -->
+
+				<!-- entrada subtitulo -->
+				<div class="form-group <?php echo e($errors->has('subtitulo') ? 'error' : ''); ?>">
+                    <div class="col-md-12">
+                        <label class="control-label" for="subtitulo">Subtitulo</label>
+						<input class="form-control" type="text" name="subtitulo" id="subtitulo" value="<?php echo e(Input::old('subtitulo', isset($entrada) ? $entrada->subtitulo : null)); ?>" />
+						<?php echo $errors->first('subtitulo', '<span class="help-block">:message</span>'); ?>
+
+					</div>
+				</div>
+				<!-- ./ entrada titulo -->
+				<!-- categoria -->
+				<div class="form-group <?php echo e($errors->has('categoria') ? 'error' : ''); ?>">
+                    <div class="col-md-12">
+                        <label class="control-label" for="categoria">Categoria</label>
+						<input class="form-control" type="text" name="categoria" id="categoria" value="<?php echo e(Input::old('categoria', isset($entrada) ? $entrada->categoria : null)); ?>" />
+						<?php echo $errors->first('categoria', '<span class="help-block">:message</span>'); ?>
+
+					</div>
+				</div>
+				<!-- contenido -->
+				<div class="form-group <?php echo e($errors->has('contenido') ? 'has-error' : ''); ?>">
+					<div class="col-md-12">
+                        <label class="control-label" for="contenido">Contenido</label>
+						<textarea class="form-control full-width ckeditor" name="contenido" value="contenido" rows="10"><?php echo e(Input::old('contenido', isset($entrada) ? $entrada->contenido : null)); ?></textarea>
+						<?php echo $errors->first('contenido', '<span class="help-block">:message</span>'); ?>
+
+					</div>
+				</div>
+				<!-- ./ contenido -->
+				<!-- Url -->
+				
+				<!-- ./ groups -->
+			</div>
+			<!-- ./ general tab -->
+		
+			
+		</div>
+		<!-- ./ tabs contenido -->
+
+		<!-- Form Actions -->
+		<div class="form-group">
+			<div class="col-md-12">
+				<element class="btn-cancel close_popup">Cancel</element>
+				<button type="reset" class="btn btn-default">Reset</button>
+				<button type="submit" class="btn btn-success">Update</button>
+			</div>
+		</div>
+		<!-- ./ form actions -->
+	</form>
+	<?php if(isset($entrada)): ?>
+		<div class="wrapper">
+			<div id="dropzone">
+				<?php echo Form::open(array('url' => 'upload', 'class'=>'dropzone', 'id'=>'my-dropzone')); ?>
+
+				<!-- Single file upload
+                <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                -->
+				<input type="hidden" id="entrada" name="entrada" value="<?php echo e($entrada->id); ?>" />
+				<!-- Multiple file upload-->
+				<div class="fallback">
+					<input name="file" type="file" multiple = "false"/>
+				</div>
+
+				<?php echo Form::close(); ?>
+
+			</div>
+	<?php endif; ?>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+<!-- 1 -->
+<link href="<?php echo asset('assets/css/dropzone.css'); ?>" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<?php $__env->stopSection(); ?>
+<?php /* Scripts */ ?>
+<?php $__env->startSection('scripts'); ?>
+	<script src="<?php echo asset('/template/plugins/ckeditor/ckeditor.js'); ?>"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="<?php echo asset('assets/js/dropzone.js'); ?>"></script>
+	
+	<script type="text/javascript">
+	//myDropzone is the configuration for the element that has an id attribute
+	// with the value my-dropzone (or myDropzone)
+
+	$( "#categoria" ).autocomplete({
+		source: Laracasts.categorias
+	});
+
+	Dropzone.options.myDropzone = {
+	acceptedFiles: "image/*",
+	uploadMultiple: false,
+    init: function() {
+    var myDropzone = this;
+      this.on("addedfile", function(file) {
+    	var option = document.createElement("option");
+    	var removeButton = Dropzone.createElement('<a class="dz-remove">Remove file</a>');
+        var _this = this;
+
+        removeButton.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+		  
+           var fileInfo = new Array();
+           fileInfo['name']=file.name;
+             $.ajax({
+                type: "POST",
+                url: "<?php echo url('/delete-image'); ?>",
+                data: {file: file.name, entrada: document.getElementById('entrada').value},
+                beforeSend: function () {
+                    // before send
+                },
+                success: function (response) {
+               
+                    if (response == 'success')
+                       alert('deleted');
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+          _this.removeFile(file);
+
+          // If you want to the delete the file on the server as well,
+          // you can do the AJAX request here.
+        });
+
+        // Add the button to the file preview element.
+        file.previewElement.appendChild(removeButton);
+      });
+      $.each( Laracasts.files, function( key, value ) {
+  		 // Call the default addedfile event handler
+  		  
+          myDropzone.emit("addedfile", value);
+          // And optionally show the thumbnail of the file:
+          myDropzone.emit("thumbnail", value,  "<?php echo url('/entradas/'); ?>/"+"150x150_"+value.name);
+          myDropzone.emit("complete", value);
+       
+  		});
+    }
+
+  };
+	
+	
+	</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

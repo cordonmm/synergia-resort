@@ -1,0 +1,22 @@
+[2016-03-09 13:41:33] production.ERROR: 500 - Class AdminTutoriasController does not exist @ /
+exception 'ReflectionException' with message 'Class AdminTutoriasController does not exist' in C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Routing\ControllerInspector.php:28
+Stack trace:
+#0 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Routing\ControllerInspector.php(28): ReflectionClass->__construct('AdminTutoriasCo...')
+#1 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(269): Illuminate\Routing\ControllerInspector->getRoutable('AdminTutoriasCo...', 'tutorias')
+#2 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(211): Illuminate\Routing\Router->controller('tutorias', 'AdminTutoriasCo...')
+#3 C:\xampp\htdocs\plantilla-laravel\laravel\app\routes.php(158): Illuminate\Support\Facades\Facade::__callStatic('controller', Array)
+#4 C:\xampp\htdocs\plantilla-laravel\laravel\app\routes.php(158): Illuminate\Support\Facades\Route::controller('tutorias', 'AdminTutoriasCo...')
+#5 [internal function]: {closure}(Object(Illuminate\Routing\Router))
+#6 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Routing\Router.php(696): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#7 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(211): Illuminate\Routing\Router->group(Array, Object(Closure))
+#8 C:\xampp\htdocs\plantilla-laravel\laravel\app\routes.php(200): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
+#9 C:\xampp\htdocs\plantilla-laravel\laravel\app\routes.php(200): Illuminate\Support\Facades\Route::group(Array, Object(Closure))
+#10 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Foundation\start.php(269): require('C:\\xampp\\htdocs...')
+#11 [internal function]: {closure}(Object(Illuminate\Foundation\Application))
+#12 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(830): call_user_func(Object(Closure), Object(Illuminate\Foundation\Application))
+#13 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(604): Illuminate\Foundation\Application->fireAppCallbacks(Array)
+#14 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(587): Illuminate\Foundation\Application->bootApplication()
+#15 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Console\Application.php(44): Illuminate\Foundation\Application->boot()
+#16 C:\xampp\htdocs\plantilla-laravel\laravel\vendor\laravel\framework\src\Illuminate\Console\Application.php(33): Illuminate\Console\Application::make(Object(Illuminate\Foundation\Application))
+#17 C:\xampp\htdocs\plantilla-laravel\laravel\artisan(181): Illuminate\Console\Application::start(Object(Illuminate\Foundation\Application))
+#18 {main} [] []

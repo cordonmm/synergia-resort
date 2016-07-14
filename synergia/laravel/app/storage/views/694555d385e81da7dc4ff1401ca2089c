@@ -1,0 +1,72 @@
+
+
+<?php $__env->startSection('title'); ?>
+
+    Intercambios
+    @parent
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* content */ ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title -->
+                <div class="col-sm-6 col-xs-12">
+                    <h1>Intercambios</h1>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div>
+
+    <section class="mt40 mb40">
+        <div class="container">
+            <div class="row">
+                <div align="justify" class="col-sm-6">
+                    <div class="heading mt30-xs"><h3>Intercambios</h3></div>
+                    <p>
+                        El centro empezó con la aventura de los intercambios con el Liceo Giovanni Falcone de Bérgamo, con el que se ha realizado en tres ocasiones.
+                    </p>
+
+                    <p>
+                        El objetivo del centro para completar su enseñanza bilingüe en inglés era realizar un intercambio con Reino Unido, algo nada fácil de conseguir pero que finalmente se está desarrollando con un centro del Condado de Oxford.
+                    </p>
+
+                    <p>
+                        Con la incorporación al centro del alemán como segunda lengua, se ha puesto también en marcha un intercambio con la localidad alemana de Braunschweig, además de dos proyectos eTwinning con centros de Baja Sajonia.
+                    </p>
+                    
+                    <!--<div class="lead mb10">Donec eget pretium eros, non mollis erat. Suspendisse sit amet nibh ut velit viverra sodales ut sit amet elit.</div>-->
+                                       
+                    
+
+                </div>
+                <div class="col-sm-6">
+                    <img width="100%" class="image-responsive" src="<?php echo asset('template/images/intercambios.jpg'); ?>" />
+                </div><!-- /column -->
+            </div>
+        </div>
+
+    </section>
+
+    <div class="cta2 arrow-up">
+        <div class="text-center"><!-- //add container, columns, or rows if needed. -->
+
+        </div>
+    </div>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

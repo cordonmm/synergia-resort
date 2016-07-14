@@ -1,0 +1,102 @@
+
+
+<?php /* Web site Title */ ?>
+
+<?php $__env->startSection('title'); ?>
+
+    Cultos | Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <img class="img-responsive" src="<?php echo e(asset('template/images/design/cultos.jpg')); ?>" alt="">
+                </div>
+            </div>
+            <div class="col-md-8" align="justify">
+                <h2 class="title-v2">Actos y Cultos en honor de la Santísima Virgen de Valme</h2>
+                <p>
+                    <b>2 de febrero</b>: presentación de niños a la Virgen.
+                </p>
+
+                <p>
+                    <b>30 de mayo</b>: solemne función religiosa en honor de San Fernando.
+                </p>
+
+                <p>
+                    <b>Junio</b>: aniversario de la Coronación Canónica.
+
+                    <ul>
+                        <li><b>Todos los años</b>: solemne función religiosa el día 23.</li>
+                        <li><b>Cada 7 años</b>: peregrinación a la Ermita de Cuarto.</li>
+                        <li><b>Cuando el 23 de junio sea sábado</b>: solemne triduo y procesión de la Virgen por las calles de Dos Hermanas en paso de tumbilla.</li>
+                    </ul>
+                </p>
+
+                <p>
+                    <b>Octubre</b>:
+
+                    <ul>
+                        <li><b>Viernes de la segunda semana</b>: traslado de la Virgen al altar mayor de la parroquia.</li>
+                        <li><b>Sábado de la segunda semana</b>: imposición de medallas a los nuevos hermanos.</li>
+                        <li><b>Segundo domingo</b>: función principal de instituto y pregón.</li>
+                        <li><b>Tercera semana</b>: solemne quinario (lunes a viernes), besamanos (sábado) y ofrendas de flores.</li>
+                        <li><b>Tercer domingo</b>: Romería de Valme.</li>
+                        <li><b>Cuarto domingo</b>: misa de acción de gracias en la Ermita.</li>
+                    </ul>
+                </p>
+
+                <p>
+                    <b>Noviembre</b>: en día por determinar, fiesta de entrega de premios a las mejores carretas, galeras y caballistas de la Romería.
+                </p>
+
+                <p>
+                    <b>8 de diciembre</b>: acto mariano en el Monumento dedicado a la Virgen.
+                </p>
+
+                <p>
+                    Todos los sábados del año se celebra la Felicitación Sabatina en la misa
+                    parroquial vespertina (20 h.), y el tercer domingo de cada mes hay misa en la
+                    Ermita de Cuarto a las 12,30 h.
+                </p>
+
+                <br />
+                
+                <p>
+                    <img style="height: 20px; width: 20px;" src="<?php echo e(asset('template/images/design/pdf.png')); ?>"/>
+                    <a target="_blank" href="<?php echo e(asset('template/documentos/sabatina.pdf')); ?>">SABATINA VIRGEN DE VALME</a>
+                </p>
+            </div>
+            
+            
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

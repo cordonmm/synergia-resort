@@ -1,0 +1,25 @@
+[2016-04-01 06:49:09] production.ERROR: 500 - Class 'Facebook\Facebook' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Facebook\Facebook' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:755
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-01 06:53:47] production.ERROR: 500 - Class 'Facebook\Facebook\Facebook' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Facebook\Facebook\Facebook' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:756
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-01 06:54:17] production.ERROR: 500 - Class 'Facebook\Facebook' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Facebook\Facebook' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:756
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-01 07:00:44] production.ERROR: 500 - Class 'CURLFile' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CURLFile' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:758
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-04-01 07:56:47] production.ERROR: 500 - Class 'CURLFile' not found @ /admin/entradas/3/share
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'CURLFile' not found' in /var/www/vhosts/ieshnosmachado.org/httpdocs/laravel/app/controllers/admin/AdminEntradasController.php:758
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

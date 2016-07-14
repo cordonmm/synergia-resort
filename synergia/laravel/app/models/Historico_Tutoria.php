@@ -1,0 +1,1 @@
+<?phpclass Historico_tutoria extends Eloquent {	public $table = "historico_tutorias";	public $timestamps = false;	/**	 * Devuelve el titulo de la entrada formateado	 *	 * @return string	 */	}

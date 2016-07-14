@@ -1,0 +1,252 @@
+<?php $__env->startSection('title'); ?>
+
+    Hermandad de Valme
+
+    @parent
+
+<?php $__env->stopSection(); ?>
+
+<?php /* content */ ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <div class="row magazine-page">
+
+        <div class="col-md-9">
+            <!-- Magazine Slider -->
+            <div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
+
+            <h2>Novedades</h2>
+                <div class="carousel-inner">
+                    <?php /**/ $entradas = Entrada::where('categoria','=','noticias')->orderby('created_at','desc')->paginate(6) /**/ ?>
+                    <?php /**/ $cont = 1 /**/ ?>
+                    <?php foreach($entradas as $entrada): ?>
+                        <?php if($cont == 1): ?>
+                            <div class="item active">
+                        <?php else: ?>
+                            <div class="item">
+                        <?php endif; ?>
+
+                        <?php /**/ $enlace = $entrada->urls->first() /**/ ?>
+                        <?php if($enlace != null): ?>
+                            <?php if(Str::lower($enlace->tipo) == "pdf"): ?>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <iframe frameborder='0' class='feature-image img-mask-effect zoom photo_link' width='100%' height='250px'  title='Hermandad de Valme' src='<?php echo $enlace->url; ?>' type='text/html' allowfullscreen='true' scrolling='no' marginwidth='0' marginheight='0'></iframe>
+                                    </div>
+                                    <div class="col-md-6" align="justify">
+                                        <?php echo Str::limit($entrada->contenido, 300); ?>
+
+                                        <p>
+                                            <button class="btn-u btn-u-dark-blue" type="button"><a style="color: white;" href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">Leer más</a></button>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            <?php elseif(Str::lower($enlace->tipo) == "jpg"): ?>
+                                <div class="row">
+                                    <div class="col-md-5"><img style="max-height: 350px; min-height: 250px; padding: 5px 5px 5px 5px;" class="img-responsive" src="<?php echo asset('entradas/'.$enlace->url); ?>"  alt="" /></div>
+                                    <div class="col-md-6" align="justify">
+                                            <?php echo Str::limit($entrada->contenido, 300); ?>
+
+                                            <p>
+                                            <button class="btn-u btn-u-dark-blue" type="button"><a style="color: white;" href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">Leer más</a></button>
+                                            </p>
+                                    </div>
+                                </div>
+
+                            <?php else: ?>
+                                <?php echo HTML::decode($enlace->url); ?>
+
+                            <?php endif; ?>
+                        <?php else: ?>
+                            
+                            <div class="row">
+                                    <div class="col-md-5">
+                                        <img style="padding: 5px 5px 5px 5px; max-width: 350px;" src="<?php echo asset('template/images/design/portada/virgen.jpg'); ?>"  alt="" />
+                                    </div>
+                                    <div class="col-md-6" align="justify">
+                                        <?php echo Str::limit($entrada->contenido, 300); ?>
+
+                                        <p>
+                                            <button class="btn-u btn-u-dark-blue" type="button"><a style="color: white;" href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">Leer más</a></button>
+                                        </p>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
+
+                        <div class="carousel-caption">
+                            <p><a style="font-weight: bold; color: white;" href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>"><?php echo Str::upper($entrada->titulo); ?></a></p>
+                        </div>
+                    </div>
+                    <?php /**/ $cont++ /**/ ?>
+                    <?php endforeach; ?>
+
+                </div>
+
+                <div class="carousel-arrow">
+                    <a data-slide="prev" href="#myCarousel-1" class="left carousel-control">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a data-slide="next" href="#myCarousel-1" class="right carousel-control">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- End Magazine Slider -->
+            
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style=""> San Juan Pablo II, 13 de Junio de 1993</h3>
+                </div>
+                <div class="panel-body">
+                    
+                    <p style="font-style: italic;">"Que la Santísima Virgen María, a quien honráis en esta villa de Dos Hermanas con la antigua advocación de VALME, nos ayude con su intercesión gloriosa para que en todas nuestras obras rezplandezca la luz de Cristo".</p>
+                </div>
+            </div>
+            
+            <!-- Magazine News -->
+            <div class="magazine-news">
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="magazine-news-img">
+                            <a href="<?php echo URL::to('La-Virgen'); ?>"><img class="img-responsive" src="<?php echo e(asset('template/images/design/portada/virgen.jpg')); ?>" alt=""></a>
+                            <span class="magazine-badge label-red">LA VIRGEN DE VALME</span>
+                        </div>
+                        <h3><a href="<?php echo URL::to('La-Virgen'); ?>">La Virgen de Valme</a></h3>
+
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="magazine-news-img">
+                            <a href="<?php echo URL::to('Romeria'); ?>"><img class="img-responsive" src="<?php echo e(asset('template/images/design/portada/romeria.jpg')); ?>" alt=""></a>
+                            <span class="magazine-badge label-orange">LA ROMERIA</span>
+                        </div>
+                        <h3><a href="<?php echo URL::to('Romeria'); ?>">Espacio dedicado a La Romería de Valme</a></h3>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- End Magazine News -->
+            
+            <!-- Magazine News -->
+            <div class="magazine-news">
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="magazine-news-img">
+                            <a href="<?php echo URL::to('Cultos'); ?>"><img class="img-responsive" src="<?php echo e(asset('template/images/design/portada/cultos.jpg')); ?>" alt=""></a>
+                            <span class="magazine-badge label-blue">CULTOS</span>
+                        </div>
+                        <h3><a href="<?php echo URL::to('Cultos'); ?>">Consulte el calendario de Cultos</a></h3>   
+
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="magazine-news-img">
+                            <a href="<?php echo URL::to('Vida-de-Hermandad'); ?>"><img class="img-responsive" src="<?php echo e(asset('template/images/design/portada/vida.jpg')); ?>" alt=""></a>
+                            <span class="magazine-badge label-green">VIDA DE HERMANDAD</span>
+                        </div>
+                        <h3><a href="<?php echo URL::to('Vida-de-Hermandad'); ?>">Últimas noticias acontecidas</a></h3>   
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Magazine News -->
+
+            
+            
+
+        </div>
+        <!-- End Content -->
+
+            <!-- Begin Sidebar -->
+            <div class="col-md-3">
+                <!-- Magazine Posts -->
+                <div class="row margin-bottom-40">
+
+                    <!--<div class="magazine-posts col-md-12 col-sm-6">
+                        <h3><a href="#">Hazte hermano</a></h3>
+                        <span><i class="color-green">Descargate la solicitud</span>
+                        <div class="magazine-posts-img">
+                            <a href="#"><img class="img-responsive" src="assets/img/main/img8.jpg" alt=""></a>
+
+                        </div>
+                    </div>-->
+                    <div class="magazine-posts col-md-12 col-sm-6 margin-bottom-25">
+
+                    </div>
+                        
+                       <div class="responsive-calendar">
+                            <center><h3><a href="#" ali>Próximos eventos</a></h3></center>
+                            <div class="controls">
+                                <a class="pull-left" data-go="prev"><div class="btn btn-primary">Ant</div></a>
+                                <span data-head-year></span> <span data-head-month></span>
+                                <a class="pull-right" data-go="next"><div class="btn btn-primary">Sig</div></a>
+                            </div>
+                            <hr>
+                            <div class="day-headers">
+                              <div class="day header">Lun</div>
+                              <div class="day header">Mar</div>
+                              <div class="day header">Mie</div>
+                              <div class="day header">Jue</div>
+                              <div class="day header">Vir</div>
+                              <div class="day header">Sab</div>
+                              <div class="day header">Dom</div>
+                            </div>
+                            <div class="days" data-group="days">
+                              
+                            </div>
+                        </div>
+                </div>
+                <!-- End Magazine Posts -->
+                
+                
+                <!-- Red Panel with Equal Height -->
+                <div class="panel panel-red equal-height-column">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: white;"><i class="fa fa-user"></i> <a style="color: white;" target="_blank" href="<?php echo e(asset('template/documentos/hazte_hermano.pdf')); ?>">HAZTE HERMANO</a></h3>
+                    </div>
+                    <div class="panel-body">                        
+                        <p><a style="color: #555;" target="_blank" href="<?php echo e(asset('template/documentos/hazte_hermano.pdf')); ?>">Puede descargar la solicitud de alta de hermano a través de este enlace.</a></p>
+                    </div>
+                </div>
+                <!-- End Red Panel with Equal Height -->
+                
+                
+                <!-- Quick Links -->
+                <div class="magazine-sb-categories margin-bottom-20">
+                    <a class="twitter-timeline" href="https://twitter.com/Hdad_Valme" data-widget-id="620621864960978944">Tweets por el @Hdad_Valme.</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                <!-- End Quick Links -->
+
+            </div>
+            <!-- Begin Content -->
+        <!-- End Sidebar -->
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+    <link href="<?php echo e(asset('assets/css/responsive-calendar.css')); ?>" rel="stylesheet" media="screen">
+    <link href="<?php echo e(asset('template/fancybox/jquery.fancybox-1.3.4.css')); ?>" rel="stylesheet" media="screen">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+   <script src="<?php echo e(asset('assets/js/responsive-calendar.js')); ?>"></script>
+   <script type="text/javascript" src="<?php echo e(asset('template/fancybox/jquery.fancybox-1.3.4.pack.js')); ?>"></script>
+   <script type="text/javascript" src="<?php echo e(asset('template/fancybox/jquery.easing-1.3.pack.js')); ?>"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".responsive-calendar").responsiveCalendar({          
+          events: Laracasts.calendariodeeventos
+        });
+        $(".iframe").fancybox();
+      });
+    </script>
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

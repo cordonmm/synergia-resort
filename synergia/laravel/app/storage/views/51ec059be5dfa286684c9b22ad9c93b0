@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>La Romería | Hermandad de Valme</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hermandad de Valme - Dos Hermanas">
+    <meta name="author" content="10Code - Desarrollo software en Sevilla">
+
+    <link rel="shortcut icon" href="<?php echo e(asset('assets/img/favicon.ico')); ?>">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/bootstrap/css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/headers/header-v6.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/footers/footer-v2.css')); ?>">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/animate.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/line-icons/line-icons.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/font-awesome/css/font-awesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/css/settings.css')); ?>" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css')); ?>" type="text/css" media="screen"><![endif]-->
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/theme-colors/dark-blue.css')); ?>">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/custom.css')); ?>">
+</head>
+
+<body class="header-fixed">
+<div class="wrapper">
+    <!--=== Header v6 ===-->
+    <div class="header-v6 header-classic-white header-sticky">
+        <!-- Navbar -->
+        <div class="navbar mega-menu" role="navigation">
+            <div class="container container-space">
+
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <!--<div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-inline top-v1-data">
+                                    <li><a href="#"><img src="assets/img/banderas/es.gif" ></a></li>
+                                    <li><a href="#"><img src="assets/img/banderas/uk.gif" ></a></li>
+                                    <li><a href="#"><img src="assets/img/banderas/it.gif" ></a></li>
+                                </ul>
+                            </div>
+
+                        </div>-->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="full-width-menu">Menú</span>
+                        <span class="icon-toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="container">
+                        <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li class="active">
+                            <a href="<?php echo URL::to('Inicio'); ?>">Inicio</a>
+                        </li>
+                        <!-- End Home -->
+
+                        <!-- Pages -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Váleme Señora
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- About Pages -->
+                                <li><a href="<?php echo URL::to('Origen-de-la-Advocacion'); ?>">Origen de la Advocación</a></li>
+                                <li><a href="<?php echo URL::to('La-Virgen-de-Valme'); ?>">La Virgen de Valme</a></li>
+                                <li><a href="<?php echo URL::to('San-Fernando'); ?>">San Fernando</a></li>
+                                <li><a href="<?php echo URL::to('El-Pendon'); ?>">El Pendón</a></li>
+                                <li><a href="<?php echo URL::to('La-Ermita-de-Cuarto'); ?>">La Ermita de Cuarto</a></li>
+                                <li><a href="<?php echo URL::to('La-Capilla-Sacramental'); ?>">La Capilla Sacramental</a></li>
+                                <li><a href="<?php echo URL::to('Indulgencia-Perpetua'); ?>">Indulgencia Perpetua</a></li>
+                                <li><a href="<?php echo URL::to('Coronacion-Canonica'); ?>">Coronación Canónica</a></li>
+                                <li><a href="<?php echo URL::to('Valme-y-Dos-Hermanas'); ?>">Valme y Dos Hermanas</a></li>
+                                <li><a href="<?php echo URL::to('Valme-en-Sevilla'); ?>">Valme en Sevilla</a></li>
+                                <li><a href="<?php echo URL::to('Valme-en-Roma'); ?>">Valme en Roma</a></li>
+                                <!-- End About Pages -->
+                                <!-- End Sub Level Menu -->
+                            </ul>
+                        </li>
+                        <!-- End Pages -->
+
+                        <!-- Blog -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Hermandad
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- About Pages -->
+                                <li><a href="<?php echo URL::to('Origen-e-Historia'); ?>">Origen e Historia</a></li>
+                                <li><a href="<?php echo URL::to('Reglas'); ?>">Reglas</a></li>
+                                <li><a href="<?php echo URL::to('Sede'); ?>">Sede</a></li>
+                                <li><a href="<?php echo URL::to('El-Director-Espiritual'); ?>">El Director Espiritual</a></li>
+                                <li><a href="<?php echo URL::to('Hermano-Mayor'); ?>">Hermano Mayor</a></li>
+                                <li><a href="<?php echo URL::to('Junta-de-Gobierno'); ?>">Junta de Gobierno</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="javascript:void(0);">Grupos</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?php echo URL::to('Carreteros-y-Galeristas'); ?>">Carreteros y Galeristas</a></li>
+                                        <li><a href="<?php echo URL::to('Coro'); ?>">Coro</a></li>
+                                        <li><a href="<?php echo URL::to('Grupo-Inicial'); ?>">Grupo Inicial</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End About Pages -->
+                                <!-- End Sub Level Menu -->
+                            </ul>
+
+                        </li>
+                        <!-- End Blog -->
+                        
+                        <li class="">
+                            <a href="<?php echo URL::to('Romeria'); ?>">
+                                La Romería
+                            </a>
+
+                        </li>
+                        
+                        <!-- Pages -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Fines
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- About Pages -->
+                                <li><a href="<?php echo URL::to('Cultos'); ?>">Cultos</a></li>
+                                <li><a href="<?php echo URL::to('Obras-Sociales'); ?>">Obras Sociales</a></li>
+                                <li><a href="<?php echo URL::to('Memoria-Anual'); ?>">Memoria Anual</a></li>
+                                <!-- End About Pages -->
+                                <!-- End Sub Level Menu -->
+                            </ul>
+                        </li>
+                        <!-- End Pages -->
+
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Patrimonio
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- About Pages -->
+                                <li><a href="<?php echo URL::to('Titulos-y-Privilegios'); ?>">Títulos y Privilegios</a></li>
+                                <li><a href="<?php echo URL::to('Artistico'); ?>">Artístico</a></li>
+                                <li><a href="<?php echo URL::to('Literario'); ?>">Literario</a></li>
+                                <li><a href="<?php echo URL::to('Musical'); ?>">Musical</a></li>
+                                <li><a href="<?php echo URL::to('Archivo-Historico'); ?>">Archivo Histórico</a></li>
+                                <!-- End About Pages -->
+                                <!-- End Sub Level Menu -->
+                            </ul>
+                        </li>
+                        <!-- End Pages -->
+
+                        <!-- Blog -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Publicaciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- About Pages -->
+                                <li><a href="<?php echo URL::to('Hoja-Informativa-Valeme'); ?>">Hoja Informativa Váleme</a></li>
+                                <li><a href="<?php echo URL::to('Diario-del-Ave-Maria'); ?>">Diario del Ave María</a></li>
+                                <li><a href="<?php echo URL::to('Pregones'); ?>">Pregones</a></li>
+                                <li><a href="<?php echo URL::to('Carteles-de-Romeria'); ?>">Carteles de Romería</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="javascript:void(0);">Galería Multimedia</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?php echo URL::to('Imagenes'); ?>">Imágenes</a></li>
+                                        <li><a href="<?php echo URL::to('Videos'); ?>">Vídeos</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End About Pages -->
+                                <!-- End Sub Level Menu -->
+                            </ul>
+
+                        </li>
+                        <!-- End Blog -->
+
+                        <li class="">
+                            <a href="<?php echo URL::to('Vida-de-Hermandad'); ?>">
+                                Vida de Hermandad
+                            </a>
+
+                        </li>
+                        <!--<li class="">
+                            <a href="<?php echo URL::to('Contacto'); ?>">
+                                Contacto
+                            </a>
+
+                        </li>-->
+                        <!-- End Misc Pages -->
+                    </ul>
+
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            </div>
+        </div>
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header v6 ===-->
+
+    <!--=== Slider ===-->
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/7.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v1 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="100"
+                         data-speed="1500"
+                         data-start="500"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        Romería de Valme
+                    </div>
+                    <!-- END LAYER -->
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="200"
+                         data-speed="1400"
+                         data-start="2000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        Fiesta Declarada de Interés Turístico Nacional
+                    </div>
+                    <!-- END LAYER -->
+
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/9.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v2 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="100"
+                         data-speed="1400"
+                         data-start="1000"
+                         data-easing="easeOutBack"
+                         data-endspeed="300"
+                         data-endeasing="easeInQuad"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        Romería de Valme
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="150"
+                         data-speed="1600"
+                         data-start="2000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        <!--Aquí puede ir algún texto.-->
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sfb"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="230"
+                         data-speed="1800"
+                         data-start="3000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/8.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption re-title-v2 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="150"
+                         data-speed="1500"
+                         data-start="500"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        Romería de Valme
+                    </div>
+
+                    <div class="tp-caption re-text-v2 sft start"
+                         data-x="20"
+                         data-hoffset="0"
+                         data-y="220"
+                         data-speed="2000"
+                         data-start="1000"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        <!--Aquí puede ir algún texto.-->
+                    </div>
+
+                    <!-- LAYER -->
+                    <!--<div class="tp-caption sft"
+                        data-x="20"
+                        data-hoffset="0"
+                        data-y="320"
+                        data-speed="1600"
+                        data-start="2800"
+                        data-easing="Power4.easeOut"
+                        data-endspeed="300"
+                        data-endeasing="Power1.easeIn"
+                        data-captionhidden="off"
+                        style="z-index: 6">
+                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">Read About Us</a>
+                        <a href="#" class="btn-u btn-u-lg">Visit Our Work</a>
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+    <!--=== End Slider ===-->
+
+
+    <div class="container content-sm">
+        <div class="col-sm-4">
+            <div class="thumbnails-v1">
+            
+                <div class="">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria3.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria3.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+                
+                <br />
+                
+                <div class="">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria4.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria4.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+                
+                <br />
+
+                <div class="">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria1.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+                
+                <br />
+                
+                <div class="">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria2.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+                
+                <br />
+
+                <div class="">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria8.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria8.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+
+
+        <div class="col-sm-8" align="justify">
+            <h2 class="title-v2 title-center">ORIGEN E HISTORIA</h2>
+            <p class="space-lg-hor">
+                Con la refundación de la Hermandad en 1888 se inició el periodo de mayor trascendencia en
+                toda la historia de la Virgen de Valme. Y durante él, surgió la idea de celebrar anualmente una
+                Romería al Santuario de Cuarto con la imagen de la Santísima Virgen.
+            </p>
+
+            <p class="space-lg-hor">
+                Así, en 1893, aparece en la Hermandad una figura insigne y decisiva: el poeta José Lamarque
+
+                de Novoa, que, junto al hermano mayor, Juan Sánchez Martín, a Francisco Ávila Ramos y a
+
+                Jesús de Grimarest, entre otros, impulsan la celebración de la primera Romería de Valme el
+
+                domingo 28 de octubre de 1894.
+            </p>
+
+            <p class="space-lg-hor">
+                Comienza, entonces, la que podríamos calificar "etapa contemporánea" de la Hermandad de
+
+                Valme. Y, desde ahora, Romería y Hermandad serán una misma cosa.
+            </p>
+
+            <p class="space-lg-hor">
+                Se celebra la fiesta romera con esplendor creciente durante los años 1895 a 1899. La
+
+                Hermandad, para sufragar los cuantiosos gastos que le ocasionaba la salida de la Romería, se
+
+                veía obligada a rifar y sortear carneros, mantas, botellas de vino, cabras, rosarios, mantas... y,
+
+                en realidad, cualquier objeto que pudiera convenir a estos efectos. Hasta que llega el primer
+
+                año del siglo XX, cuando un temporal de lluvias, que azotó la comarca sevillana en octubre,
+
+                obligó a aplazar la celebración de la Romería hasta el mes de mayo de 1901. Pero entonces
+
+                tampoco pudo celebrarse, porque lo avanzado de la temporada agrícola hacía presagiar la
+
+                asistencia de muy poco público. Además de que la familia Miura, propietaria del Cortijo de
+
+                Cuarto, había prohibido el paso de la comitiva romera por sus sembrados.
+            </p>
+
+            <p class="space-lg-hor">
+                A pesar del esplendor con el que se habían celebrado las primeras romerías, la situación
+
+                económica de la Hermandad empezó a empeorar a partir de 1901. Y ello provocó la
+
+                suspensión total de la fiesta hasta que hubiera fondos suficientes para su celebración. Así
+
+                pues, desde ese año, y hasta 1916, no salió la Romería. Fue un período decadente y sobrio; la
+
+                Hermandad se encontraba en un estado de postración tal que, en algunos años, ni se
+
+                celebraban los cultos del día de San Juan, cuando tenía lugar entonces la fiesta de la Virgen de
+
+                Valme por disposición de las Reglas de 1888.
+            </p>
+
+            <p class="space-lg-hor">
+                Tal situación se mantuvo hasta el año 1916, cuando un grupo de hermanos propuso que se
+
+                celebrara de nuevo la Romería. La Junta de Gobierno acogió la propuesta y solicitó del alcalde,
+
+                Juan Antonio Carazo Gómez, una subvención para paliar los cuantiosos gastos que habrían de
+
+                surgir. El alcalde dio de su propio presupuesto la cantidad de cuatrocientas pesetas, para la
+
+                organización de la Romería y para los premios que deberían otorgarse a los carros mejor
+
+                engalanados. Así, después del largo período de decadencia, vuelve a vislumbrarse de nuevo la
+
+                luz, y se celebra la Romería ininterrumpidamente desde 1916 hasta 1930.
+            </p>
+
+            <p class="space-lg-hor">
+                En estos quince años, la Romería adquiere un auge impresionante, sobre todo a partir de 1919.
+
+                Acuden a ella romeros, caballistas y carretas engalanadas de Sevilla, Coria, Los Palacios, Alcalá,
+
+                y de otros muchos pueblos de la provincia... Se instalan servicios de autobuses desde la Puerta
+
+                Jerez de Sevilla hasta el Santuario de Cuarto para facilitar la asistencia de romeros...
+
+                Comienzan a celebrarse actos y cultos en los días previos a la Romería... Pronuncian el sermón
+
+                en Cuarto a la llegada de la Romería los predicadores más afamados del momento... Se mejora
+
+                el exorno de la carreta de la Virgen, gracias a la creatividad de la camarera Elena Molina y el
+
+                tesón de Diego Justiniano Lamadrid... Un periodo, en fin, esplendoroso, en el que la Romería
+
+                de Valme se coloca a la cabeza de todas las que se celebraban entonces en la provincia de
+
+                Sevilla, y en segundo lugar después de la del Rocío. Puede afirmarse, pues, que la década de
+
+                los veinte es la "época de oro" de la Romería.
+            </p>
+
+            <p class="space-lg-hor">
+                Sin embargo, el ambiente de optimismo y euforia que rodeó las romerías de los años 20
+
+                contrasta profundamente con el cambio que se produce a partir de 1931, a raíz de la
+
+                proclamación de la República. En efecto, de una época esplendorosa y dorada, se pasó a un
+
+                período crítico, oscuro, en el que la Romería estuvo varios años suspendida. Se celebraron, sí,
+
+                los cultos tradicionales de octubre (triduo, rosario, besamano), pero las circunstancias del
+
+                momento imposibilitaron la salida de la Romería entre 1931 y 1933. Son años de una elevada
+
+                conflictividad social, en la que los desórdenes y los disturbios estaban al orden del día. Para
+
+                colmo, el Ayuntamiento republicano retiró la subvención que se concedía a las Hermandades y
+
+                suprimió de las calles todos los símbolos religiosos. Así, en diciembre de 1931, tras un
+
+                polémico debate, decidió rotular la calle Ntra. Sra. de Valme con el nombre de un célebre
+
+                anarquista, José Nakens.
+            </p>
+
+            <p class="space-lg-hor">
+                Tal situación, lejos de mejorar, empeoró notablemente en los años siguientes. Solo en 1934 y
+
+                1935, y no sin pocos esfuerzos, pudo la Hermandad celebrar la Romería, en un ambiente
+
+                íntimo y, a la vez, tenso, por las circunstancias que estaba atravesando toda España.
+            </p>
+
+            <p class="space-lg-hor">
+                La Guerra Civil, desarrollada entre 1936 y 1939, fue otro período convulso para la historia de
+
+                nuestro pueblo. Si la situación de la República había sido ya conflictiva, después de julio del 36,
+
+                Dos Hermanas comenzó a afrontar una época de penuria económica, de la que solo empezaría
+
+                a recuperarse en los años 50. La Romería, que es fruto del pueblo, se vio afectada por esta
+
+                situación, por lo que las de estos años, entre 1939 y 1953, son unas romerías tranquilas,
+
+                celebradas con gran recogimiento, devotas y muy fervorosas, en las que escasean las muestras
+
+                de entusiasmo que caracterizaron a las de los años 20. Se trata, en definitiva, de un período de
+
+                recuperación. En estos años, asisten a la Romería destacadas personalidades, como las
+
+                infantas Dolores y Esperanza de Borbón. Se consolida el exorno de las carretas, ya muy
+
+                parecido al actual... Aumentan los actos y cultos en los días previos a la Romería, con la
+
+                implantación del quinario y de la función... Se reforma la Capilla del Sagrario... Poco a poco,
+
+                pues, se va produciendo un desarrollo, un engrandecimiento de la Romería y, también, de la
+
+                Hermandad.
+            </p>
+
+            <p class="space-lg-hor">
+                Engrandecimiento que se consolida en las décadas siguientes, sobre todo a partir de finales de
+
+                los 60, cuando la Hermandad afronta un período de renovación que redunda en una mejora
+
+                generalizada de todos los aspectos de la Romería. Así, se adopta como modelo de exorno de la
+
+                carreta el que conocemos actualmente; se editan en color carteles y convocatorias de los
+
+                cultos y la Romería; se instaura el Pregón en honor de la Virgen; aumenta el número de
+
+                caballistas, carretas y romeros, rondando las cien mil personas; se inicia una campaña de
+
+                captación de hermanos y de difusión de la Romería... Un período, en fin, de cambio, de
+
+                renovación, encabezado por una Junta de Gobierno joven y dinámica que consiguió acercar la
+
+                Hermandad al pueblo nazareno.
+            </p>
+
+            <p class="space-lg-hor">
+                La Romería alcanza, pues, elevadas cotas de esplendor durante los años 60 y 70, lo que
+
+                produjo un aumento importante en la devoción a la Protectora de Dos Hermanas. Este impulso
+
+                quedó reflejado y confirmado con la Coronación Canónica de la Virgen de Valme, que tuvo
+
+                lugar el 23 de junio de 1973. Acto supuso el refrendo oficial a la devoción callada y sincera que,
+
+                durante tantos siglos, había profesado y mantenido el pueblo de Dos Hermanas a su Celestial
+
+                Protectora.
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="bg-grey content-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="responsive-video margin-bottom-30">
+                        <iframe width="530" height="300" src="https://www.youtube.com/embed/yrT_Y69l9Tg" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="title-v2">Primeras grabaciones</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p><br>
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-sm">
+        <div class="text-center margin-bottom-50">
+            <h2 class="title-v2 title-center">LA ROMERÍA EN LA ACTUALIDAD</h2>
+            <p class="space-lg-hor">
+                La Romería de Valme se celebra cada año el tercer domingo de octubre tras unas
+
+                intensas vísperas en las que tienen lugar diversos actos y cultos: función principal de la
+
+                Hermandad, pregón, quinario, ofrendas florales y besamanos, entre otros. Durante estos días
+
+                se congregan grupos de familiares y amigos, que terminan de arreglar sus carretas, galeras,
+
+                coches de caballos, trajes, etc., y que preparan platos caseros y sencillos para la vitualla de la
+
+                festividad.
+            </p>
+            <p class="space-lg-hor">
+                La jornada romera comienza, al alba, con la misa de romeros en la parroquia, tras la
+
+                cual se traslada la imagen de la Virgen a su carreta, hecha con 75.000 flores de papel de seda
+
+                rizado a mano, siendo necesarios más de dos millones de «pellizcos» para confeccionarlas. El
+
+                color varía cada año, alternándose amarillo, rosa, celeste y naranja con el blanco. Las columnas
+
+                se adornan con verde tuya y cestos con unas mil varas de nardos. La carreta va tirada por una
+
+                yunta de bueyes enjaezados con frontiles de plata y collarines bordados.
+            </p>
+
+            <p class="space-lg-hor">
+                Así comienza el recorrido, que atraviesa las calles más céntricas de Dos Hermanas y
+
+                continúa, entre el campo, por la «Carretera vieja» hasta la ermita del cortijo de Cuarto, junto a
+
+                la barriada de Bellavista, ya en término de Sevilla. Una carretera estrecha y sinuosa que regala
+
+                bellas estampas, como por ejemplo en los parajes de Barranco, al pasar el arco de la Torre de
+
+                Doña María o en la popular «Cuesta del inglés», cuando la pendiente del camino muestra a
+
+                Sevilla por el horizonte. Acompañan la carreta de la Virgen varios centenares de caballistas
+
+                típicamente ataviados, más de quince carretas vistosamente exornadas también con flores de
+
+                papel rizado a mano, una treintena de galeras con animadas reuniones, y decenas de miles de
+
+                peregrinos que lucen sus mejores galas, destacando el elegante atuendo de las mujeres,
+
+                vestidas de flamencas o de amazonas; en el cortejo no se admite la participación de vehículos
+
+                a motor.
+            </p>
+
+            <p class="space-lg-hor">
+                El momento culminante de la jornada es la entrada de la Virgen en la ermita, en torno
+
+                a las dos de la tarde, donde a continuación se celebra la Santa Misa. Tras el almuerzo y un
+
+                breve descanso en el que predominan los cantes y los bailes, se reza el rosario y, sobre las seis
+
+                de la tarde, se emprende el regreso hacia Dos Hermanas, adonde llega la comitiva sobre las
+
+                diez de la noche.
+            </p>
+
+            <p class="space-lg-hor">
+                En la actualidad, podemos decir que la Romería de Valme sigue siendo la fiesta mayor
+
+                de Dos Hermanas y se encuentra en un momento de esplendor, que se observa en muchos
+
+                aspectos. Así, en primer lugar, el elevado número de personas y devotos que participan.
+
+                Tengamos en cuenta que, según los medios de comunicación, son alrededor de 200.000 las
+
+                personas que se congregan en torno a la Ermita de Cuarto cada tercer domingo de octubre.
+            </p>
+
+            <p class="space-lg-hor">
+                En segundo lugar, hay que destacar la perfección alcanzada en los diseños y exorno de
+
+                las carretas que acompañan a la Virgen. Recordemos que todas van tiradas por yuntas de
+
+                bueyes sobre dos ruedas y están realizadas íntegramente a mano, con flores de papel de seda
+
+                rizado que forman dibujos muy coloristas. Recordemos también que, además de las carretas,
+
+                acompañan a Nuestra Señora de Valme las denominadas galeras, que son remolques agrícolas,
+
+                con cuatro ruedas de goma y mayores dimensiones que las carretas; y en muchos casos
+
+                también exornadas con flores de papel rizado. El cortejo se completa con innumerables carros
+
+                y coches de caballos, que siguen a las carretas y galeras.
+            </p>
+
+            <p class="space-lg-hor">
+                Y en tercer lugar, citamos la elegancia en el atuendo de la mayoría de flamencas,
+
+                jinetes y amazonas, los que lucen sus mejores galas, yendo de romería correctamente vestidos
+
+                y ataviados a la vaquera, pues en Dos Hermanas existe gran afición al mundo del caballo, que
+
+                se hace bien patente cada tercer domingo de octubre.
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria2.jpg')); ?>" alt="">
+                    </div>
+                    <!--<div class="caption">
+                        <h3><a href="#">Business Opportunities</a></h3>
+                        <p>Donec id elit non mi porta gravida at eget metsit us. Fusce dapibus, justo sit amet risus etiam portapsum generators on the Internet tend to repeat predefined.</p>
+
+                    </div>-->
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria1.jpg')); ?>" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria3.jpg')); ?>" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="bg-grey content-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title-v2">Anecdotario</h2>
+                    <div id="testimonials-3" class="carousel slide testimonials testimonials-v1 testimonials-bg-dark">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <p class="rounded-2x">
+                                    La primera Romería de Valme tuvo lugar el 28 de octubre de 1894, pero estaba
+
+                                    prevista para el domingo anterior, día 21. Un fuerte temporal de lluvia y viento obligó a
+
+                                    posponer su celebración.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Al año siguiente (1895), la prensa sevillana estimaba que habían asistido a la Romería
+
+                                    por lo menos 3.000 personas, entre las cuales había un buen número de romeros procedentes de
+
+                                    <br />la capital.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1896, la Romería se hizo en rogativas por «los males que a la patria afligen». Ello
+
+                                    motivó que la carreta de la Virgen fuera exornada con flores de color morado.
+
+                                    –En los primeros años de la Romería, el cortejo oficial estaba encabezado por el
+
+                                    estandarte de la hermandad, al que seguía el pendón de San Fernando portado a caballo por el
+
+                                    hermano mayor.</p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Ya en 1897 se hacía constar en el programa de la fiesta que se otorgarían sendos
+
+                                    premios de cinco duros al carro y carreta mejor engalanados. También se añadía que los coches,
+
+                                    carros y carretas irían «numerados según su llegada, a cuyo efecto se proveerán en el
+
+                                    ayuntamiento de la correspondiente orden».
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Para sufragar los cuantiosos gastos de la Romería, la hermandad organizaba
+
+                                    anualmente una rifa. Así, en 1899, se sortearon un rosario de nácar, un jamón, una manta y
+
+                                    cinco décimos de lotería.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En el año 1900, debido a las inclemencias del tiempo, la hermandad acordó posponer
+
+                                    la Romería hasta el mes de mayo siguiente, pero llegada esa fecha los oficiales de la junta de
+
+                                    gobierno descartaron su celebración.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En septiembre de 1901 se acordó, «por unanimidad y sin discusión alguna», que no
+
+                                    volviera a celebrarse la Romería hasta que la hermandad lo juzgase oportuno y existieran fondos
+
+                                    suficientes.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En septiembre de 1901 se acordó, «por unanimidad y sin discusión alguna», que no
+
+                                    volviera a celebrarse la Romería hasta que la hermandad lo juzgase oportuno y existieran fondos
+
+                                    suficientes.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    La Romería permaneció suspendida por falta de medios económicos entre los años
+
+                                    1901 y 1915. Durante ese período, la Virgen salía en procesión por las calles de Dos Hermanas
+
+                                    el día 24 de junio y se celebraba la velada de San Juan.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1916, tras producirse un cambio generacional en la junta de gobierno de la
+
+                                    hermandad, se acordó que volviera a salir la Romería, tomando la iniciativa el hermano mayor,
+
+                                    José Sánchez Rubio, y el alcalde, Juan Antonio Carazo, que aportó en total 400 pesetas para así
+
+                                    «resucitar una fiesta que estaba muerta».
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1918, la Romería quedó suspendida por orden del gobernador civil, debido a los
+
+                                    estragos que estaba causando una epidemia de gripe. Sin embargo, como la enfermedad remitió
+
+                                    y disminuyó el número de casos, finalmente se pudo celebrar la Romería el último domingo del
+
+                                    mes de octubre.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1920 se constituyó en Sevilla una Hermandad de Nuestra Señora de los Reyes que
+
+                                    pretendía ir en romería hasta la ermita de Cuarto desde la capilla de la plaza de Molviedro.
+
+                                    Aunque la Hermandad de Valme se opuso después, lo cierto es que, en dicho año, las dos
+
+                                    coincidieron en la celebración.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Las típicas flores de Valme nacieron en 1922, por iniciativa de Diego Justiniano y
+
+                                    Elena Molina, camarera de la Virgen.
+
+                                    –En 1925, la carreta de la Virgen sufrió un aparatoso incendio al probarse la instalación
+
+                                    eléctrica el sábado. No obstante, durante la noche se pudieron reparar los desperfectos y la
+
+                                    Romería se celebró con toda normalidad.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En la década de 1920, era frecuente que acudieran a la Romería carros y carretas desde
+
+                                    distintos barrios de Sevilla, tales como Triana, San Julián, la Puerta Osario y la Puerta de la
+
+                                    Carne.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Entre 1927 y 1930 fue habitual que se colocaran palomas disecadas a los pies de la
+
+                                    Virgen en la carreta.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Durante el primer bienio de la Segunda República (1931-1933), la Romería no se
+
+                                    celebró, y la hermandad suprimió de los programas de actos y cultos el título de «Real», al
+
+                                    haber dejado de ser España una monarquía.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1934 la fecha de la Romería coincidió con la llamada «revolución de Asturias»,
+
+                                    pero finalmente pudo autorizarse su celebración gracias a las gestiones del ministro de
+
+                                    Agricultura, Manuel Giménez Fernández.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En los años de la Guerra Civil (1936-1938), la Romería fue sustituida por una
+
+                                    procesión de rogativas.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En las décadas de 1940 y 1950 fue habitual la presencia en la Romería de las infantas
+
+                                    Dolores y Esperanza de Borbón, así como de destacadas autoridades.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1946, con motivo de la Santa Misión Mariana preparatoria de la declaración del
+
+                                    patronazgo de la Virgen de los Reyes sobre la archidiócesis hispalense, la Romería no pudo
+
+                                    celebrarse, a pesar de que la hermandad pidió permiso al cardenal Segura.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1950, al regreso de la Romería, se produjo un incendio en la carreta de la Virgen, lo
+
+                                    que obligó a que la imagen fuera bajada y llevada a hombros por los devotos hasta la entrada en
+
+                                    la parroquia.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En los años 1951 y 1952, antes de emprender el camino de vuelta, la Virgen recorrió
+
+                                    en rosario procesional los alrededores de la ermita.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En octubre de 1958 murió el papa Pío XII, motivo por el cual se decretaron varios días
+
+                                    de luto nacional. Por ello, la Romería hubo de aplazarse hasta el día 26, último domingo del
+
+                                    mes.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En el año 1967 asistió a la Romería el obispo auxiliar de Sevilla, monseñor Cirarda
+
+                                    Lachiondo.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1976, la Romería de Valme fue declarada Fiesta de Interés Turístico, por resolución
+
+                                    del Ministerio de Información y Turismo.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1979, asistieron a la salida de la Romería numerosas autoridades civiles de la
+
+                                    capital y la provincia, además del entonces ministro de Cultura, Manuel Clavero Arévalo.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    Entre 1988 y 1990 la Romería se vio afectada por la epidemia de la peste equina, que
+
+                                    imposibilitó la participación de caballistas.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En 1989, la Romería salió dos horas y media más tarde. Dado que a las ocho de la
+
+                                    mañana llovía intensamente, la hermandad decidió esperar hasta que aclaró el día.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    En la Romería del año 2000, al pasar la carreta de la Virgen por delante del edificio del
+
+                                    Ayuntamiento, se izó por vez primera la bandera oficial de Dos Hermanas, inspirada en el
+
+                                    pendón del rey San Fernando.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                            <div class="item">
+                                <p class="rounded-2x">
+                                    La Romería de 2005 se vio marcada por la ausencia de bueyes, debido a la epidemia de
+
+                                    la «lengua azul», lo que motivó que tampoco pudieran participar las tradicionales carretas.
+                                </p>
+                                <div class="testimonial-info"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="carousel-arrow">
+                            <a class="left carousel-control" href="#testimonials-3" data-slide="prev">
+                                <i class="fa fa-angle-left rounded"></i>
+                            </a>
+                            <a class="right carousel-control" href="#testimonials-3" data-slide="next">
+                                <i class="fa fa-angle-right rounded"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-counter-v1 parallaxBg">
+        <div class="container">
+            <h2 class="title-v2 title-light title-center">La Romería en Números</h2>
+            <p class="space-xlg-hor text-center color-light">La Romería de Valme es la tercera más importante de toda España.</p>
+
+            <div class="margin-bottom-40"></div>
+
+            <div class="row margin-bottom-10">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">200000</span>
+                        <h4>Romeros</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">18</span>
+                        <h4>Carretas</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">35</span>
+                        <h4>Galeras</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">1000</span>
+                        <h4>Caballistas</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-grey content-sm">
+        <div class="container text-center">
+            <h2 class="title-v2 title-center">Conoce la fotogalería de la Romería</h2>
+            <!--<p class="space-lg-hor">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p><br>-->
+            <a href="http://www.10code.es/valeme/galerias/28/details" class="btn-u btn-brd btn-brd-hover btn-u-dark">Ir a fotogalería I</a>
+            <a href="http://www.10code.es/valeme/galerias/29/details" class="btn-u btn-brd btn-brd-hover btn-u-dark">Ir a fotogalería II</a>
+        </div>
+    </div>
+
+
+    <ul class="list-unstyled row portfolio-box-v1">
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1943.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1943</p>
+            </div>
+        </li>
+
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/7.JPG" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>La Romería</h3>
+                <p>Año 2010</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1935.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1935</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/virgen.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Virgen de valme</h3>
+                <p>Entrando en la Ermita de Cuarto</p>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled row portfolio-box-v1">
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/5.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Carretas</h3>
+                <p>Romeros acompañando a la Virgen</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/6.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>La Virgen</h3>
+                <p>Acompañada de sus fieles y devotos</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/3.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>parada de carretas y galeras</h3>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1954.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1954</p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="bg-grey content-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title-v2">GUÍA TURÍSTICA</h2>
+                    <p>
+                        Estamos trabajando en la edición de una Guía Turística de la Romería de Valme, que ofreceremos próximamente en formato digital e impreso, y estará disponible en esta página.
+                    </p>
+                    
+                    <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                    <a href="#" class="btn-u">Purchase Now</a>-->
+                </div>
+                <!--<div class="col-md-6">
+                    <img class="img-responsive" src="assets/img/sliders/romeria/turistica.jpg" alt="">
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--=== Footer v2 ===-->
+    <div id="footer-v2" class="footer-v2">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Sobre la Hermandad</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="<?php echo URL::to('Inicio'); ?>">Inicio</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="<?php echo URL::to('Reglas'); ?>">Reglas</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="<?php echo URL::to('Romeria'); ?>">Romeria</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="<?php echo URL::to('Contacto'); ?>">Contacto</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="<?php echo URL::to('Aviso-Legal'); ?>">Aviso Legal</a><i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div>
+                    
+                    
+
+                    <!-- About -->
+                    <center>
+                        <div class="col-md-3 md-margin-bottom-40" >
+                            <a href="index.html"><img style="width: 95px; height: 110px;" id="logo-footer" class="footer-logo" src="<?php echo e(asset('assets/img/sliders/romeria/escudo.png')); ?>" alt=""></a>
+                            <p class="margin-bottom-20">Pontificia, Real e Ilustre Hermandad de Nuestra Señora de Valme Coronada <br /> y San Fernando.</p>
+                            <p class="margin-bottom-20"><i>C.I.F.: G-41.473.091 - Inscrita en el Registro de Entidades Religiosas, Nº 3268 - SE/C</i></p>
+    
+    
+                        </div>
+                    </center>
+                    <!-- End About -->
+
+                    <!-- Link List -->
+
+                    <!-- End Link List -->
+
+                    <!-- Latest Tweets -->
+
+                    <!-- End Latest Tweets -->
+
+                    <!-- Address -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Contacto</h2></div>
+                        <address class="md-margin-bottom-40">
+                            <i class="fa fa-home"></i>Avda. de Andalucía s/n<br />
+                            Apartado de correos 254<br />
+                            41700 | Dos Hermanas (Sevilla)<br />
+                            <i class="fa fa-phone"></i> 955 664 264 <br />
+                            <i class="fa fa-envelope"></i> <a>info@hermandaddevalme.es</a>
+                        </address>
+
+                        <!-- Social Links -->
+                        <ul class="social-icons">
+                            <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+                            <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+                            <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+                        </ul>
+                        <!-- End Social Links -->
+                    </div>
+                    <!-- End Address -->
+                    
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Enlaces de interés</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a target="_blank" href="http://www.archisevilla.org/">Archidiócesis de Sevilla</a><i class="fa fa-angle-right"></i></li>
+                            <li><a target="_blank" href="http://www.doshermanas.es/dher/opencms/dher/portal/">EXCMO. AYUNTAMIENTO de Dos Hermanas</a><i class="fa fa-angle-right"></i></li>
+                            <li><a target="_blank" href="http://arciprestazgodoshermanas.es/">Arciprestazgo Dos Hermanas</a><i class="fa fa-angle-right"></i></li>                            
+                            <li><a target="_blank" href="http://www.valme.net/">Nostra Signora di Valme</a><i class="fa fa-angle-right"></i></li>
+                            <li><a target="_blank" href="http://cofdh.es/">COF Dos Hermanas</a><i class="fa fa-angle-right"></i></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            &copy; 2015 Hermandad de Valme | Developed By <a target="_blank" href="http://www.10code.es"><img src="http://10code.es/img/logo.png" style="max-width: 100px; max-height: 23px; "/></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery/jquery.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery/jquery-migrate.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/bootstrap/js/bootstrap.min.js')); ?>"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/back-to-top.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/smoothScroll.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery.parallax.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/counter/waypoints.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/counter/jquery.counterup.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js')); ?>"></script>
+
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        FancyBox.initFancybox();
+    });
+</script>
+
+<!-- JS Customization -->
+<script type="text/javascript" src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/revolution-slider.js')); ?>"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initCounter();
+        App.initParallaxBg();
+        RevolutionSlider.initRSfullScreenOffset();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="<?php echo e(asset('assets/plugins/respond.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/html5shiv.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/placeholder-IE-fixes.js')); ?>"></script>
+<![endif]-->
+
+</body>
+</html>
+
+

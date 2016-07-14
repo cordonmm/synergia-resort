@@ -1,0 +1,10 @@
+<?php
+
+Phar::mapPhar("PhpConsole");
+spl_autoload_register(function ($class) {
+	if(strpos($class, "PhpConsole") === 0) {
+		require_once("phar://". str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php");
+	}
+});
+__HALT_COMPILER(); ?>
+3

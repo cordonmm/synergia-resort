@@ -1,0 +1,72 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Memoria Anual | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Memoria Anual</h1>
+
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <ul class="timeline-v1">
+
+            <?php /**/ $entradas = Entrada::where('categoria','=','memoria')->orderby('created_at','desc')->paginate(9) /**/ ?>
+            <?php /**/ $cont = 1 /**/ ?>
+            <?php foreach($entradas as $entrada): ?>
+                <?php if($cont%2 == 0): ?>
+                    <li class="timeline-inverted">
+                <?php else: ?>
+                    <li>
+                <?php endif; ?>
+                        <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <?php /**/ $enlace = $entrada->urls->first() /**/ ?>
+                                <?php if($enlace != null): ?>
+                                    <?php foreach($entrada->urls as $enlace): ?>
+                                        <?php if(Str::lower($enlace->tipo) == "jpg"): ?>
+                                            <a href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">
+                                                <img class="img-responsive" src="<?php echo asset('entradas/'.$enlace->url); ?>" alt="Imagen">
+                                            </a>
+                                            <?php /**/ break; /**/ ?>
+                                        
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="timeline-body text-justify">
+                                <h2 class="font-light"><a href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>"><?php echo $entrada->titulo; ?></a></h2>
+                                <p><?php echo Str::limit($entrada->contenido, 200); ?></p>
+                                <a class="btn-u btn-u-sm" href="<?php echo URL::to('entradas/'.$entrada->id.'/details/'); ?>">Leer más</a>
+                            </div>
+                            <!--<div class="timeline-footer">
+                                <ul class="list-unstyled list-inline blog-info">
+                                    <li><i class="fa fa-clock-o"></i><?php echo date('d/m/Y', strtotime($entrada->created_at)); ?></li>
+                                </ul>
+                            </div>-->
+                        </div>
+                    </li>
+                    <?php /**/ $cont++ /**/ ?>
+            <?php endforeach; ?>
+
+
+
+
+
+            <li class="clearfix" style="float: none;"></li>
+        </ul>
+    </div><!--/container-->
+    <!-- End Content Part -->
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

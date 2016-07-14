@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>La Romería :: Hermandad de Valme</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hermandad de Valme - Dos Hermanas">
+    <meta name="author" content="10Code - Desarrollo software en Sevilla">
+
+    <link rel="shortcut icon" href="<?php echo e(asset('assets/img/favicon.ico')); ?>">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/bootstrap/css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/headers/header-v6.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/footers/footer-v2.css')); ?>">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/animate.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/line-icons/line-icons.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/font-awesome/css/font-awesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/css/settings.css')); ?>" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css')); ?>" type="text/css" media="screen"><![endif]-->
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/theme-colors/dark-blue.css')); ?>">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/custom.css')); ?>">
+</head>
+
+<body class="header-fixed">
+<div class="wrapper">
+    <!--=== Header v6 ===-->
+    <div class="header-v6 header-classic-white header-sticky">
+        <!-- Navbar -->
+        <div class="navbar mega-menu" role="navigation">
+            <div class="container container-space">
+
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-inline top-v1-data">
+                                    <li><a href="#"><img src="assets/img/banderas/es.gif" ></a></li>
+                                    <li><a href="#"><img src="assets/img/banderas/uk.gif" ></a></li>
+                                    <li><a href="#"><img src="assets/img/banderas/it.gif" ></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="full-width-menu">Menú</span>
+                        <span class="icon-toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="container">
+                        <ul class="nav navbar-nav">
+                            <!-- Home -->
+                            <li class="active">
+                                <a href="index.html">
+                                    Inicio
+                                </a>
+
+                            </li>
+                            <!-- End Home -->
+
+                            <!-- Pages -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Váleme Señora
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- About Pages -->
+                                    <li><a href="#">Origen de la Advocación</a></li>
+                                    <li><a href="#">La Virgen</a></li>
+                                    <li><a href="#">San Fernando</a></li>
+                                    <li><a href="#">El Pendón</a></li>
+                                    <li><a href="#">La Ermita de Cuarto</a></li>
+                                    <li><a href="#">La Capilla Sacramental</a></li>
+                                    <li><a href="#">Coronación Canónica</a></li>
+                                    <li><a href="#">Valme y Dos Hermanas</a></li>
+                                    <li><a href="#">Valme en Sevilla</a></li>
+                                    <li><a href="#">Valme en Roma</a></li>
+                                    <!-- End About Pages -->
+                                    <!-- End Sub Level Menu -->
+                                </ul>
+                            </li>
+                            <!-- End Pages -->
+
+                            <!-- Blog -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Hermandad
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- About Pages -->
+                                    <li><a href="<?php echo URL::to('Origen-e-Historia'); ?>">Origen e Historia</a></li>
+                                    <li><a href="<?php echo URL::to('Reglas'); ?>">Reglas</a></li>
+                                    <li><a href="<?php echo URL::to('Sede'); ?>">Sede</a></li>
+                                    <li><a href="<?php echo URL::to('El-Director-Espiritual'); ?>">El Director Espiritual</a></li>
+                                    <li><a href="<?php echo URL::to('Hermano-Mayor'); ?>">Hermano Mayor</a></li>
+                                    <li><a href="<?php echo URL::to('Junta-de-Gobierno'); ?>">Junta de Gobierno</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Grupos</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="<?php echo URL::to('Carreteros-y-Galeristas'); ?>">Carreteros y Galeristas</a></li>
+                                            <li><a href="<?php echo URL::to('Coro'); ?>">Coro</a></li>
+                                            <li><a href="<?php echo URL::to('Grupo-Inicial'); ?>">Grupo Inicial</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- End About Pages -->
+                                    <!-- End Sub Level Menu -->
+                                </ul>
+
+                            </li>
+                            <!-- End Blog -->
+
+                            <!-- Pages -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fines
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- About Pages -->
+                                    <li><a href="#">Cultos</a></li>
+                                    <li><a href="#">Obras Sociales</a></li>
+                                    <li><a href="#">Memoria de Actividades</a></li>
+                                    <!-- End About Pages -->
+                                    <!-- End Sub Level Menu -->
+                                </ul>
+                            </li>
+                            <!-- End Pages -->
+                            <!-- Pages -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Patrimonio
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- About Pages -->
+                                    <li><a href="#">Títulos y Privilegiosa</a></li>
+                                    <li><a href="#">Artístico</a></li>
+                                    <li><a href="#">Literario</a></li>
+                                    <li><a href="#">Musical</a></li>
+                                    <li><a href="#">Archivo Histórico</a></li>
+                                    <!-- End About Pages -->
+                                    <!-- End Sub Level Menu -->
+                                </ul>
+                            </li>
+                            <!-- End Pages -->
+
+                            <!-- Blog -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Publicaciones
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- About Pages -->
+                                    <li><a href="#">Váleme</a></li>
+                                    <li><a href="#">Revista Romería</a></li>
+                                    <li><a href="#">Pregones</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Galería Multimedia</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Imágenes</a></li>
+                                            <li><a href="#">Vídeos</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- End About Pages -->
+                                    <!-- End Sub Level Menu -->
+                                </ul>
+
+                            </li>
+                            <!-- End Blog -->
+
+                            <li class="">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    Vida de Hermandad
+                                </a>
+
+                            </li>
+                            <li class="">
+                                <a href="contacto.php">
+                                    Contacto
+                                </a>
+
+                            </li>
+                            <!-- End Misc Pages -->
+                        </ul>
+
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            </div>
+        </div>
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header v6 ===-->
+
+    <!--=== Slider ===-->
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/7.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v1 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="100"
+                         data-speed="1500"
+                         data-start="500"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        Romería de Valme
+                    </div>
+                    <!-- END LAYER -->
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="200"
+                         data-speed="1400"
+                         data-start="2000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        Aquí puede ir algún texto.
+                    </div>
+                    <!-- END LAYER -->
+
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/9.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-title-v2 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="100"
+                         data-speed="1400"
+                         data-start="1000"
+                         data-easing="easeOutBack"
+                         data-endspeed="300"
+                         data-endeasing="easeInQuad"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        SLOGAN
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption re-text-v1 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="150"
+                         data-speed="1600"
+                         data-start="2000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+                        Aquí puede ir algún texto.
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption sfb"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="230"
+                         data-speed="1800"
+                         data-start="3000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off"
+                         style="z-index: 6">
+
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+
+                <!-- SLIDE -->
+                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Siguiente">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/8.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption re-title-v2 sft start"
+                         data-x="20"
+                         data-hoffset="0"
+                         data-y="150"
+                         data-speed="1500"
+                         data-start="500"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        SLOGAN
+                    </div>
+
+                    <div class="tp-caption re-text-v2 sft start"
+                         data-x="20"
+                         data-hoffset="0"
+                         data-y="220"
+                         data-speed="2000"
+                         data-start="1000"
+                         data-easing="Back.easeInOut"
+                         data-endeasing="Power1.easeIn"
+                         data-endspeed="300">
+                        Aquí puede ir algún texto.
+                    </div>
+
+                    <!-- LAYER -->
+                    <!--<div class="tp-caption sft"
+                        data-x="20"
+                        data-hoffset="0"
+                        data-y="320"
+                        data-speed="1600"
+                        data-start="2800"
+                        data-easing="Power4.easeOut"
+                        data-endspeed="300"
+                        data-endeasing="Power1.easeIn"
+                        data-captionhidden="off"
+                        style="z-index: 6">
+                        <a href="#" class="btn-u btn-u-lg re-btn-brd margin-right-5">Read About Us</a>
+                        <a href="#" class="btn-u btn-u-lg">Visit Our Work</a>
+                    </div>
+                </li>
+                <!-- END SLIDE -->
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+    <!--=== End Slider ===-->
+
+
+    <div class="container content-sm">
+        <div class="col-sm-4">
+            <div class="thumbnails-v1">
+
+                <div class="thumbnail-img">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria1.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+
+                <div class="thumbnail-img">
+                    <a href="<?php echo e(asset('assets/img/sliders/romeria/cuadro.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('assets/img/sliders/romeria/cuadro.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+
+                <div class="thumbnail-img">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria2.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+
+                <div class="thumbnail-img">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria3.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria3.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+
+                <div class="thumbnail-img">
+                    <a href="<?php echo e(asset('template/images/design/romeria/romeria4.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="Origen e Historia">
+                        <span><img class="img-responsive" src="<?php echo e(asset('template/images/design/romeria/romeria4.jpg')); ?>" alt=""></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-8" align="justify">
+            <h2 class="title-v2 title-center">ORIGEN E HISTORIA</h2>
+            <p class="space-lg-hor">
+                Con la refundación de la Hermandad en 1888 se inició el periodo de mayor trascendencia en
+                toda la historia de la Virgen de Valme. Y durante él, surgió la idea de celebrar anualmente una
+                Romería al Santuario de Cuarto con la imagen de la Santísima Virgen.
+            </p>
+
+            <p class="space-lg-hor">
+                Así, en 1893, aparece en la Hermandad una figura insigne y decisiva: el poeta José Lamarque
+
+                de Novoa, que, junto al hermano mayor, Juan Sánchez Martín, a Francisco Ávila Ramos y a
+
+                Jesús de Grimarest, entre otros, impulsan la celebración de la primera Romería de Valme el
+
+                domingo 28 de octubre de 1894.
+            </p>
+
+            <p class="space-lg-hor">
+                Comienza, entonces, la que podríamos calificar "etapa contemporánea" de la Hermandad de
+
+                Valme. Y, desde ahora, Romería y Hermandad serán una misma cosa.
+            </p>
+
+            <p class="space-lg-hor">
+                Se celebra la fiesta romera con esplendor creciente durante los años 1895 a 1899. La
+
+                Hermandad, para sufragar los cuantiosos gastos que le ocasionaba la salida de la Romería, se
+
+                veía obligada a rifar y sortear carneros, mantas, botellas de vino, cabras, rosarios, mantas... y,
+
+                en realidad, cualquier objeto que pudiera convenir a estos efectos. Hasta que llega el primer
+
+                año del siglo XX, cuando un temporal de lluvias, que azotó la comarca sevillana en octubre,
+
+                obligó a aplazar la celebración de la Romería hasta el mes de mayo de 1901. Pero entonces
+
+                tampoco pudo celebrarse, porque lo avanzado de la temporada agrícola hacía presagiar la
+
+                asistencia de muy poco público. Además de que la familia Miura, propietaria del Cortijo de
+
+                Cuarto, había prohibido el paso de la comitiva romera por sus sembrados.
+            </p>
+
+            <p class="space-lg-hor">
+                A pesar del esplendor con el que se habían celebrado las primeras romerías, la situación
+
+                económica de la Hermandad empezó a empeorar a partir de 1901. Y ello provocó la
+
+                suspensión total de la fiesta hasta que hubiera fondos suficientes para su celebración. Así
+
+                pues, desde ese año, y hasta 1916, no salió la Romería. Fue un período decadente y sobrio; la
+
+                Hermandad se encontraba en un estado de postración tal que, en algunos años, ni se
+
+                celebraban los cultos del día de San Juan, cuando tenía lugar entonces la fiesta de la Virgen de
+
+                Valme por disposición de las Reglas de 1888.
+            </p>
+
+            <p class="space-lg-hor">
+                Tal situación se mantuvo hasta el año 1916, cuando un grupo de hermanos propuso que se
+
+                celebrara de nuevo la Romería. La Junta de Gobierno acogió la propuesta y solicitó del alcalde,
+
+                Juan Antonio Carazo Gómez, una subvención para paliar los cuantiosos gastos que habrían de
+
+                surgir. El alcalde dio de su propio presupuesto la cantidad de cuatrocientas pesetas, para la
+
+                organización de la Romería y para los premios que deberían otorgarse a los carros mejor
+
+                engalanados. Así, después del largo período de decadencia, vuelve a vislumbrarse de nuevo la
+
+                luz, y se celebra la Romería ininterrumpidamente desde 1916 hasta 1930.
+            </p>
+
+            <p class="space-lg-hor">
+                En estos quince años, la Romería adquiere un auge impresionante, sobre todo a partir de 1919.
+
+                Acuden a ella romeros, caballistas y carretas engalanadas de Sevilla, Coria, Los Palacios, Alcalá,
+
+                y de otros muchos pueblos de la provincia... Se instalan servicios de autobuses desde la Puerta
+
+                Jerez de Sevilla hasta el Santuario de Cuarto para facilitar la asistencia de romeros...
+
+                Comienzan a celebrarse actos y cultos en los días previos a la Romería... Pronuncian el sermón
+
+                en Cuarto a la llegada de la Romería los predicadores más afamados del momento... Se mejora
+
+                el exorno de la carreta de la Virgen, gracias a la creatividad de la camarera Elena Molina y el
+
+                tesón de Diego Justiniano Lamadrid... Un periodo, en fin, esplendoroso, en el que la Romería
+
+                de Valme se coloca a la cabeza de todas las que se celebraban entonces en la provincia de
+
+                Sevilla, y en segundo lugar después de la del Rocío. Puede afirmarse, pues, que la década de
+
+                los veinte es la "época de oro" de la Romería.
+            </p>
+
+            <p class="space-lg-hor">
+                Sin embargo, el ambiente de optimismo y euforia que rodeó las romerías de los años 20
+
+                contrasta profundamente con el cambio que se produce a partir de 1931, a raíz de la
+
+                proclamación de la República. En efecto, de una época esplendorosa y dorada, se pasó a un
+
+                período crítico, oscuro, en el que la Romería estuvo varios años suspendida. Se celebraron, sí,
+
+                los cultos tradicionales de octubre (triduo, rosario, besamano), pero las circunstancias del
+
+                momento imposibilitaron la salida de la Romería entre 1931 y 1933. Son años de una elevada
+
+                conflictividad social, en la que los desórdenes y los disturbios estaban al orden del día. Para
+
+                colmo, el Ayuntamiento republicano retiró la subvención que se concedía a las Hermandades y
+
+                suprimió de las calles todos los símbolos religiosos. Así, en diciembre de 1931, tras un
+
+                polémico debate, decidió rotular la calle Ntra. Sra. de Valme con el nombre de un célebre
+
+                anarquista, José Nakens.
+            </p>
+
+            <p class="space-lg-hor">
+                Tal situación, lejos de mejorar, empeoró notablemente en los años siguientes. Solo en 1934 y
+
+                1935, y no sin pocos esfuerzos, pudo la Hermandad celebrar la Romería, en un ambiente
+
+                íntimo y, a la vez, tenso, por las circunstancias que estaba atravesando toda España.
+            </p>
+
+            <p class="space-lg-hor">
+                La Guerra Civil, desarrollada entre 1936 y 1939, fue otro período convulso para la historia de
+
+                nuestro pueblo. Si la situación de la República había sido ya conflictiva, después de julio del 36,
+
+                Dos Hermanas comenzó a afrontar una época de penuria económica, de la que solo empezaría
+
+                a recuperarse en los años 50. La Romería, que es fruto del pueblo, se vio afectada por esta
+
+                situación, por lo que las de estos años, entre 1939 y 1953, son unas romerías tranquilas,
+
+                celebradas con gran recogimiento, devotas y muy fervorosas, en las que escasean las muestras
+
+                de entusiasmo que caracterizaron a las de los años 20. Se trata, en definitiva, de un período de
+
+                recuperación. En estos años, asisten a la Romería destacadas personalidades, como las
+
+                infantas Dolores y Esperanza de Borbón. Se consolida el exorno de las carretas, ya muy
+
+                parecido al actual... Aumentan los actos y cultos en los días previos a la Romería, con la
+
+                implantación del quinario y de la función... Se reforma la Capilla del Sagrario... Poco a poco,
+
+                pues, se va produciendo un desarrollo, un engrandecimiento de la Romería y, también, de la
+
+                Hermandad.
+            </p>
+
+            <p class="space-lg-hor">
+                Engrandecimiento que se consolida en las décadas siguientes, sobre todo a partir de finales de
+
+                los 60, cuando la Hermandad afronta un período de renovación que redunda en una mejora
+
+                generalizada de todos los aspectos de la Romería. Así, se adopta como modelo de exorno de la
+
+                carreta el que conocemos actualmente; se editan en color carteles y convocatorias de los
+
+                cultos y la Romería; se instaura el Pregón en honor de la Virgen; aumenta el número de
+
+                caballistas, carretas y romeros, rondando las cien mil personas; se inicia una campaña de
+
+                captación de hermanos y de difusión de la Romería... Un período, en fin, de cambio, de
+
+                renovación, encabezado por una Junta de Gobierno joven y dinámica que consiguió acercar la
+
+                Hermandad al pueblo nazareno.
+            </p>
+
+            <p class="space-lg-hor">
+                La Romería alcanza, pues, elevadas cotas de esplendor durante los años 60 y 70, lo que
+
+                produjo un aumento importante en la devoción a la Protectora de Dos Hermanas. Este impulso
+
+                quedó reflejado y confirmado con la Coronación Canónica de la Virgen de Valme, que tuvo
+
+                lugar el 23 de junio de 1973. Acto supuso el refrendo oficial a la devoción callada y sincera que,
+
+                durante tantos siglos, había profesado y mantenido el pueblo de Dos Hermanas a su Celestial
+
+                Protectora.
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="bg-grey content-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="responsive-video margin-bottom-30">
+                        <iframe width="530" height="300" src="https://www.youtube.com/embed/yrT_Y69l9Tg" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="title-v2">Primeras grabaciones</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p><br>
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-sm">
+        <div class="text-center margin-bottom-50">
+            <h2 class="title-v2 title-center">LA ROMERÍA EN LA ACTUALIDAD</h2>
+            <p class="space-lg-hor">If you are going to use a passage of Lorem Ipsum, <span class="color-green">you need to</span> be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true <span class="color-green">generator</span> on the Internet.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="assets/img/sliders/romeria/1.jpg" alt="">
+                    </div>
+                    <div class="caption">
+                        <h3><a href="#">Business Opportunities</a></h3>
+                        <p>Donec id elit non mi porta gravida at eget metsit us. Fusce dapibus, justo sit amet risus etiam portapsum generators on the Internet tend to repeat predefined.</p>
+                        <!--<p><a class="read-more" href="#">See More</a></p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="assets/img/sliders/romeria/4.jpg" alt="">
+                    </div>
+                    <div class="caption">
+                        <h3><a href="#">Engage Customers With Unify</a></h3>
+                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text, all the  ipsum generators.</p>
+                        <!--<p><a class="read-more" href="#">See More</a></p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnails-v1">
+                    <div class="thumbnail-img">
+                        <img class="img-responsive" src="assets/img/sliders/romeria/2.jpg" alt="">
+                    </div>
+                    <div class="caption">
+                        <h3><a href="#">Empower People, HCM</a></h3>
+                        <p>Donec id elit non mi porta gravida at eget metsit us. Fusce dapibus, justo sit amet risus etiam portapsum generators on the Internet tend to repeat predefined.</p>
+                        <!--<p><a class="read-more" href="#">See More</a></p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-counter-v1 parallaxBg">
+        <div class="container">
+            <h2 class="title-v2 title-light title-center">La Romería en Números</h2>
+            <p class="space-xlg-hor text-center color-light">La Romería de Valme es la tercera más importante de todo el territorio nacional.</p>
+
+            <div class="margin-bottom-40"></div>
+
+            <div class="row margin-bottom-10">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">10629</span>
+                        <h4>Romeros</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">277</span>
+                        <h4>Carretas</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">78</span>
+                        <h4>Galeras</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="counters">
+                        <span class="counter">109</span>
+                        <h4>Caballistas</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-grey content-sm">
+        <div class="container text-center">
+            <h2 class="title-v2 title-center">Conoce la fotogalería de la Romería</h2>
+            <p class="space-lg-hor">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p><br>
+            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Ir a fotogalería</a>
+        </div>
+    </div>
+
+
+    <ul class="list-unstyled row portfolio-box-v1">
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1943.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1943</p>
+            </div>
+        </li>
+
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/7.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>La Romería</h3>
+                <p>Año 2010</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1935.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1935</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/virgen.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Virgen de valme</h3>
+                <p>Saliendo de la Ermita de Cuarto</p>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled row portfolio-box-v1">
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/5.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>La carreta de la Virgen</h3>
+                <p>Rodeada de romeros que la acompañan</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/6.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>La Virgen</h3>
+                <p>Acompañada de sus fieles y devotos</p>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/3.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>parada de carretas y galeras</h3>
+            </div>
+        </li>
+        <li class="col-md-3 col-sm-6">
+            <img class="img-responsive" src="assets/img/sliders/romeria/1954.jpg" alt="">
+            <div class="portfolio-box-v1-in">
+                <h3>Romería de Valme</h3>
+                <p>Año 1954</p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="bg-grey content-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="title-v2">GUÍA TURÍSTICA</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p><br>
+                    <!--<a href="#" class="btn-u btn-brd btn-brd-hover btn-u-dark">Read More</a>
+                    <a href="#" class="btn-u">Purchase Now</a>-->
+                </div>
+                <div class="col-md-6">
+                    <img class="img-responsive" src="assets/img/sliders/romeria/turistica.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--=== Footer v2 ===-->
+    <div id="footer-v2" class="footer-v2">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Sobre la Hermandad</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="#">Inicio</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Reglas</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Contacto</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Aviso Legal</a><i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div>
+
+                    <!-- About -->
+                    <div class="col-md-6 md-margin-bottom-40">
+                        <a href="index.html"><img id="logo-footer" class="footer-logo" src="assets/img/sliders/romeria/escudo.jpg" alt=""></a>
+                        <p class="margin-bottom-20">Pontificia, Real e Ilustre hermandad de Nuestra Señora de Valme Coronada y San Fernando.</p>
+
+
+                    </div>
+                    <!-- End About -->
+
+                    <!-- Link List -->
+
+                    <!-- End Link List -->
+
+                    <!-- Latest Tweets -->
+
+                    <!-- End Latest Tweets -->
+
+                    <!-- Address -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Contacto</h2></div>
+                        <address class="md-margin-bottom-40">
+                            <i class="fa fa-home"></i>Avda. de Andalucía s/n<br />
+                            Apartado de correos 254<br />
+                            41700 | Dos Hermanas (Sevilla)<br />
+                            <i class="fa fa-phone"></i> 800 123 3456 <br />
+                            <i class="fa fa-envelope"></i> <a>info@hermandaddevalme.es</a>
+                        </address>
+
+                        <!-- Social Links -->
+                        <ul class="social-icons">
+                            <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+                            <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+                            <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+                        </ul>
+                        <!-- End Social Links -->
+                    </div>
+                    <!-- End Address -->
+                </div>
+            </div>
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            &copy; 2015 Hermandad de Valme | Developed By <a target="_blank" href="http://www.10code.es"><img src="http://10code.es/img/logo.png" style="max-width: 100px; max-height: 23px; "/></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery/jquery.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery/jquery-migrate.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/bootstrap/js/bootstrap.min.js')); ?>"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/back-to-top.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/smoothScroll.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/jquery.parallax.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/counter/waypoints.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/counter/jquery.counterup.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js')); ?>"></script>
+
+<script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        FancyBox.initFancybox();
+    });
+</script>
+
+<!-- JS Customization -->
+<script type="text/javascript" src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="<?php echo e(asset('assets/js/app.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/revolution-slider.js')); ?>"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initCounter();
+        App.initParallaxBg();
+        RevolutionSlider.initRSfullScreenOffset();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="<?php echo e(asset('assets/plugins/respond.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/html5shiv.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/placeholder-IE-fixes.js')); ?>"></script>
+<![endif]-->
+
+</body>
+</html>
+
+

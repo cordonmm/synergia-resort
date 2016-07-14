@@ -1,0 +1,389 @@
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Valme en Sevilla | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">Valme en Sevilla</h2>
+
+                <p>
+                    Aunque habitualmente se vincula a la Virgen de Valme con Dos Hermanas, no es menos cierto
+
+                    que, a lo largo de la historia, existe una continua relación de esta advocación mariana con la
+
+                    ciudad de Sevilla.
+                </p>
+                <p>
+                    De hecho, como es bien conocido, el origen de la devoción se remonta a la época de la
+
+                    reconquista de la ciudad por el Santo Rey Fernando III, a quien se debe la edificación de la
+
+                    primitiva ermita de Cuartos, en un enclave que está equidistante, justo a una legua, tanto de
+
+                    Sevilla como de Dos Hermanas.
+                </p>
+
+                <p>
+                    Así lo recoge, por ejemplo, Diego Ortiz de Zúñiga en sus "Anales de Sevilla" (Madrid, 1795),
+
+                    donde se menciona varias veces a la Virgen de Valme. Concretamente, en el año 1616 este
+
+                    cronista hace memoria de las ermitas que por entonces existían en la capital hispalense: "Y si
+
+                    nos apartásemos un poco de la ciudad, por ermitas suyas pudiéramos contar la de Nuestra
+
+                    Señora del Valme, cerca del heredamiento de Quartos, donde estuvo la tienda, pabellón real y
+
+                    oratorio de San Fernando, que piadosa imprecación suya a la Reina de los Ángeles, Valme,
+
+                    Valme, podemos entender que dio el título desde entonces en veneración digna..." (tomo IV,
+
+                    pág. 260).
+                </p>
+
+                <p>
+                    También José Alonso Morgado, en su clásico libro sobre la historia de Nuestra Señora de
+
+                    Valme (pág. 84), incluye la siguiente cita: "Se lee en la vida del venerable padre Fray Diego
+
+                    Pérez, del convento de la Victoria, en Triana, que siendo jovencito y estudiante, por los años de
+
+                    1666, era muy devoto de la Santísima Virgen, a la que celebraba en su propia casa ante una
+
+                    estampa colocada en un pequeño altar. Fueron a la sazón su madre y una tía suya a cumplir
+
+                    cierta promesa hecha a Nuestra Señora de Valme, cuyo Santuario se halla a vista de Sevilla, en
+
+                    el término de Dos Hermanas, quedándose al cuidado del niño y de la casa un antiguo criado...".
+
+                    El mismo autor hace alusión a la visita efectuada por el rey Felipe V al Santuario de Cuarto con
+
+                    motivo de su estancia en Sevilla, el sábado 25 de febrero de 1730, acompañado de toda la
+
+                    familia real, "para lo cual se iluminó la Capilla y se canto una Salve a la Señora".
+                </p>
+
+                <p>
+                    Este vínculo con la ciudad se afianza a partir del siglo XIX, primero con la decisiva
+
+                    intervención de los duques de Montpensier para reedificar la ermita y recuperar el culto a la
+
+                    Virgen en el Cortijo de Cuartos, y más tarde gracias al nacimiento de la otoñal Romería, que
+
+                    desde sus comienzos en 1894 atrajo a destacadas personalidades de la capital, como se destaca
+
+                    en las primeras crónicas de prensa sobre la celebración de la fiesta.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/sevilla/sevilla7.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Resulta curioso mencionar cómo en 1859 –el mismo año de la restauración de la ermita– se
+
+                                rotula en el barrio de San Bernardo una calle con el nombre de "Valme", siendo de resaltar el
+
+                                hecho de que la Virgen nazarena esté presente en el callejero de la capital mucho antes que otras
+
+                                advocaciones marianas profundamente arraigadas en Sevilla
+                            </p>
+
+                            <p>
+                                La participación de sevillanos en la Romería de Valme se acrecienta durante la década de 1920,
+
+                                cuando está documentada la presencia de carros engalanados procedentes de los barrios de San
+
+                                Julián, Puerta Osario, Triana y Puerta de la Carne (ver ABC de Sevilla, 22 de octubre de 1929).
+
+                                En efecto, cada año, tras su celebración, la Romería ocupaba portadas y páginas de las más
+
+                                prestigiosas revistas gráficas de ámbito nacional, y los diarios sevillanos le dedicaban extensas
+
+                                crónicas, también ampliamente ilustradas. Incluso, durante los días previos se generaba cierta
+
+                                expectación, pues se avanzaba el programa de actos, se insertaban anuncios animando a la
+
+                                participación en la fiesta y se informaba del servicio especial de “autocamiones” que, con salida
+
+                                desde la Puerta de Jerez, facilitaría el desplazamiento de los sevillanos que quisieran acudir al
+
+                                Cortijo de Cuarto. Como buen ejemplo de ello, nos vale esta llamativa exhortación que publicó
+
+                                El Correo de Andalucía el 16 de octubre de 1926: “¡Sevillanos, si queréis pasar un día alegre y
+
+                                hermoso, concurrid mañana domingo al Santuario del Cortijo de Cuarto! ¡Sevillanos, no faltéis
+
+                                mañana a la devota Romería de Valme, que tan unida está a vosotros la historia de la
+
+                                Reconquista de Sevilla con la Virgen de Valme! ¡Sevillanos, no faltéis mañana domingo a la
+
+                                Romería de Valme!”.
+                            </p>
+
+                            <p>
+                                La consideración de la Romería como fiesta sevillana, dentro del calendario festivo de la capital,
+
+                                aparece consagrada, por ejemplo, en el conocido libro "Sevilla en fiestas", publicado en 1948
+
+                                por Luis Ortiz Muñoz y Luis Arenas Ladislao, donde se incluye un amplio capítulo sobre ella.
+
+                                Precisamente, en ese mismo año sucedió un hecho sin parangón que viene a confirmar esa
+
+                                vinculación histórica entre Valme y Sevilla. Nos referimos a la participación de la Virgen en la
+
+                                magna procesión conmemorativa del séptimo centenario de la reconquista de la ciudad, que tuvo
+
+                                lugar el 23 de noviembre de 1948. Para ello, y atendiendo a la invitación del cardenal Segura, la
+
+                                imagen de la Protectora de Dos Hermanas fue trasladada expresamente hasta la catedral de
+
+                                Sevilla, donde permaneció tres días, figurando en primer lugar en el cortejo de imágenes
+
+                                fernandinas que cerraba la Virgen de los Reyes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                En la década de 1950, se funda en la parroquia del Sagrado Corazón del barrio de Bellavista una
+
+                                hermandad para rendir culto al Santísimo Sacramento y a Nuestra Señora de Valme, atendiendo
+
+                                a la devoción de los vecinos de esa zona hacia la Virgen. Ha de recordarse que este barrio
+
+                                sevillano perteneció al término municipal de Dos Hermanas hasta su segregación en 1937, y que
+
+                                el mismo se encuentra en el entorno del Cortijo de Cuarto. Por esta razón, en la mencionada
+
+                                parroquia de Bellavista existe una imagen de la Virgen de Valme, realizada en 1955 por el
+
+                                escultor José Pérez Conde, de las Escuelas Profesionales Salesianas. Imagen que salía
+
+                                procesionalmente por las calles del barrio en el mes de septiembre, llegando a presidir, incluso,
+
+                                el altar de las hermandades de gloria en la procesión del Corpus del año 2004, por designación
+
+                                del Consejo de Hermandades y Cofradías.
+                            </p>
+
+                            <p>
+                                Hablando de Valme y Sevilla, no hay que olvidar –ciertamente– que la Romería se adentra cada
+
+                                año en término de la capital hispalense, siendo por tanto "la romería sevillana por excelencia y
+
+                                razón histórica", como bien la definió el insigne poeta Joaquín Romero Murube cuando dio el
+
+                                pregón de Valme en el año 1969.
+                            </p>
+
+                            <p>
+                                Esta fecha también ha de señalarse en el elenco de hitos que evidencian la relación de la
+
+                                Protectora de Dos Hermanas con Sevilla, pues ese mismo año se rotuló la calle que da acceso
+
+                                desde Bellavista al Cortijo de Cuarto con el nombre de "Camino de la Ermita de la Virgen de
+
+                                Valme", a petición del párroco de dicho barrio, del presidente de la Diputación Provincial
+
+                                –propietaria de los terrenos de Cuarto– y de numerosos vecinos de la zona. También existe allí
+
+                                una plaza denominada "Nuestra Señora de Valme".
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/sevilla/sevilla8.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/sevilla/sevilla6.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                La época previa y posterior a la Coronación Canónica de la Virgen también fue demostrativa de
+
+                                este vínculo histórico con la ciudad del Guadalquivir, como lo demuestra la presencia de las
+
+                                autoridades de la capital en el acto de la Coronación, así como en la Romería de 1979, tras la
+
+                                constitución de los primeros ayuntamientos de la nueva etapa democrática.
+                            </p>
+
+                            <p>
+                                Por otra parte, en 1971, la Diputación Provincial de Sevilla acordó que el nuevo hospital
+
+                                médico-quirúrgico a construir en terrenos aledaños al Cortijo de Cuarto se denominara "Nuestra
+
+                                Señora de Valme". Tras diversas vicisitudes, el 13 de marzo de 1982 quedó inaugurado este
+
+                                centro sanitario, ya bajo la tutela de la Seguridad Social y con la consideración de hospital
+
+                                universitario de especialidades. Coincidiendo con su 25 aniversario, en el año 2007 se erigió un
+
+                                monumento conmemorativo en la puerta principal del popularmente conocido como Hospital de
+
+                                Valme, que está inspirado en la ventana (ajimez) de la fachada del Real Santuario de Cuarto.
+
+                                Además, en la capilla del hospital existe un gran cuadro de la Virgen de Valme, donado por la
+
+                                Hermandad, que recibe a diario numerosas plegarias y flores de quienes invocan a María como
+
+                                "Salud de los enfermos".
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Otro cuadro de la Protectora de Dos Hermanas se encuentra en la Parroquia de San Bernardo,
+
+                                donado por una familia devota de la Virgen, que asistía cada año a la Romería. Esta presencia
+
+                                responde, también, al vínculo histórico de tan castizo barrio con el rey San Fernando y la época
+
+                                de la reconquista, pues es tradición que en esa zona se asentó uno de los campamentos de las
+
+                                tropas cristianas durante el asedio a Sevilla, como lo recuerda el nombre de sus calles: Santo
+
+                                Rey, Campamento, Gallinato, Tentudía, Valme...
+                            </p>
+
+                            <p>
+                                Más recientemente, en el año 2014, se ha entronizado en la Parroquia de San Lorenzo Mártir de
+
+                                la capital hispalense una réplica en miniatura de la talla de Nuestra Señora de Valme, realizada
+
+                                por el imaginero nazareno Antonio Luis Troya Román y expuesta al culto en el altar de San
+
+                                José, cerca de la capilla sacramental de este templo sevillano. Esta iniciativa se ha debido al
+
+                                actual párroco de San Lorenzo, Rvdo. D. Francisco de los Reyes Rodríguez López, natural de
+
+                                Dos Hermanas, por ser esta iglesia una de las erigidas tras la conquista de la ciudad por San
+
+                                Fernando. Vinculados a la collación y feligresía de San Lorenzo estuvieron, por cierto,
+
+                                personajes importantes para la historia de la devoción a la Virgen de Valme, como José
+
+                                Lamarque de Novoa (que fue hermano mayor de la Soledad de San Lorenzo), el cardenal don
+
+                                Marcelo Spínola (que fue párroco de San Lorenzo y ya siendo arzobispo aprobó el
+
+                                nombramiento como Protectora de Dos Hermanas) y el poeta Joaquín Romero Murube (muy
+
+                                ligado también a la Hermandad de la Soledad).
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/sevilla/sevilla4.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/sevilla/sevilla1.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div>
+                            <p>
+                                Otras presencias de Valme en Sevilla que deben destacarse son el retablo cerámico existente en
+
+                                la calle Alcaicería, obra de Emilio Palacios, y la cartela trasera del paso de misterio de la
+
+                                Hermandad de las Siete Palabras, realizada por el imaginero nazareno Salvador Madroñal Valle
+
+                                –propietario de la cerámica que acabamos de mencionar–, donde aparece representada la escena
+
+                                de la rendición del rey moro Axataf a San Fernando, mientras un ángel sostiene en sus manos la
+
+                                talla de la Virgen de Valme, ofreciéndosela al Santo Conquistador.
+                            </p>
+
+                            <p>
+                                Hay, finalmente, un aspecto curioso –no muy conocido– que simboliza esta vinculación que
+
+                                hemos tratado de sintetizar aquí: en la corona de oro de Nuestra Señora de Valme, con la que
+
+                                fue coronada canónicamente el 23 de junio de 1973 por el cardenal Bueno Monreal, aparece  el
+
+                                escudo de Dos Hermanas (en el frontal) y el de Sevilla (en la trasera), como queriendo reflejar
+
+                                esa histórica equidistancia de la antigua ermita de Cuartos, donde nació el culto a la Señora del
+
+                                Valimiento, a una legua tanto de la capital como del pueblo que, hace ya muchos siglos, la
+
+                                eligió por Reina y Madre.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,90 @@
+
+
+<?php $__env->startSection('title'); ?>
+
+    Prácticas de UE
+    @parent
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php /* content */ ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title -->
+                <div class="col-sm-6 col-xs-12">
+                    <h1>Prácticas de UE</h1>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div>
+
+    <section class="mt40 mb40">
+        <div class="container">
+            <div class="row">
+                <div align="justify" class="col-sm-8">
+                    <div class="heading mt30-xs"><h3>Prácticas de UE</h3></div>
+                    <p>
+                        En el año 2004 tres alumnos del ciclo de grado superior de Desarrollo de Aplicaciones 
+
+                        Informáticas hicieron su formación en centros de trabajo en Italia, gracias a los proyectos 
+                        
+                        promovidos por la Consejería de Educación. Desde entonces el IES Hermanos Machado se ha 
+                        
+                        convertido en un referente nacional en el impulso  de este tipo de movilidades facilitadas 
+                        
+                        antes por el Programa de Aprendizaje Permanente y ahora por Erasmus+.
+                    </p>
+
+                    <p>
+                        Se trabaja tanto con proyectos propios (KA102 y KA103) como con consorcios con el Excmo. 
+
+                        Ayuntamiento de Dos Hermanas y con la Consejería de Educación.
+                    </p>
+
+                    <p>
+                        Los alumnos de los tres ciclos del centro han realizado prácticas en: Italia, Holanda, Alemania, 
+
+                        Francia, Irlanda y Polonia
+                    </p>
+                    
+                    <p>Proyectos realizados:</p>
+                    <!--<div class="lead mb10">Donec eget pretium eros, non mollis erat. Suspendisse sit amet nibh ut velit viverra sodales ut sit amet elit.</div>-->
+                    
+                    <p>
+                    Como detalle a destacar es que con el paso de los años ya hemos tenido un alumno que hizo la 
+
+                    FCT en Italia y ha sido tutor laboral de otro alumno en Lyon.
+                    </p>
+                    
+
+                </div>
+                <div class="col-sm-4">
+                    <img width="100%" class="image-responsive" src="<?php echo asset('template/images/ue.jpg'); ?>" />
+                </div><!-- /column -->
+            </div>
+        </div>
+
+    </section>
+
+    <div class="cta2 arrow-up">
+        <div class="text-center"><!-- //add container, columns, or rows if needed. -->
+
+        </div>
+    </div>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

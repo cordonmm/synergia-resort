@@ -1,0 +1,411 @@
+
+<?php /* Web site Title */ ?>
+<?php $__env->startSection('title'); ?>
+    Valme y Dos Hermanas | Hermandad de Valme
+    @parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Sede</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Hermandad</a></li>
+                <li class="active">Sede</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row">
+
+            <div class="col-md-12" align="justify">
+                <h2 class="title-v2">Valme y Dos Hermanas</h2>
+
+                <p>
+                    No resulta fácil resumir en pocas líneas la relación que une a Valme y Dos Hermanas. Suele 
+
+                    decirse, a modo de tópico, que "Valme es Dos Hermanas y Dos Hermanas es Valme". Hasta ese 
+                    
+                    punto se identifican –como eterno binomio– la Virgen y su pueblo, pues la historia de amor que 
+                    
+                    los une es ciertamente especial, constante y profunda. Como la de una Madre con sus hijos. 
+                    
+                    Porque, siendo una imagen sagrada, la Virgen de Valme es mucho más que eso para las mujeres 
+                    
+                    y hombres nazarenos, que la tienen como Celestial Protectora. Ella encarna la esencia misma de 
+                    
+                    esa colectividad que, generación tras generación, ha sabido mantener con absoluta fidelidad un 
+                    
+                    amor con mayúsculas hacia la Madre común; amor que los nazarenos han transmitido de padres 
+                    
+                    a hijos, renovándolo con inusitada fuerza y esplendor a lo largo de los siglos.
+                </p>
+                
+                <br />
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh5.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh5.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh9.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh9.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh2.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh2.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>                   
+                    
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-4">
+                        
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh10.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Valme y Dos Hermanas son inseparables, como alguien escribió una vez con notable acierto. En
+
+                                una "ciudad dormitorio" como lo es actualmente la antigua villa nazarena, con más de 140.000 
+                                
+                                habitantes venidos en su mayoría de otros lugares, Valme es sin duda la seña de identidad más 
+                                
+                                robusta y arraigada, el nexo de unión que imprime carácter y unifica a la ciudad en torno a 
+                                
+                                historia, tradición, sentimientos, emociones y religiosidad. En una población tan compleja, 
+                                
+                                variada y dispersa, que ha crecido a pasos agigantados durante las últimas décadas, es el gran 
+                                
+                                signo de identidad común, que da sentido de unidad a nuestro pueblo y constituye, en definitiva, 
+                                
+                                su principal referente simbólico. Así, el nombre de Valme es reconocido fuera de nuestros 
+                                
+                                límites como algo que se empareja indisolublemente con Dos Hermanas. También, Valme es el 
+                                
+                                precioso lazo de unión de aquellas personas que, por motivos muchas veces no deseados, 
+                                
+                                tuvieron que abandonar la ciudad en algún momento. Y en torno al tercer domingo de octubre 
+                                
+                                siempre vuelven para revivir, sentir y recordar sus más hondas experiencias como nazarenos 
+                                
+                                junto a su singular Valedora.
+                            </p>
+
+                            <p>
+                                Este amor fraguado a lo largo de casi siete siglos cristalizó en la creación de la Romería, como 
+
+                                la más perfecta ofrenda que los nazarenos han conseguido hacer a la Señora de Valme. Desde 
+                                
+                                finales del siglo XIX, la historia del amor a Valme es en buena medida la historia de su ya 
+                                
+                                centenaria Romería, que renace cada año en torno al valimiento de María y nos trae el recuerdo 
+                                
+                                renovado de esas grandes páginas que, a lo largo de la historia, ha escrito el pueblo de Dos 
+                                
+                                Hermanas para su Reina, Madre y Protectora.
+                            </p>
+
+                            <p>
+                                Es, precisamente, este último título el que refleja la primacía devocional lograda por la Virgen 
+
+                                de Valme desde su traslado definitivo a la Parroquia de Santa María Magdalena, que casi 
+                                
+                                podríamos decir que fue forzado por el amor de su pueblo, pues los nazarenos necesitaban tener 
+                                
+                                a su Madre cerca, a diario junto a ellos, y no distante en el Cortijo de Cuarto, donde radica su 
+                                
+                                primitiva casa. A partir de entonces, la Señora tuvo un santuario indestructible, formado no por 
+                                
+                                piedras históricas, sino por piedras vivas: los corazones de sus hijos e hijas de Dos Hermanas, 
+                                
+                                que acabaron proclamándola como Especial Protectora en el año 1897, por iniciativa del 
+                                
+                                Ayuntamiento nazareno, a propuesta del entonces alcalde, Francisco Ávila Ramos.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <p>
+                    Así se consolidó una fecunda relación entre la Virgen y el Municipio, que décadas después 
+
+                    trataría de honrarla también con el título de Alcaldesa Honoraria y Perpetua, finalmente 
+                    
+                    frustrado por circunstancias políticas que no viene al caso reseñar. En cambio, sí pudo 
+                    
+                    proclamarla Patrona de la Excma. Corporación Municipal, por acuerdo unánime del Consistorio 
+                    
+                    adoptado el 17 de agosto de 1964 y hecho efectivo el 31 de mayo del año siguiente, día en el 
+                    
+                    que entonces se celebraba la fiesta de Santa María Reina. Y para perpetuar este nombramiento, 
+                    
+                    entre otras ofrendas, el Ayuntamiento presidido por Antonio Muñoz Rivero acordó levantar en 
+                    
+                    su honor un Monumento en la popular "Plazoleta" –la plaza de Menéndez y Pelayo–, que fue 
+                    
+                    inaugurado solemnemente por el cardenal Bueno Monreal en octubre de 1970.
+                </p>
+
+                <br />
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>
+                            <a style="max-height: 472px;" href="<?php echo e(asset('template/images/design/dh/dh12.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh12.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh7.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh7.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh3.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                Poco después, el pueblo de Dos Hermanas recibía con extraordinario gozo la noticia de la 
+
+                                Coronación Canónica de su Virgen, el acontecimiento más importante de toda esta historia, 
+                                
+                                logrado no sin esfuerzo, que se hizo patente en la hermosa presea donde quedaron prendidos 
+                                
+                                para siempre los anhelos, fervores y plegarias de todos los nazarenos, quienes contribuyeron con 
+                                
+                                generosas donaciones a hacer realidad esa corona soñada.
+                            </p>
+
+                            <p>
+                                Mas la historia de ese amor que vincula perpetuamente a Dos Hermanas y Valme ha seguido 
+
+                                escribiendo páginas bellísimas en las postrimerías del siglo XX y en los albores del XXI. No es 
+                                
+                                posible mencionarlas aquí todas, pues son incontables las muestras de devoción de los 
+                                
+                                nazarenos hacia su Madre, tanto día a día con las continuas visitas a su capilla como en la anual 
+                                
+                                Romería y en ocasiones extraordinarias (peregrinaciones a Cuarto en junio cada siete años, 
+                                
+                                procesiones conmemorativas de la Coronación, etc.). Baste recordar ahora que, en 1994, se 
+                                
+                                celebró el Centenario de la primera Romería de Valme, con cuyo motivo el Ayuntamiento de 
+                                
+                                Dos Hermanas, por unanimidad de todos los concejales reunidos en el Pleno municipal, acordó 
+                                
+                                otorgar a la Virgen de Valme la Primera Medalla de Oro de la Ciudad, que le fue impuesta por 
+                                
+                                el alcalde, Francisco Toscano Sánchez, el 14 de octubre de 1995.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+
+
+                    <div class="col-md-8">
+                        <div>
+                            <p>
+                                La motivación del acuerdo plenario que aprobó esta alta distinción es muy expresiva de ese 
+
+                                intenso vínculo entre Valme y Dos Hermanas, que no tiene igual: <i>"La Romería de Valme no es, 
+                                
+                                simplemente, un acto folklórico ni una fecha arbitraria en el calendario de Dos Hermanas. Es 
+                                
+                                la manifestación cronológica y puntual de una tradición que tiene más de setecientos años. En 
+                                
+                                efecto, el nombre de Valme enlaza directamente con el episodio histórico en que al reino árabe 
+                                
+                                implantado en Sevilla en el siglo VIII le sucede una civilización distinta, la que aportaron los 
+                                
+                                ejércitos castellanos mandados por el rey Fernando III… Desde aquellos tiempos lejanos, nadie 
+                                
+                                como Dos Hermanas ha sabido valorar lo que significa en la Historia el nombre de Valme. Y 
+                                
+                                durante muchos siglos, los hombres y mujeres nazarenos han tenido en la antiquísima imagen 
+                                
+                                de la Virgen de Valme su punto de referencia, el lugar donde han acudido siempre cuando las 
+                                
+                                necesidades o las angustias de la vida necesitaron un apoyo que manos humanas difícilmente 
+                                
+                                brindarían".</i>
+                            </p>
+
+                            <p>
+                                Y como último hito a reseñar en esta historia, al cumplirse el 30º aniversario de la Coronación, 
+
+                                de nuevo por iniciativa del Ayuntamiento, se colocó un artístico relieve de bronce en la plaza 
+                                
+                                del Arenal, conmemorando el histórico acontecimiento vivido allí el 23 de junio de 1973. Esta 
+                                
+                                magna obra fue bendecida e inaugurada por el cardenal fray Carlos Amigo Vallejo el 12 de 
+                                
+                                octubre de 2003, con asistencia del Sr. Alcalde y miembros de la Excma. Corporación 
+                                
+                                Municipal.
+                            </p>
+                            
+                            <p>
+                                Pero no solo en el Arenal. La presencia de la Virgen de Valme en las calles nazarenas es bien
+
+                                profusa y cotidiana. Desde la céntrica "calle Real" –rotulada como "Nuestra Señora de Valme" 
+                                
+                                en 1897– hasta el arco de acceso a la Barriada "Nuestra Señora de Valme" (conocida 
+                                
+                                popularmente como las "Casas Baratas"), pasando por infinidad de rótulos comerciales, azulejos 
+                                
+                                y retablos cerámicos, dispersos por toda la geografía del municipio: el antiguo de la calle 
+                                
+                                Canónigo, donde la Virgen aparece con el manto de castillos y leones (presidiendo la casa que 
+                                
+                                fue residencia de la familia Baena de León-Molina, tan vinculada a Valme); el de la otrora 
+                                
+                                "Cruz de los Caídos" (hoy "Monumento a la Fraternidad", junto al Ayuntamiento); el que 
+                                
+                                corona la fachada principal de "La Almona" al inicio de la calle Real Utrera; el que recuerda la 
+                                
+                                Romería en la calle Real; el más grande de todos, que hace presente a la Señora en las antiguas 
+                                
+                                Escuelas del Ave María (hoy sede de la Casa-Hermandad de Valme), entre otros muchos...
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh8.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+                
+                <br />
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh1.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh1.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <a href="<?php echo e(asset('template/images/design/dh/dh6.jpg')); ?>" rel="gallery" class="fancybox img-hover-v1" title="">
+                                <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh6.jpg')); ?>" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div>
+                            <img class="img-responsive" src="<?php echo e(asset('template/images/design/dh/dh4.jpg')); ?>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div>
+                            <p>
+                                También, en 1987, fue erigida la parroquia de Nuestra Señora de Valme y Beato Marcelo
+
+                                Spínola, en el barrio de La Motilla, llegando así hasta la periferia de la ciudad el bendito nombre 
+                                
+                                de Nuestra Madre, que además quedó unido en el nuevo templo al del santo prelado hispalense 
+                                
+                                que aprobó su nombramiento como Especial Protectora de la villa nazarena.
+                            </p>
+
+                            <p>
+                                Una mención especial merecen aquí las hermandades y cofradías de Dos Hermanas, en cuyo
+
+                                patrimonio está también muy presente la Virgen de Valme: simbólicamente, a través de la 
+                                
+                                representación de la Ermita de Cuarto, en las bambalinas de la Virgen de la Estrella; en la 
+                                
+                                delantera del palio de María Santísima de la Esperanza, en el gloria del palio de Ntra. Sra. del 
+                                
+                                Amor y Sacrificio, en el frontal de los respiraderos de la Virgen de los Dolores, en los de María 
+                                
+                                Santísima del Mayor Dolor, en la trasera del paso de misterio de la Amargura... E incluso 
+                                
+                                acompañando en su caminar al Bendito Simpecado de la Hermandad del Rocío...
+                            </p>
+
+                            <p>
+                                Y así, día a día, momento a momento, gracias a la devoción constante de los nazarenos y 
+
+                                nazarenas, se sigue construyendo y engrandeciendo esa eterna historia de amor que une para 
+                                
+                                siempre a Dos Hermanas con su Reina, Madre y Protectora, la Santísima Virgen de Valme.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+            <script type="text/javascript" src="<?php echo e(asset('assets/plugins/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
+            <script type="text/javascript" src="<?php echo e(asset('assets/js/plugins/fancy-box.js')); ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    FancyBox.initFancybox();
+                });
+            </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('site.layouts.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
