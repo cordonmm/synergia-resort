@@ -54,6 +54,7 @@ return array(
     'CreateEnlacesTable' => $baseDir . '/app/database/migrations/2014_03_05_043506_create_enlaces_table.php',
     'CreateEntradasTable' => $baseDir . '/app/database/migrations/2014_03_05_043505_create_entradas_table.php',
     'CreateEventosTable' => $baseDir . '/app/database/migrations/2014_04_05_043505_create_eventos_table.php',
+    'CreateReservaTable' => $baseDir . '/app/database/migrations/2016_07_15_062757_create_reserva_table.php',
     'CreateTutoria' => $baseDir . '/app/database/migrations/2016_03_09_110447_create_tutoria.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
