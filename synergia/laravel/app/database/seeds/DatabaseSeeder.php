@@ -1,18 +1,1 @@
-<?php
-
-class DatabaseSeeder extends Seeder {
-
-    public function run()
-    {
-        Eloquent::unguard();
-
-        // Add calls to Seeders here
-        $this->call('UsersTableSeeder');
-        $this->call('EntradasTableSeeder');
-        $this->call('RolesTableSeeder');
-        $this->call('PermissionsTableSeeder');
-        $this->call('CarpetasTableSeeder');
-        $this->call('EnlacesTableSeeder');
-    }
-
-}
+<?phpclass DatabaseSeeder extends Seeder {    public function run()    {        Eloquent::unguard();        DB::statement('SET FOREIGN_KEY_CHECKS=0');        // Add calls to Seeders here        $this->call('UsersTableSeeder');        $this->call('EntradasTableSeeder');        $this->call('RolesTableSeeder');        $this->call('PermissionsTableSeeder');        $this->call('CarpetasTableSeeder');        $this->call('EnlacesTableSeeder');        DB::statement('SET FOREIGN_KEY_CHECKS=1');    }}
