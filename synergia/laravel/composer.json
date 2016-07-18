@@ -20,7 +20,8 @@
         "thujohn/twitter": "~2.0",
         "sammyk/laravel-facebook-sdk": "~1.1",
         "greggilbert/recaptcha": "~1.1",
-        "guzzlehttp/guzzle": "~4.0"
+        "guzzlehttp/guzzle": "~4.0",
+        "paypal/rest-api-sdk-php": "v1.6.1"
 
     },
     "require-dev": {

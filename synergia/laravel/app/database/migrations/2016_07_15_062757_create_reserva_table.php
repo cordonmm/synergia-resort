@@ -21,9 +21,7 @@ class CreateReservaTable extends Migration {
             $table->date('fecha_fin');
             $table->string('nombre');
             $table->string('email');
-            $table->string('apellido');
             $table->string('telefono');
-            $table->string('observaciones');
             $table->string('dni');
             $table->integer('adultos');
             $table->integer('ninos');
