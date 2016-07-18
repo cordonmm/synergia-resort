@@ -90,5 +90,20 @@ class AdminReservasController extends \BaseController {
 		//
 	}
 
+    public function getData(){
+        $reservas = Reserva::select(array('reservas.id', 'reservas.fecha_ini', 'reservas.fecha_fin', 'reservas.telefono', 'reservas.email', 'reservas.nombre'));
+
+        return Datatables::of($reservas)
+
+            ->add_column('actions',
+                '<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+            	<a href="{{{ URL::to(\'admin/entradas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>'
+            )
+
+            ->remove_column('id')
+
+            ->make();
+    }
+
 
 }

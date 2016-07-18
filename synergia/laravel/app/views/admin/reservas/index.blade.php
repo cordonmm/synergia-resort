@@ -21,7 +21,7 @@
         </h3>
     </div>
 
-    <table id="entradas" class="table table-striped table-hover">
+    <table id="reservas" class="table table-striped table-hover">
         <thead>
         <tr>
             <th class="col-md-2">fecha_ini</th>
@@ -33,34 +33,16 @@
         </tr>
         </thead>
         <tbody>
-            @if(count($data['reservas']) > 0)
-                @foreach($data['reservas'] as $reserva)
-                    <tr>
-                        <td class="col-md-2">{{$reserva->fecha_ini}}</td>
-                        <td class="col-md-2">{{$reserva->fecha_fin}}</td>
-                        <td class="col-md-2">{{$reserva->telefono}}</td>
-                        <td class="col-md-2">{{$reserva->email}}</td>
-                        <td class="col-md-2">{{$reserva->nombre}}</td>
-                        <td class="col-md-2"><a href="{{URL::to('admin/reservas/'.$reserva->id.'/edit')}}" class="btn btn-xs btn-default">Editar</a> <a href="#" class="btn btn-xs btn-danger">Borrar</a></td>
-                    </tr>
-                @endforeach
-            @else
-                <tr>
-                    <th class="col-md-12">
-                        No se encontraron registros.
-                    </th>
-                </tr>
-            @endif
         </tbody>
     </table>
 @stop
 
 {{-- Scripts --}}
 @section('scripts')
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         var oTable;
         $(document).ready(function() {
-            oTable = $('#entradas').dataTable( {
+            oTable = $('#reservas').dataTable( {
                 "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
@@ -68,11 +50,11 @@
                 },
                 "bProcessing": true,
                 "bServerSide": true,
-                "sAjaxSource": "{{ URL::to('admin/entradas/data') }}",
+                "sAjaxSource": "{{ URL::to('admin/reservas/data') }}",
                 "fnDrawCallback": function ( oSettings ) {
                     $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
                 }
             });
         });
-    </script>-->
+    </script>
 @stop
