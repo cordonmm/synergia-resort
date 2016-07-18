@@ -150,3 +150,43 @@ Stack trace:
 #21 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #22 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
 #23 {main} [] []
+[2016-07-18 12:19:25] production.ERROR: 500 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_up' in 'field list' (SQL: insert into `configuraciones` (`created_up`, `precio`, `updated_up`) values (2016-07-18 12:19:25, 1000, 2016-07-18 12:19:25)) @ /
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_up' in 'field list'' in C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:369
+Stack trace:
+#0 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(369): PDO->prepare('insert into `co...')
+#1 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(617): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `co...', Array)
+#2 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(581): Illuminate\Database\Connection->runQueryCallback('insert into `co...', Array, Object(Closure))
+#3 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(370): Illuminate\Database\Connection->run('insert into `co...', Array, Object(Closure))
+#4 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(327): Illuminate\Database\Connection->statement('insert into `co...', Array)
+#5 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1894): Illuminate\Database\Connection->insert('insert into `co...', Array)
+#6 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\app\database\seeds\ConfiguracionesTableSeeder.php(26): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(37): ConfiguracionesTableSeeder->run()
+#8 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\app\database\seeds\DatabaseSeeder.php(31): Illuminate\Database\Seeder->call('Configuraciones...')
+#9 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Console\SeedCommand.php(57): DatabaseSeeder->run()
+#10 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#11 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
+#17 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_up' in 'field list' (SQL: insert into `configuraciones` (`created_up`, `precio`, `updated_up`) values (2016-07-18 12:19:25, 1000, 2016-07-18 12:19:25))' in C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:625
+Stack trace:
+#0 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(581): Illuminate\Database\Connection->runQueryCallback('insert into `co...', Array, Object(Closure))
+#1 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(370): Illuminate\Database\Connection->run('insert into `co...', Array, Object(Closure))
+#2 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(327): Illuminate\Database\Connection->statement('insert into `co...', Array)
+#3 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1894): Illuminate\Database\Connection->insert('insert into `co...', Array)
+#4 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\app\database\seeds\ConfiguracionesTableSeeder.php(26): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(37): ConfiguracionesTableSeeder->run()
+#6 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\app\database\seeds\DatabaseSeeder.php(31): Illuminate\Database\Seeder->call('Configuraciones...')
+#7 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Console\SeedCommand.php(57): DatabaseSeeder->run()
+#8 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#9 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
+#15 {main} [] []
