@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-    {{{ $data['title'] }}} :: @parent
+    Reservas :: @parent
 @stop
 
 @section('keywords')Entrys administration @stop
@@ -13,10 +13,10 @@
 @section('content')
     <div class="page-header">
         <h3>
-            {{{ $data['title'] }}}
+            Reservas
 
             <div class="pull-right">
-                <a href="{{{ URL::to('') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva reserva</a>
+                <a href="{{{ URL::to('admin/reservas/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva reserva</a>
             </div>
         </h3>
     </div>
