@@ -58,6 +58,8 @@ class AdminReservasController extends \BaseController {
         $adultos            =   e(Input::get('adultos'));
         $ninos              =   e(Input::get('ninos'));
         $precio             =   e(Input::get('precio'));
+        $fecha_ini          =   e(Input::get('fecha_ini'));
+        $fecha_fin          =   e(Input::get('fecha_fin'));
 
         DB::table('reservas')->insert(array(
             array(
@@ -68,7 +70,9 @@ class AdminReservasController extends \BaseController {
                 'adultos'           => $adultos,
                 'ninos'             => $ninos,
                 'precio'            => $precio,
-                'observaciones'     => $observaciones
+                'observaciones'     => $observaciones,
+                'fecha_ini'         => $fecha_ini,
+                'fecha_fin'         => $fecha_fin
             )
         ));
 
@@ -135,6 +139,9 @@ class AdminReservasController extends \BaseController {
         $adultos            =   e(Input::get('adultos'));
         $ninos              =   e(Input::get('ninos'));
         $precio             =   e(Input::get('precio'));
+        $fecha_ini          =   e(Input::get('fecha_ini'));
+        $fecha_fin          =   e(Input::get('fecha_fin'));
+
 
         DB::table('reservas')
             ->where('id', $id)
@@ -146,7 +153,9 @@ class AdminReservasController extends \BaseController {
                     'adultos'           => $adultos,
                     'ninos'             => $ninos,
                     'precio'            => $precio,
-                    'observaciones'     => $observaciones
+                    'observaciones'     => $observaciones,
+                    'fecha_ini'         => $fecha_ini,
+                    'fecha_fin'         => $fecha_fin
                 )
             );
 
