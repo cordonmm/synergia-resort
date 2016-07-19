@@ -91,7 +91,7 @@ class ReservaController extends \BaseController {
 
             $reserva = new Reserva();
 
-            // Update the entrada post data
+
             //nombre, apellido, telefono. observaciones, nºadultos, nºniños, dni, fecha llegada, fecha salida, precio, email
             $reserva->nombre            = Input::get('nombre');
 

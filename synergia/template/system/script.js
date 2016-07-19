@@ -111,6 +111,10 @@ $(document).ready(function () {
 			minDate: '0M',
 			numberOfMonths: months,
 			dateFormat: 'd MM yy',
+            beforeShowDay: function(date){
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [Laracasts.unavailable.indexOf(string) == -1 ]
+            },
 			onSelect: function() {
 				$('.arrival-day').html($('.arrival').val().split(' ')[0]);
 				$('.arrival-month').html($('.arrival').val().split(' ')[1]);
@@ -125,7 +129,21 @@ $(document).ready(function () {
 			minDate: '0M',
 			numberOfMonths: months,
 			dateFormat: 'd MM yy',
+            beforeShowDay: function(date){
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [Laracasts.unavailable.indexOf(string) == -1 ]
+            },
 			onSelect: function() {
+                var date = $(this).datepicker('getDate');
+                var bandera = false;
+                for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                    if(jQuery.datepicker.formatDate('yy-mm-dd', $('.arrival').datepicker('getDate'))<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
+                        bandera = true;
+                    }
+                }
+                if(bandera){
+                    $(this).datepicker('setDate',$('.arrival').datepicker('getDate'));
+                }
 				$('.departure-day').html($('.departure').val().split(' ')[0]);
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
 			}
