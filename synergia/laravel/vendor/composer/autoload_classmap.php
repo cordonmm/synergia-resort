@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminComentariosController' => $baseDir . '/app/controllers/admin/AdminComentariosController.php',
     'AdminContactoController' => $baseDir . '/app/controllers/admin/AdminContactoController.php',
     'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'AdminDashboardController' => $baseDir . '/app/controllers/admin/AdminDashboardController.php',
@@ -50,8 +51,11 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'ComentariosTableSeeder' => $baseDir . '/app/database/seeds/ComentariosTableSeeder.php',
     'ConfideSetupUsersTable' => $baseDir . '/app/database/migrations/2013_02_05_024934_confide_setup_users_table.php',
+    'ConfiguracionesTableSeeder' => $baseDir . '/app/database/seeds/ConfiguracionesTableSeeder.php',
     'CreateCarpetasTable' => $baseDir . '/app/database/migrations/2014_01_01_043505_create_carpetas_table.php',
+    'CreateComentariosTable' => $baseDir . '/app/database/migrations/2016_07_20_091602_create_comentarios_table.php',
     'CreateConfiguracionesTable' => $baseDir . '/app/database/migrations/2016_07_18_120419_create_configuraciones_table.php',
     'CreateEnlacesTable' => $baseDir . '/app/database/migrations/2014_03_05_043506_create_enlaces_table.php',
     'CreateEntradasTable' => $baseDir . '/app/database/migrations/2014_03_05_043505_create_entradas_table.php',
@@ -2413,6 +2417,7 @@ return array(
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
     'Reserva' => $baseDir . '/app/models/Reserva.php',
     'ReservaController' => $baseDir . '/app/controllers/ReservaController.php',
+    'ReservasTableSeeder' => $baseDir . '/app/database/seeds/ReservasTableSeeder.php',
     'Role' => $baseDir . '/app/models/Role.php',
     'RolesTableSeeder' => $baseDir . '/app/database/seeds/RolesTableSeeder.php',
     'SammyK\\FacebookQueryBuilder\\AccessToken' => $vendorDir . '/sammyk/facebook-query-builder/src/AccessToken.php',

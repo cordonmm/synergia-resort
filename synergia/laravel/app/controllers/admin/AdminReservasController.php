@@ -42,6 +42,53 @@ class AdminReservasController extends \BaseController {
         if($validator->fails())
             return Redirect::action('AdminReservasController@create')->withInput()->withErrors($validator);
 
+
+        $ch = curl_init("https://api.airbnb.com/v1/authorize");
+        curl_setopt($ch, CURLOPT_POST,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $access = json_decode($response,true);
+        if(array_key_exists("access_token",$access)) {
+            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response  = curl_exec($ch);
+            curl_close($ch);
+            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+            $unavailable = array();
+            foreach($calendar_days as $dia){
+                if(!$dia["available"]){
+                    array_push($unavailable,$dia["date"]);
+                }
+            }
+            //var_dump($unavailable);
+            //exit;
+        }else{
+            //var_dump(json_decode($response,true));
+            //exit;
+        }
+
+        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'), $unavailable);
+
+        if($reserva_disponible['success'] == 0){
+
+            $title = 'Crear Reserva';
+            $text_button_submit = 'Crear';
+
+            Input::flash();
+
+            return View::make('admin/reservas/create_edit', compact('title', 'text_button_submit', 'reserva_disponible'));
+
+        }
+
         //Almacenar en la BBDD
 
         if(!Input::has('observaciones')){
@@ -123,6 +170,50 @@ class AdminReservasController extends \BaseController {
         if($validator->fails())
             return Redirect::action('AdminReservasController@edit', array($id))->withErrors($validator);
 
+
+        $ch = curl_init("https://api.airbnb.com/v1/authorize");
+        curl_setopt($ch, CURLOPT_POST,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $access = json_decode($response,true);
+        if(array_key_exists("access_token",$access)) {
+            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response  = curl_exec($ch);
+            curl_close($ch);
+            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+            $unavailable = array();
+            foreach($calendar_days as $dia){
+                if(!$dia["available"]){
+                    array_push($unavailable,$dia["date"]);
+                }
+            }
+            //var_dump($unavailable);
+            //exit;
+        }else{
+            //var_dump(json_decode($response,true));
+            //exit;
+        }
+
+        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'), $unavailable);
+
+        $reserva = Reserva::find($id);
+        $title = 'Editar Reserva';
+        $text_button_submit = 'Actualizar';
+
+        if($reserva_disponible['success'] == 0)
+            return View::make('admin/reservas/create_edit', compact('reserva', 'title', 'text_button_submit', 'reserva_disponible'));
+
+
         //Almacenar en la BBDD
 
         if(!Input::has('observaciones')){
@@ -159,8 +250,10 @@ class AdminReservasController extends \BaseController {
                 )
             );
 
-        return Redirect::action('AdminReservasController@edit', array($id))->with('success', 'Reserva actualizada correctamente.');
 
+        Session::flash('success', 'Reserva actualizada correctamente.');
+        Input::flash();
+        return View::make('admin/reservas/create_edit', compact('reserva', 'title', 'text_button_submit'));
 	}
 
 
