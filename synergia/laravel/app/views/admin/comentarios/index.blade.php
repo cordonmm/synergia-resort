@@ -15,9 +15,6 @@
         <h3>
             Comentarios
 
-            <div class="pull-right">
-                <a href="{{{ URL::to('admin/comentarios/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo Comentario</a>
-            </div>
         </h3>
     </div>
 
@@ -26,7 +23,8 @@
         <tr>
             <th class="col-md-2">Nombre</th>
             <th class="col-md-2">Email</th>
-            <th class="col-md-2">Comentario</th>
+            <th class="col-md-4">Comentario</th>
+            <th class="col-md-2">Publicado</th>
             <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         </thead>
@@ -37,7 +35,7 @@
 
 {{-- Scripts --}}
 @section('scripts')
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         var oTable;
         $(document).ready(function() {
             oTable = $('#comentarios').dataTable( {
@@ -54,5 +52,5 @@
                 }
             });
         });
-    </script>
+    </script>-->
 @stop

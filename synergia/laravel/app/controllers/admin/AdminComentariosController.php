@@ -10,7 +10,7 @@ class AdminComentariosController extends \BaseController {
 	public function index()
 	{
 		//
-        $comentarios = DB::table('comentarios')->get();
+        //$comentarios = DB::table('comentarios')->get();
 
         return View::make('admin/comentarios/index');
 	}
@@ -21,10 +21,13 @@ class AdminComentariosController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+
+	/*
+	 * public function create()
 	{
 		//
 	}
+	*/
 
 
 	/**
@@ -32,10 +35,13 @@ class AdminComentariosController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	/*
+	 *
+	 *public function store()
 	{
 		//
 	}
+	*/
 
 
 	/**
@@ -56,10 +62,13 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	/*
+	 *
+	 public function edit($id)
 	{
 		//
 	}
+	*/
 
 
 	/**
@@ -84,6 +93,22 @@ class AdminComentariosController extends \BaseController {
 	{
 		//
 	}
+
+    public function getData(){
+        /*$comentarios = Reserva::select(array('comentarios.id', 'comentarios.nombre', 'comentarios.email', 'comentarios.texto'));
+
+        return Datatables::of($reservas)
+
+            ->add_column('actions',
+                '<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+            	<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>'
+            )
+
+            ->remove_column('id')
+
+            ->make();
+        */
+    }
 
 
 }

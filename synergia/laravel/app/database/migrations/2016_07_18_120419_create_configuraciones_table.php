@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComentariosTable extends Migration {
+class CreateConfiguracionesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,14 +13,18 @@ class CreateComentariosTable extends Migration {
 	public function up()
 	{
 		//
-        Schema::create('comentarios', function($table) {
+
+        /*COLUMNAS:
+         *
+         * precio:float
+         *
+        */
+
+        Schema::create('configuraciones', function($table) {
             //
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('nombre');
-            $table->string('email');
-            $table->longtext ('texto');
-            $table->boolean('publicado')->default(false);
+            $table->float('precio');
             $table->timestamps();
 
         });
@@ -34,7 +38,7 @@ class CreateComentariosTable extends Migration {
 	public function down()
 	{
 		//
-        Schema::drop('comentarios');
+        Schema::drop('configuraciones');
 	}
 
 }
