@@ -52,7 +52,10 @@
                 "bServerSide": true,
                 "sAjaxSource": "{{ URL::to('admin/reservas/data') }}",
                 "fnDrawCallback": function ( oSettings ) {
-                    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+                    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%",
+                        onLoad: function(){
+                            $('#cboxClose').remove();
+                        }});
                 }
             });
         });

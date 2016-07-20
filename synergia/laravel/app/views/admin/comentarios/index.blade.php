@@ -8,7 +8,15 @@
 @section('keywords')Entrys administration @stop
 @section('author')Laravel 4 Bootstrap Starter SIte @stop
 @section('description')Entrys administration index @stop
-
+@section('styles')
+    <style rel="stylesheet">
+        /*#comentarios tbody tr td:nth-child(3){
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100px;*/
+        }
+    </style>
+@stop
 {{-- Content --}}
 @section('content')
     <div class="page-header">
@@ -29,28 +37,34 @@
         </tr>
         </thead>
         <tbody>
+            @foreach($comentarios as $comentario)
+                <tr>
+                    <td class="col-md-2">{{ $comentario->nombre }}</td>
+                    <td class="col-md-2">{{ $comentario->email }}</td>
+                    <td class="col-md-4">{{ substr($comentario->texto, 0, 20) }}...</td>
+                    <td class="col-md-2">{{ $comentario->publicado }}</td>
+                    <td class="col-md-2">
+                        <a href="{{{ URL::to('admin/comentarios/' . $comentario->id   ) }}}" class="btn btn-default btn-xs iframe" >Ver</a>
+                        <a href="{{{ URL::to('admin/comentarios/' . $comentario->id . '/delete' ) }}}" class="btn btn-xs btn-danger iframe">Borrar</a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 @stop
 
 {{-- Scripts --}}
 @section('scripts')
-    <!--<script type="text/javascript">
-        var oTable;
-        $(document).ready(function() {
-            oTable = $('#comentarios').dataTable( {
-                "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-                "sPaginationType": "bootstrap",
-                "oLanguage": {
-                    "sLengthMenu": "_MENU_ registros por página"
-                },
-                "bProcessing": true,
-                "bServerSide": true,
-                "sAjaxSource": "{{ URL::to('admin/comentarios/data') }}",
-                "fnDrawCallback": function ( oSettings ) {
-                    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".iframe").colorbox({
+                iframe:true,
+                width:"80%",
+                height:"80%",
+                onLoad: function(){
+                    $('#cboxClose').remove();
                 }
             });
         });
-    </script>-->
+    </script>
 @stop

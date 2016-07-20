@@ -10,9 +10,8 @@ class AdminComentariosController extends \BaseController {
 	public function index()
 	{
 		//
-        //$comentarios = DB::table('comentarios')->get();
-
-        return View::make('admin/comentarios/index');
+        $comentarios = DB::table('comentarios')->get();
+        return View::make('admin/comentarios/index', compact('comentarios'));
 	}
 
 
@@ -53,6 +52,9 @@ class AdminComentariosController extends \BaseController {
 	public function show($id)
 	{
 		//
+        $comentario     =   Comentario::find($id);
+        $title          =   'Comentario';
+        return View::make('admin/comentarios/show', compact('comentario', 'title'));
 	}
 
 
@@ -94,21 +96,6 @@ class AdminComentariosController extends \BaseController {
 		//
 	}
 
-    public function getData(){
-        /*$comentarios = Reserva::select(array('comentarios.id', 'comentarios.nombre', 'comentarios.email', 'comentarios.texto'));
-
-        return Datatables::of($reservas)
-
-            ->add_column('actions',
-                '<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
-            	<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>'
-            )
-
-            ->remove_column('id')
-
-            ->make();
-        */
-    }
 
 
 }

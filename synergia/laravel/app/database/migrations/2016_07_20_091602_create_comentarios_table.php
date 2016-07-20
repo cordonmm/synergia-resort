@@ -22,7 +22,6 @@ class CreateComentariosTable extends Migration {
             $table->longtext ('texto');
             $table->boolean('publicado')->default(false);
             $table->timestamps();
-
         });
 	}
 
