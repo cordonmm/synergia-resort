@@ -184,6 +184,10 @@ $(document).ready(function () {
 		minDate: '0M',
 		numberOfMonths: months,
 		dateFormat: 'd MM yy',
+        beforeShowDay: function(date){
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [Laracasts.unavailable.indexOf(string) == -1 ]
+        },
 		onSelect: function() {
 			var date = $(this).datepicker('getDate');
 			date.setDate(date.getDate() + 1);
@@ -193,7 +197,26 @@ $(document).ready(function () {
 	$('.contact-departure').datepicker({
 		minDate: '0M',
 		numberOfMonths: months,
-		dateFormat: 'd MM yy'
+		dateFormat: 'd MM yy',
+        beforeShowDay: function(date){
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [Laracasts.unavailable.indexOf(string) == -1 ]
+        },
+        onSelect: function() {
+            var date = $(this).datepicker('getDate');
+            var bandera = false;
+            var dateArribal = $('.contact-arrival').datepicker('getDate');
+            for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                if(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
+                    bandera = true;
+                }
+            }
+            if(bandera){
+                dateArribal.setDate(dateArribal.getDate()+1);
+                $(this).datepicker('setDate',dateArribal);
+            }
+
+        }
 	});
 	
 	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', '0'); }

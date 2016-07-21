@@ -240,14 +240,13 @@ nav ul { padding:0; }
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { font-weight:300; font-size:18px; background:#FFF; color:#888; letter-spacing:.5px; text-align:center; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { background:#BAAC8F; color:#FFF; font-weight:500; }
 .ui-widget-header .ui-state-hover { opacity:0.25; cursor:pointer; }
-.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity:0.25; cursor:default; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity:0.25; cursor:not-allowed; }
 .ui-icon { text-indent:-9999px; display:block; }
 .ui-datepicker .ui-datepicker-prev .ui-icon:before { content:"\f3d2"; width:100%; height:100%; padding:20px; font-size:25px; font-weight:normal; color:#999; text-indent:0; font-family:ionicons; position:absolute; top:-20px; left:-40px; }
 .ui-datepicker .ui-datepicker-next .ui-icon:before { content:"\f3d3"; width:100%; height:100%; padding:20px; font-size:25px; font-weight:normal; color:#999; text-indent:0; font-family:ionicons; position:absolute; top:-20px; left:0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top:30px !important; }
 .ui-datepicker .ui-datepicker-prev { left:40px; z-index:3; }
 .ui-datepicker .ui-datepicker-next { right:48px; z-index:3; }
-
 @media only screen and (min-width:1024px) {
 .ui-datepicker { width:1000px !important; margin-top:-252px !important; margin-left:-500px !important; box-shadow:0 0 0 1px rgba(0,0,0,.05),0 0 15px rgba(0,0,0,.07),0 0 0 500px rgba(200,200,200,.5); position:fixed !important; top:50% !important; left:50% !important; }
 }

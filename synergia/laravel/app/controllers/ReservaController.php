@@ -36,6 +36,42 @@ class ReservaController extends \BaseController {
     }
     public function index()
 	{
+        $ch = curl_init("https://api.airbnb.com/v1/authorize");
+        curl_setopt($ch, CURLOPT_POST,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $access = json_decode($response,true);
+        if(array_key_exists("access_token",$access)) {
+            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response  = curl_exec($ch);
+            curl_close($ch);
+            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+            $unavailable = array();
+            foreach($calendar_days as $dia){
+                if(!$dia["available"]){
+                    array_push($unavailable,$dia["date"]);
+                }
+            }
+            //var_dump($unavailable);
+            //exit;
+        }else{
+            //var_dump(json_decode($response,true));
+            //exit;
+        }
+
+        JavaScript::put([
+            'unavailable' => $unavailable,
+        ]);
 
         return View::make('site/reservar');
 	}
@@ -48,6 +84,42 @@ class ReservaController extends \BaseController {
 	 */
 	public function create()
 	{
+        $ch = curl_init("https://api.airbnb.com/v1/authorize");
+        curl_setopt($ch, CURLOPT_POST,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $access = json_decode($response,true);
+        if(array_key_exists("access_token",$access)) {
+            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response  = curl_exec($ch);
+            curl_close($ch);
+            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+            $unavailable = array();
+            foreach($calendar_days as $dia){
+                if(!$dia["available"]){
+                    array_push($unavailable,$dia["date"]);
+                }
+            }
+            //var_dump($unavailable);
+            //exit;
+        }else{
+            //var_dump(json_decode($response,true));
+            //exit;
+        }
+
+        JavaScript::put([
+            'unavailable' => $unavailable,
+        ]);
 
         return View::make('site/reservar');
 	}
@@ -201,7 +273,7 @@ class ReservaController extends \BaseController {
                 return Redirect::away($redirect_url);
             }
 
-            return View::make('site/reservar')->with('error', 'Unknown error occurred');
+            Redirect::to('/Reservar')->with('error', 'Unknown error occurred');
 
             // Was the entrada post created?
 
@@ -213,7 +285,7 @@ class ReservaController extends \BaseController {
 
         // Form validation failed
 
-        return View::make('site/reservar')->withInput()->withErrors($validator);
+        Redirect::to('/Reservar')->withInput()->withErrors($validator);
 	}
 
 
@@ -228,7 +300,7 @@ class ReservaController extends \BaseController {
         $payerId=Input::get('PayerID');
         $token=Input::get('token');
         if (empty($payerId) || empty($token)) {
-            return View::make('site/reservar',compact('reserva'))
+            Redirect::to('/Reservar')
                 ->with('error', 'Ha ocurrido un problema al pagar, intentelo más tarde.');
         }
 
@@ -302,7 +374,7 @@ class ReservaController extends \BaseController {
                         curl_close($ch);
                         // Redirect to the new entrada post page
 
-                        return View::make('site/reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe sus correo');
+                        return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe sus correo');
 
                     }
 
@@ -317,10 +389,10 @@ class ReservaController extends \BaseController {
 
         // Redirect to the entrada post create page
 
-        return View::make('site/reservar')->with('error', 'Error al reservar, intentelo de nuevo');
+        return Redirect::to('/Reservar')->with('error', 'Error al reservar, intentelo de nuevo');
     }
 
     public function cancelar(){
-        return View::make('site/reservar')->with('error', 'Has cancelado la reserva');
+        return Redirect::to('/Reservar')->with('error', 'Has cancelado la reserva');
     }
 }
