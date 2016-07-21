@@ -96,6 +96,27 @@ class AdminComentariosController extends \BaseController {
 		//
 	}
 
+    public function getData(){
+
+        /*$primer_consulta = Ur::select(DB::raw('substr(cod_ur, 1, 4)'))
+            ->where('id', '=', $id)
+            ->get();*/
+
+        //$comentarios = Comentario::select(array('comentarios.id', 'comentarios.nombre', 'comentarios.email', 'comentarios.texto', 'comentarios.email', 'comentarios.publicado'));
+
+
+        /*return Datatables::of($comentarios)
+
+            ->add_column('actions',
+                '<a href="{{{ URL::to(\'admin/comentarios/\' . $id ) }}}" class="btn btn-default btn-xs iframe" >Ver</a>
+            	<a href="{{{ URL::to(\'admin/comentarios/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>'
+            )
+
+            ->remove_column('id')
+
+            ->make();*/
+    }
+
 
 
 }
