@@ -19,12 +19,9 @@
 @stop
 {{-- Content --}}
 @section('content')
-    <form action="{{ URL::to('admin/comentarios/publicar') }}" method="post">
-    {{ Form::token() }}
     <div class="page-header">
         <h3>
             Comentarios
-            <button name="publicar" id="publicar" class="btn btn-small btn-info pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Publicar / Despublicar</button>
         </h3>
     </div>
 
@@ -42,7 +39,10 @@
             <tbody>
             </tbody>
         </table>
-    </form>
+
+    <div id="message_comentarios">
+
+    </div>
 @stop
 
 {{-- Scripts --}}
@@ -59,13 +59,69 @@
                 "bProcessing": true,
                 "bServerSide": true,
                 "sAjaxSource": "{{ URL::to('admin/comentarios/data') }}",
-                "fnDrawCallback": function ( oSettings ) {
+                "fnDrawCallback": function ( oSettings ){
                     $(".iframe").colorbox({iframe:true, width:"80%", height:"80%",
                         onLoad: function(){
                             $('#cboxClose').remove();
                         }});
+                    $("input[type=checkbox]").change(publicar);
                 }
             });
+
+            //Publicaciones vía AJAX
+
+
+
         });
+
+        function publicar(){
+
+            var iPublicado = 0;
+            var sCadena = 'despublicado';
+
+            if($(this).prop('checked')){
+                sCadena = 'publicado';
+                iPublicado = 1;
+            }
+
+            var jqAjax = $.ajax({
+                            url: '{{ URL::to('admin/comentarios/publicar') }}',
+                            type: 'GET',
+                            async: true,
+                            data: 'comentario='+$(this).val()+'&publicado='+iPublicado,
+                            dataType: 'json'
+                        }).always(function(){
+                            if(jqAjax.responseText == 'success'){
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Hecho!</strong> El comentario fue <strong>'+sCadena+'</strong> satisfactoriamente. </div>')
+                                );
+                            }
+                            else if(jqAjax.responseText == 'error'){
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
+                                );
+                            }
+                            else{
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> Ha sucedido un error inesperado. </div>')
+                                );
+                            }
+                        });
+        }
+
+        /*alert('hola');
+        console.log(jqData);
+        if($data == 'success'){
+            $('#message_comentarios').append(
+                    $('<b>a</b>')
+            );
+        }
+        else if(jqData == 'error'){
+            alert('hola');
+            $('#message_comentarios').append(
+                    $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
+            );
+        }*/
+
     </script>
 @stop

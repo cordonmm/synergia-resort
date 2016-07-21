@@ -136,6 +136,7 @@ class AdminReservasController extends \BaseController {
 	public function show($id)
 	{
 		//
+        return Redirect::action('AdminReservasController@index');
 	}
 
 

@@ -20,12 +20,13 @@ class AdminComentariosController extends \BaseController {
 	 * @return Response
 	 */
 
-	/*
-	 * public function create()
+
+    public function create()
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -33,13 +34,13 @@ class AdminComentariosController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	/*
-	 *
-	 *public function store()
+
+	 public function store()
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -48,10 +49,15 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function show($id)
 	{
 		//
         $comentario     =   Comentario::find($id);
+
+        if($comentario === null)
+            return Redirect::action('AdminComentariosController@index');
+
         $title          =   'Comentario';
         return View::make('admin/comentarios/show', compact('comentario', 'title'));
 	}
@@ -63,13 +69,13 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	/*
-	 *
+
 	 public function edit($id)
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -78,9 +84,11 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function update($id)
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
 
 
@@ -90,6 +98,7 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function destroy($id)
 	{
 		//
@@ -129,8 +138,22 @@ class AdminComentariosController extends \BaseController {
         return View::make('admin/comentarios/delete', compact('comentario', 'title'));
     }
 
-    public function postPublicar($input){
-        return 'post!';
+    public function publicar(){
+        if(Request::ajax()){
+            $comentario =  Comentario::find(Input::get('comentario'));
+
+            if($comentario === null){
+                return 'error';
+            }
+
+            $comentario->publicado = Input::get('publicado');
+            $comentario->save();
+
+            return 'success';
+        }
+        else{
+            return Redirect::action('AdminComentariosController@index');
+        }
     }
 
 
