@@ -109,19 +109,5 @@
                         });
         }
 
-        /*alert('hola');
-        console.log(jqData);
-        if($data == 'success'){
-            $('#message_comentarios').append(
-                    $('<b>a</b>')
-            );
-        }
-        else if(jqData == 'error'){
-            alert('hola');
-            $('#message_comentarios').append(
-                    $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
-            );
-        }*/
-
     </script>
 @stop
