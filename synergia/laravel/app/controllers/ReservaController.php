@@ -36,9 +36,8 @@ class ReservaController extends \BaseController {
     }
     public function index()
 	{
-		//
-        $reserva = new Reserva();
-        return View::make('site/reservar',compact('reserva'));
+
+        return View::make('site/reservar');
 	}
 
 
@@ -49,8 +48,8 @@ class ReservaController extends \BaseController {
 	 */
 	public function create()
 	{
-        $reserva = new Reserva();
-        return View::make('site/reservar',compact('reserva'));
+
+        return View::make('site/reservar');
 	}
 
 
@@ -89,6 +88,10 @@ class ReservaController extends \BaseController {
 
         {
 
+            $fecha_ini         = date('y-m-d',strtotime(Input::get('fecha_ini')));
+
+            $fecha_fin         = date('y-m-d',strtotime(Input::get('fecha_fin')));
+
             $reserva = new Reserva();
 
 
@@ -103,9 +106,9 @@ class ReservaController extends \BaseController {
 
             $reserva->ninos             = Input::get('ninos');
 
-            $reserva->fecha_ini         = date('y-m-d',strtotime(Input::get('fecha_ini')));
+            $reserva->fecha_ini         = $fecha_ini;
 
-            $reserva->fecha_fin         = date('y-m-d',strtotime(Input::get('fecha_fin')));;
+            $reserva->fecha_fin         = $fecha_fin;
 
             $reserva->observaciones     = Input::get('observaciones');
 
@@ -113,11 +116,11 @@ class ReservaController extends \BaseController {
 
 
 
-
+            $interval = date_diff(new Datetime($fecha_ini) , new Datetime($fecha_fin));
             $payer = new Payer();
             $payer->setPaymentMethod("paypal");
             $concepto = "Reserva realizadal por ". $reserva->nombre;
-            $cuota = floatval(501);
+            $cuota = floatval(Configuracion::first()->precio)*$interval->format('%a');;
             $item1 = new Item();
             $item1->setName('Apartamento Sevilla')
                 ->setDescription($concepto)
@@ -156,8 +159,8 @@ class ReservaController extends \BaseController {
 
 
             $redirectUrls = new RedirectUrls();
-            $redirectUrls->setReturnUrl(URL::to('reserva/finalizar'))
-                ->setCancelUrl(URL::to('reserva'));
+            $redirectUrls->setReturnUrl(URL::to('Reservar/Finalizar'))
+                ->setCancelUrl(URL::to('Reservar/create'));
 
             // ### Payment
             // A Payment Resource; create one using
@@ -198,7 +201,7 @@ class ReservaController extends \BaseController {
                 return Redirect::away($redirect_url);
             }
 
-            return View::make('site/misrecibos')->with('error', 'Unknown error occurred');
+            return View::make('site/reservar')->with('error', 'Unknown error occurred');
 
             // Was the entrada post created?
 
@@ -210,28 +213,114 @@ class ReservaController extends \BaseController {
 
         // Form validation failed
 
-        return Redirect::to('Reservar/create')->withInput()->withErrors($validator);
+        return View::make('site/reservar')->withInput()->withErrors($validator);
 	}
 
 
     public function finalizar(){
 
-        if($reserva->save())
+        $payment_id = Session::get('paypal_payment_id');
+        $reserva = Session::get('reserva');
+        // clear the session payment ID
+        Session::forget('paypal_payment_id');
+        Session::forget('reserva');
 
-        {
+        $payerId=Input::get('PayerID');
+        $token=Input::get('token');
+        if (empty($payerId) || empty($token)) {
+            return View::make('site/reservar',compact('reserva'))
+                ->with('error', 'Ha ocurrido un problema al pagar, intentelo más tarde.');
+        }
 
-            // Redirect to the new entrada post page
+        $payment = Payment::get($payment_id, $this->_api_context);
 
-            return Redirect::to('Reservar/create')->with('success', 'La reserva se ha realizado correctamente, compruebe sus correo');
+        // PaymentExecution object includes information necessary
+        // to execute a PayPal account payment.
+        // The payer_id is added to the request query parameters
+        // when the user is redirected from paypal back to your site
+        $execution = new PaymentExecution();
+        $execution->setPayerId(Input::get('PayerID'));
+
+
+        $ch = curl_init("https://api.airbnb.com/v1/authorize");
+        curl_setopt($ch, CURLOPT_POST,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $access = json_decode($response,true);
+        if(array_key_exists("access_token",$access)) {
+            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response  = curl_exec($ch);
+            curl_close($ch);
+            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+            $unavailable = array();
+            $bandera = true;
+            #
+            $fecha_ini         = date('y-m-d',strtotime($reserva->fecha_ini));
+
+            $fecha_fin         = date('y-m-d',strtotime($reserva->fecha_fin));
+
+            foreach($calendar_days as $dia){
+                if(!$dia["available"]){
+                    array_push($unavailable,$dia["date"]);
+                    if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))or date('yy-mm-dd',strtotime($dia["date"])) == $fecha_fin) or  ($fecha_ini <= date('yy-mm-dd',strtotime($dia["date"])) and date('yy-mm-dd',strtotime($dia["date"]))<= $fecha_fin)){
+                        $bandera = false;
+                    }
+                }
+            }
+            if($bandera) {
+
+
+
+                //Execute the payment
+                $result = $payment->execute($execution, $this->_api_context);
+
+                //echo '<pre>';print_r($result);echo '</pre>';exit; // DEBUG RESULT, remove it later
+
+                if ($result->getState() == 'approved') { // payment made
+
+
+                    if ($reserva->save()) {
+                        $url = "https://api.airbnb.com/v2/calendars/12878755/2017-06-15/2017-06-15";
+                        $data_json = '{"availability":"available"}';
+                        $ch = curl_init($url);
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+                        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+                        curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response  = curl_exec($ch);
+                        curl_close($ch);
+                        // Redirect to the new entrada post page
+
+                        return View::make('site/reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe sus correo');
+
+                    }
+
+
+                }
+            }
 
         }
 
 
 
+
         // Redirect to the entrada post create page
 
-        return Redirect::to('Reservar/create')->with('error', 'Error al reservar, intentelo de nuevo');
+        return View::make('site/reservar')->with('error', 'Error al reservar, intentelo de nuevo');
     }
 
-
+    public function cancelar(){
+        return View::make('site/reservar')->with('error', 'Has cancelado la reserva');
+    }
 }

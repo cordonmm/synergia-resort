@@ -136,13 +136,15 @@ $(document).ready(function () {
 			onSelect: function() {
                 var date = $(this).datepicker('getDate');
                 var bandera = false;
+                var dateArribal = $('.arrival').datepicker('getDate');
                 for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-                    if(jQuery.datepicker.formatDate('yy-mm-dd', $('.arrival').datepicker('getDate'))<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
+                    if(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
                         bandera = true;
                     }
                 }
                 if(bandera){
-                    $(this).datepicker('setDate',$('.arrival').datepicker('getDate'));
+                    dateArribal.setDate(dateArribal.getDate()+1);
+                    $(this).datepicker('setDate',dateArribal);
                 }
 				$('.departure-day').html($('.departure').val().split(' ')[0]);
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
