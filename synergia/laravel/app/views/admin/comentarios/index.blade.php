@@ -22,49 +22,106 @@
     <div class="page-header">
         <h3>
             Comentarios
-
         </h3>
     </div>
 
-    <table id="comentarios" class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th class="col-md-2">Nombre</th>
-            <th class="col-md-2">Email</th>
-            <th class="col-md-4">Comentario</th>
-            <th class="col-md-2">Publicado</th>
-            <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach($comentarios as $comentario)
-                <tr>
-                    <td class="col-md-2">{{ $comentario->nombre }}</td>
-                    <td class="col-md-2">{{ $comentario->email }}</td>
-                    <td class="col-md-4">{{ substr($comentario->texto, 0, 20) }}...</td>
-                    <td class="col-md-2">{{ $comentario->publicado }}</td>
-                    <td class="col-md-2">
-                        <a href="{{{ URL::to('admin/comentarios/' . $comentario->id   ) }}}" class="btn btn-default btn-xs iframe" >Ver</a>
-                        <a href="{{{ URL::to('admin/comentarios/' . $comentario->id . '/delete' ) }}}" class="btn btn-xs btn-danger iframe">Borrar</a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+
+        <table id="comentarios" class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th class="col-md-2">Nombre</th>
+                <th class="col-md-2">Email</th>
+                <th class="col-md-4">Comentario</th>
+                <th class="col-md-2">Publicado</th>
+                <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    <div id="message_comentarios">
+
+    </div>
 @stop
 
 {{-- Scripts --}}
 @section('scripts')
     <script type="text/javascript">
-        $(document).ready(function(){
-            $(".iframe").colorbox({
-                iframe:true,
-                width:"80%",
-                height:"80%",
-                onLoad: function(){
-                    $('#cboxClose').remove();
+        var oTable;
+        $(document).ready(function() {
+            oTable = $('#comentarios').dataTable( {
+                "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+                "sPaginationType": "bootstrap",
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_ registros por página"
+                },
+                "bProcessing": true,
+                "bServerSide": true,
+                "sAjaxSource": "{{ URL::to('admin/comentarios/data') }}",
+                "fnDrawCallback": function ( oSettings ){
+                    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%",
+                        onLoad: function(){
+                            $('#cboxClose').remove();
+                        }});
+                    $("input[type=checkbox]").change(publicar);
                 }
             });
+
+            //Publicaciones vía AJAX
+
+
+
         });
+
+        function publicar(){
+
+            var iPublicado = 0;
+            var sCadena = 'despublicado';
+
+            if($(this).prop('checked')){
+                sCadena = 'publicado';
+                iPublicado = 1;
+            }
+
+            var jqAjax = $.ajax({
+                            url: '{{ URL::to('admin/comentarios/publicar') }}',
+                            type: 'GET',
+                            async: true,
+                            data: 'comentario='+$(this).val()+'&publicado='+iPublicado,
+                            dataType: 'json'
+                        }).always(function(){
+                            if(jqAjax.responseText == 'success'){
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Hecho!</strong> El comentario fue <strong>'+sCadena+'</strong> satisfactoriamente. </div>')
+                                );
+                            }
+                            else if(jqAjax.responseText == 'error'){
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
+                                );
+                            }
+                            else{
+                                $('#message_comentarios').prepend(
+                                        $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> Ha sucedido un error inesperado. </div>')
+                                );
+                            }
+                        });
+        }
+
+        /*alert('hola');
+        console.log(jqData);
+        if($data == 'success'){
+            $('#message_comentarios').append(
+                    $('<b>a</b>')
+            );
+        }
+        else if(jqData == 'error'){
+            alert('hola');
+            $('#message_comentarios').append(
+                    $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
+            );
+        }*/
+
     </script>
 @stop

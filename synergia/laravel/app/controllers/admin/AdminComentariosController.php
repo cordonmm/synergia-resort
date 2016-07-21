@@ -10,8 +10,7 @@ class AdminComentariosController extends \BaseController {
 	public function index()
 	{
 		//
-        $comentarios = DB::table('comentarios')->get();
-        return View::make('admin/comentarios/index', compact('comentarios'));
+        return View::make('admin/comentarios/index');
 	}
 
 
@@ -21,12 +20,13 @@ class AdminComentariosController extends \BaseController {
 	 * @return Response
 	 */
 
-	/*
-	 * public function create()
+
+    public function create()
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -34,13 +34,13 @@ class AdminComentariosController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	/*
-	 *
-	 *public function store()
+
+	 public function store()
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -49,10 +49,15 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function show($id)
 	{
 		//
         $comentario     =   Comentario::find($id);
+
+        if($comentario === null)
+            return Redirect::action('AdminComentariosController@index');
+
         $title          =   'Comentario';
         return View::make('admin/comentarios/show', compact('comentario', 'title'));
 	}
@@ -64,13 +69,13 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	/*
-	 *
+
 	 public function edit($id)
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
-	*/
+
 
 
 	/**
@@ -79,9 +84,11 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function update($id)
 	{
 		//
+        return Redirect::action('AdminComentariosController@index');
 	}
 
 
@@ -91,21 +98,25 @@ class AdminComentariosController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function destroy($id)
 	{
 		//
+        Comentario::destroy($id);
 	}
 
     public function getData(){
 
-        /*$primer_consulta = Ur::select(DB::raw('substr(cod_ur, 1, 4)'))
-            ->where('id', '=', $id)
-            ->get();*/
+        $comentarios = Comentario::select(DB::raw('comentarios.id, comentarios.nombre, comentarios.email, concat(substr(comentarios.texto, 1, 20), "...") as texto, comentarios.publicado'));
 
-        //$comentarios = Comentario::select(array('comentarios.id', 'comentarios.nombre', 'comentarios.email', 'comentarios.texto', 'comentarios.email', 'comentarios.publicado'));
+        return Datatables::of($comentarios)
 
-
-        /*return Datatables::of($comentarios)
+            ->edit_column('publicado',
+                '@if($publicado == 1)
+                    <input type="checkbox" name="comentarios[]" value="{{ $id }}" checked="checked"/>
+                @else
+                    <input type="checkbox" name="comentarios[]" value="{{ $id }}"/>
+                @endif')
 
             ->add_column('actions',
                 '<a href="{{{ URL::to(\'admin/comentarios/\' . $id ) }}}" class="btn btn-default btn-xs iframe" >Ver</a>
@@ -114,7 +125,35 @@ class AdminComentariosController extends \BaseController {
 
             ->remove_column('id')
 
-            ->make();*/
+            ->make();
+    }
+
+    public function getDelete($comentario){
+        // titulo
+
+        $title = 'Borrar un comentario';
+
+        // Show the page
+
+        return View::make('admin/comentarios/delete', compact('comentario', 'title'));
+    }
+
+    public function publicar(){
+        if(Request::ajax()){
+            $comentario =  Comentario::find(Input::get('comentario'));
+
+            if($comentario === null){
+                return 'error';
+            }
+
+            $comentario->publicado = Input::get('publicado');
+            $comentario->save();
+
+            return 'success';
+        }
+        else{
+            return Redirect::action('AdminComentariosController@index');
+        }
     }
 
 
