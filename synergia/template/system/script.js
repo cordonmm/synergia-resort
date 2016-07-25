@@ -121,6 +121,7 @@ $(document).ready(function () {
 				var date = $(this).datepicker('getDate');
 				date.setDate(date.getDate() + 1);
 				$('.departure').datepicker('option', 'minDate', date);
+                $('.departure').datepicker('setDate',date);
 				$('.departure-day').html($('.departure').val().split(' ')[0]);
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
 			}
@@ -131,7 +132,7 @@ $(document).ready(function () {
 			dateFormat: 'd MM yy',
             beforeShowDay: function(date){
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [Laracasts.unavailable.indexOf(string) == -1 ]
+                return [string == jQuery.datepicker.formatDate('yy-mm-dd',$(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1 ]
             },
 			onSelect: function() {
                 var date = $(this).datepicker('getDate');
@@ -200,7 +201,7 @@ $(document).ready(function () {
 		dateFormat: 'd MM yy',
         beforeShowDay: function(date){
             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [Laracasts.unavailable.indexOf(string) == -1 ]
+            return [string == jQuery.datepicker.formatDate('yy-mm-dd',$(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1 ]
         },
         onSelect: function() {
             var date = $(this).datepicker('getDate');
