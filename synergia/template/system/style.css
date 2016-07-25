@@ -100,7 +100,7 @@ h3 { font:300 25px/35px 'Work Sans'; }
 /* 1.1 - Slider Navigation */
 
 .slider-nav { position:absolute; bottom:-86px; right:0; z-index:25; opacity:0; transition:.3s ease; }
-.slider-nav a { width:50px; line-height:50px; font-size:18px; color:#DDD; text-align:center; background:#FFF; display:block; cursor:pointer; float:left; border-right:1px solid #EEE; border-bottom:1px solid #EEE; box-sizing:border-box; }
+.slider-nav a { color:black;width:50px; line-height:50px; font-size:18px; color:#DDD; text-align:center; background:#FFF; display:block; cursor:pointer; float:left; border-right:1px solid #EEE; border-bottom:1px solid #EEE; box-sizing:border-box; }
 main .slider-nav { bottom:-5px; }
 .hover .section:hover .slider-nav, .hover .section.over .slider-nav { bottom:-81px; opacity:1; }
 .hover main .section:hover .slider-nav { bottom:0; }
