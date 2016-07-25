@@ -9,13 +9,6 @@
 @section('author')Laravel 4 Bootstrap Starter SIte @stop
 @section('description')Entrys administration index @stop
 @section('styles')
-    <style rel="stylesheet">
-        /*#comentarios tbody tr td:nth-child(3){
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 100px;*/
-        }
-    </style>
 @stop
 {{-- Content --}}
 @section('content')
