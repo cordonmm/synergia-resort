@@ -9,13 +9,6 @@
 @section('author')Laravel 4 Bootstrap Starter SIte @stop
 @section('description')Entrys administration index @stop
 @section('styles')
-    <style rel="stylesheet">
-        /*#comentarios tbody tr td:nth-child(3){
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 100px;*/
-        }
-    </style>
 @stop
 {{-- Content --}}
 @section('content')
@@ -108,20 +101,6 @@
                             }
                         });
         }
-
-        /*alert('hola');
-        console.log(jqData);
-        if($data == 'success'){
-            $('#message_comentarios').append(
-                    $('<b>a</b>')
-            );
-        }
-        else if(jqData == 'error'){
-            alert('hola');
-            $('#message_comentarios').append(
-                    $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>¡Error!</strong> El comentario no existe. </div>')
-            );
-        }*/
 
     </script>
 @stop
