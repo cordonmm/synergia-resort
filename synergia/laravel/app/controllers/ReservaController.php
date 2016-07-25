@@ -159,10 +159,48 @@ class ReservaController extends \BaseController {
         if ($validator->passes())
 
         {
-
             $fecha_ini         = date('y-m-d',strtotime(Input::get('fecha_ini')));
 
             $fecha_fin         = date('y-m-d',strtotime(Input::get('fecha_fin')));
+
+            $ch = curl_init("https://api.airbnb.com/v1/authorize");
+            curl_setopt($ch, CURLOPT_POST,true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $access = json_decode($response,true);
+            if(array_key_exists("access_token",$access)) {
+                $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
+                $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $response  = curl_exec($ch);
+                curl_close($ch);
+                $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
+                $unavailable = array();
+                $bandera = true;
+
+                foreach($calendar_days as $dia){
+                    if(!$dia["available"]){
+                        array_push($unavailable,$dia["date"]);
+                        if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))) or  ($fecha_ini <= date('yy-mm-dd',strtotime($dia["date"])) and date('yy-mm-dd',strtotime($dia["date"]))< $fecha_fin)){
+                            $bandera = false;
+                        }
+                    }
+                }
+                if(!$bandera) {
+                    return Redirect::to('/Reservar')->withInput()->with('error', 'Error al reservar, fechas no validas');
+                }
+
+            }
+
+
 
             $reserva = new Reserva();
 
@@ -344,14 +382,12 @@ class ReservaController extends \BaseController {
             foreach($calendar_days as $dia){
                 if(!$dia["available"]){
                     array_push($unavailable,$dia["date"]);
-                    if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))or date('yy-mm-dd',strtotime($dia["date"])) == $fecha_fin) or  ($fecha_ini <= date('yy-mm-dd',strtotime($dia["date"])) and date('yy-mm-dd',strtotime($dia["date"]))<= $fecha_fin)){
+                    if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))) or  ($fecha_ini <= date('yy-mm-dd',strtotime($dia["date"])) and date('yy-mm-dd',strtotime($dia["date"]))< $fecha_fin)){
                         $bandera = false;
                     }
                 }
             }
             if($bandera) {
-
-
 
                 //Execute the payment
                 $result = $payment->execute($execution, $this->_api_context);
@@ -380,6 +416,9 @@ class ReservaController extends \BaseController {
 
 
                 }
+            }
+            else{
+                return Redirect::to('/Reservar')->with('error', 'Error al reservar, fechas no validas');
             }
 
         }
