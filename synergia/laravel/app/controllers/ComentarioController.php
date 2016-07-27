@@ -20,8 +20,10 @@ class ComentarioController extends \BaseController {
             );
         }
 
-        if (!($response != null && $response->success))
+        if (!($response != null && $response->success)){
+            Input::flash();
             return Redirect::to('Comentar');
+        }
 
         $validator = Validator::make(
             Input::all(),

@@ -42,7 +42,7 @@
                             Nocaptcha Recaptcha de Google
                         -->
 
-                        <div class="field" style="background-color: transparent;">
+                        <div class="field" style="background-color: transparent">
                             <div class="g-recaptcha" data-sitekey="6LfP6SUTAAAAADh4a1QRy4orWyfM8kp90r4ucANS"></div>
                         </div>
 
