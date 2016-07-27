@@ -155,7 +155,4 @@ class AdminComentariosController extends \BaseController {
             return Redirect::action('AdminComentariosController@index');
         }
     }
-
-
-
 }
