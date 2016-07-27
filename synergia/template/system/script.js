@@ -109,6 +109,7 @@ $(document).ready(function () {
 		
 		$('.arrival').datepicker({
 			minDate: '0M',
+            regional: 'es',
 			numberOfMonths: months,
 			dateFormat: 'd MM yy',
             beforeShowDay: function(date){
@@ -128,6 +129,7 @@ $(document).ready(function () {
 		});
 		$('.departure').datepicker({
 			minDate: '0M',
+            regional: 'es',
 			numberOfMonths: months,
 			dateFormat: 'd MM yy',
             beforeShowDay: function(date){
@@ -144,6 +146,7 @@ $(document).ready(function () {
                     }
                 }
                 if(bandera){
+                    $(".alert").fadeTo(5000, 500).slideUp(500);
                     dateArribal.setDate(dateArribal.getDate()+1);
                     $(this).datepicker('setDate',dateArribal);
                 }
@@ -183,6 +186,7 @@ $(document).ready(function () {
 		
 	$('.contact-arrival').datepicker({
 		minDate: '0M',
+        regional: 'es',
 		numberOfMonths: months,
 		dateFormat: 'd MM yy',
         beforeShowDay: function(date){
@@ -197,6 +201,7 @@ $(document).ready(function () {
 	});
 	$('.contact-departure').datepicker({
 		minDate: '0M',
+        regional: 'es',
 		numberOfMonths: months,
 		dateFormat: 'd MM yy',
         beforeShowDay: function(date){
