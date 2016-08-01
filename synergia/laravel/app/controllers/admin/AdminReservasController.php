@@ -95,18 +95,18 @@ class AdminReservasController extends \BaseController {
             $observaciones = '';
         }
         else{
-            $observaciones = e(Input::get('observaciones'));
+            $observaciones = Input::get('observaciones');
         }
 
-        $nombre             =   e(Input::get('nombre'));
-        $email              =   e(Input::get('email'));
-        $telefono           =   e(Input::get('telefono'));
-        $dni                =   e(Input::get('dni'));
-        $adultos            =   e(Input::get('adultos'));
-        $ninos              =   e(Input::get('ninos'));
-        $precio             =   e(Input::get('precio'));
-        $fecha_ini          =   e(Input::get('fecha_ini'));
-        $fecha_fin          =   e(Input::get('fecha_fin'));
+        $nombre             =   Input::get('nombre');
+        $email              =   Input::get('email');
+        $telefono           =   Input::get('telefono');
+        $dni                =   Input::get('dni');
+        $adultos            =   Input::get('adultos');
+        $ninos              =   Input::get('ninos');
+        $precio             =   Input::get('precio');
+        $fecha_ini          =   Input::get('fecha_ini');
+        $fecha_fin          =   Input::get('fecha_fin');
 
         DB::table('reservas')->insert(array(
             array(
@@ -221,18 +221,18 @@ class AdminReservasController extends \BaseController {
             $observaciones = '';
         }
         else{
-            $observaciones = e(Input::get('observaciones'));
+            $observaciones = Input::get('observaciones');
         }
 
-        $nombre             =   e(Input::get('nombre'));
-        $email              =   e(Input::get('email'));
-        $telefono           =   e(Input::get('telefono'));
-        $dni                =   e(Input::get('dni'));
-        $adultos            =   e(Input::get('adultos'));
-        $ninos              =   e(Input::get('ninos'));
-        $precio             =   e(Input::get('precio'));
-        $fecha_ini          =   e(Input::get('fecha_ini'));
-        $fecha_fin          =   e(Input::get('fecha_fin'));
+        $nombre             =   Input::get('nombre');
+        $email              =   Input::get('email');
+        $telefono           =   Input::get('telefono');
+        $dni                =   Input::get('dni');
+        $adultos            =   Input::get('adultos');
+        $ninos              =   Input::get('ninos');
+        $precio             =   Input::get('precio');
+        $fecha_ini          =   Input::get('fecha_ini');
+        $fecha_fin          =   Input::get('fecha_fin');
 
 
         DB::table('reservas')

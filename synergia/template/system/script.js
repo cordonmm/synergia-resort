@@ -335,10 +335,10 @@ $(document).ready(function () {
 	
 	// Gallery
 	
-	var $container = $('.gallery'),
+	/*var $container = $('.gallery'),
 	colWidth = function () {
 		var w = $container.width(),
-		columnNum = 4,
+		columnNum   = 4,
 		columnWidth = 0,
 		sizeVar = 0;
 		if (w > 1100) { columnNum  = 4; }
@@ -372,7 +372,7 @@ $(document).ready(function () {
 			layoutMode: 'packery',
 			itemSelector: 'figure',
 			transitionDuration: '0',
-			resizable: false,
+			resizable: true,
 			masonry: {
 				columnWidth: colWidth()
 			}
@@ -405,7 +405,7 @@ $(document).ready(function () {
 		galleryFadeOut: 0,
 		afterOpen: featherOpen,
 		beforeClose: featherClose
-	});
+	});*/
 	
 	// Boxes
 	
@@ -549,17 +549,30 @@ $(window).load(function () {
 	});
 	
 	// Refreshes browser when resizing between desktop and tablet. Not necessary, but handy for responsive testing as different JS is being loaded.
-	
-	if ($(window).width() > 1024) { var browsersize = 'desktop'; }
-	else { var browsersize = 'tablet'; }
-	$(window).resize(function() {
-		if ($(window).width() > 1024) {
-			if (browsersize == 'tablet') { location.href = location.href }
-		}
-		else {
-			if (browsersize == 'desktop') { location.href = location.href }
-		}
-	});
+
+    var oExpReg = /(.*)Galeria$/gi;
+    var sUrl    = location.href;
+
+    if(!oExpReg.test(sUrl)){
+        if ($(window).width() > 1024) {
+            var browsersize = 'desktop';
+        }
+        else {
+            var browsersize = 'tablet';
+        }
+        $(window).resize(function () {
+            if ($(window).width() > 1024) {
+                if (browsersize == 'tablet') {
+                    location.href = location.href
+                }
+            }
+            else {
+                if (browsersize == 'desktop') {
+                    location.href = location.href
+                }
+            }
+        });
+    }
 	
 	// Fixes slider loading issues in some browsers
 	

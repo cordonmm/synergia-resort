@@ -8,26 +8,25 @@
 </head>
 
 <body>
-    <h2>Nueva solicitud de tutoría</h2>
-    
     <p>
-        El padre/madre/tutor del alumno/a {{$nombre}} ha solicitado una tutoría con usted.
+        Un nuevo comentario ha sido enviado por un usuario de la web, revise el panel para validarlo(Por defecto todos los nuevos comentarios no están publicados).
+    </p>
+
+    <hr>
+        <p>Datos del comentario en cuestión:</p>
+    <hr>
+
+    <p>Autor: {{ $data['contact-name'] }}</p>
+    <p>Email: {{ $data['contact-email'] }}</p>
+    <p>Comentario:</p>
+    <p>
+        {{ $data['contact-message'] }}
     </p>
     
-    <p>Estos son sus datos de contacto:</p>
-    
-    <ul>
-        <li><b>Teléfono:</b> {{$telefono}}</li>
-        <li><b>Email:</b> {{$email}}</li>
-    </ul>
-    
-    <p>El motivo de la cita es el siguiente:</p>
-    
-    <div style="padding: 1em; background-color: #99c2ff; border: 1px solid grey;"><p style="color: grey;"><b>{{$mensaje}}</b></p></div>
-    
-    <p>Pongase en contacto con el/ella a la mayor brevedad posible para gestionarla. Gracias.</p>
-    
-    <p><b>EL EQUIPO DIRECTIVO.</b></p>    
+    <p>
+        Para hacer la gestión del comentario haz click en el siguiente enlace:<br>
+        <a href="{{ URL::to('admin/comentarios') }}">{{ URL::to('admin/comentarios') }}</a>
+    </p>
     
 
 </body>
