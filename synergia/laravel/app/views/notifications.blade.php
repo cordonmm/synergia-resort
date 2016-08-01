@@ -4,9 +4,9 @@
 
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 
-	<h4>Error</h4>
+	<h4 style="color: #dc5957;">Error</h4>
 
-	Please check the form below for errors
+	Por favor, revise los errores de los campos del formulario.
 
 </div>
 
