@@ -98,7 +98,20 @@ $(document).ready(function () {
 	/******************** Date Picker ********************/
 	
 	var months = 2;
-		
+    var hoy = new Date();
+    var bandera = true;
+    var cont = 0;
+    while (bandera){
+        var fecha = hoy.toJSON().slice(0,10);
+        bandera = false;
+        for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+            if(fecha ==  Laracasts.unavailable[i]){
+                bandera = true;
+            }
+        }
+        hoy.setDate(hoy.getDate()+1);
+        cont = cont + 1;
+    }
 	if ($(window).width() < 1000) {
 		var months = 1;
 	}
@@ -146,7 +159,7 @@ $(document).ready(function () {
                     }
                 }
                 if(bandera){
-                    $(".alert").fadeTo(5000, 500).slideUp(500);
+                    $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
                     dateArribal.setDate(dateArribal.getDate()+1);
                     $(this).datepicker('setDate',dateArribal);
                 }
@@ -154,12 +167,14 @@ $(document).ready(function () {
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
 			}
 		});
-		
-		$('.arrival').datepicker().datepicker('setDate', '0');
+
+
+		$('.arrival').datepicker().datepicker('setDate', ''+(cont-1));
 		$('.arrival-day').html($('.arrival').val().split(' ')[0]);
 		$('.arrival-month').html($('.arrival').val().split(' ')[1]);
 		
-		$('.departure').datepicker().datepicker('setDate', '1');
+		$('.departure').datepicker().datepicker('setDate', ''+cont);
+
 		var date = $('.arrival').datepicker('getDate');
 		date.setDate(date.getDate() + 1);
 		$('.departure').datepicker('option', 'minDate', date);
@@ -201,7 +216,6 @@ $(document).ready(function () {
 	});
 	$('.contact-departure').datepicker({
 		minDate: '0M',
-        regional: 'es',
 		numberOfMonths: months,
 		dateFormat: 'd MM yy',
         beforeShowDay: function(date){
@@ -218,15 +232,16 @@ $(document).ready(function () {
                 }
             }
             if(bandera){
+                $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
                 dateArribal.setDate(dateArribal.getDate()+1);
                 $(this).datepicker('setDate',dateArribal);
             }
 
         }
 	});
-	
-	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', '0'); }
-	if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', '1'); }
+
+	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', ''+(cont-1)); }
+	if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', ''+cont); }
 	
 	
 	

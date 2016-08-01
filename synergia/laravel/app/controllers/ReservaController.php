@@ -101,13 +101,43 @@ class ReservaController extends \BaseController {
 	public function store()
 	{
 
+
+        $meses = array(
+            'enero',
+            'debrero',
+            'marzo',
+            'abril',
+            'mayo',
+            'junio',
+            'julio',
+            'agosto',
+            'septiembre',
+            'octubre',
+            'noviembre',
+            'diciembre');
+        $months = array(
+            'january',
+            'february',
+            'march',
+            'april',
+            'may',
+            'june',
+            'july ',
+            'august',
+            'september',
+            'october',
+            'november',
+            'december',
+        );
+        Input::merge(array('fecha_ini'=> str_replace($meses,$months,Input::get('fecha_ini'))));
+        Input::merge(array('fecha_fin'=> str_replace($meses,$months,Input::get('fecha_fin'))));
         //Reglas de validación
         $rules = array(
             'nombre'   => 'required|min:3',
             'dni' => array('required','regex:/^(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/i'),
             'email' => 'required|email',
-            'fecha_ini' => 'required|date',
-            'fecha_fin' => 'required|date',
+            'fecha_ini' => 'required|date_format:d M Y',
+            'fecha_fin' => 'required|date_format:d M Y',
             'adultos' => 'required|integer',
             'ninos' => 'required|integer',
 
@@ -156,8 +186,10 @@ class ReservaController extends \BaseController {
                 foreach($calendar_days as $dia){
                     if(!$dia["available"]){
                         array_push($unavailable,$dia["date"]);
-                        if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))) or  ($fecha_ini <= date('yy-mm-dd',strtotime($dia["date"])) and date('yy-mm-dd',strtotime($dia["date"]))< $fecha_fin)){
+                        if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))) or  ($fecha_ini <= date('y-m-d',strtotime($dia["date"])) and date('y-m-d',strtotime($dia["date"]))< $fecha_fin)){
                             $bandera = false;
+                            echo $fecha_ini;
+                            die(date('y-m-d',strtotime($dia["date"])));
                         }
                     }
                 }
@@ -166,7 +198,6 @@ class ReservaController extends \BaseController {
                 }
 
             }
-
 
 
             $reserva = new Reserva();
@@ -278,7 +309,7 @@ class ReservaController extends \BaseController {
                 return Redirect::away($redirect_url);
             }
 
-            Redirect::to('/Reservar')->with('error', 'Unknown error occurred');
+            return Redirect::to('/Reservar')->with('error', 'Unknown error occurred');
 
             // Was the entrada post created?
 
@@ -286,11 +317,12 @@ class ReservaController extends \BaseController {
 
         }
 
-
+        Input::merge(array('fecha_ini'=> str_replace($months,$meses,Input::get('fecha_ini'))));
+        Input::merge(array('fecha_fin'=> str_replace($months,$meses,Input::get('fecha_fin'))));
 
         // Form validation failed
 
-        Redirect::to('/Reservar')->withInput()->withErrors($validator);
+       return Redirect::to('/Reservar')->withInput()->withErrors($validator);
 	}
 
 
@@ -401,7 +433,9 @@ class ReservaController extends \BaseController {
     public function cancelar(){
         return Redirect::to('/Reservar')->with('error', 'Has cancelado la reserva');
     }
-
+    public function __call($a,$b){
+        return Redirect::to('/');
+    }
     private function unavailable(){
         $ch = curl_init("https://api.airbnb.com/v1/authorize");
         curl_setopt($ch, CURLOPT_POST,true);

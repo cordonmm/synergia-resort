@@ -209,9 +209,9 @@ nav ul { padding:0; }
 
 
 /******************** 3.0 - Booking Bar ********************/
-.synergia-header{margin:-80px auto 80px;}
+
 .book-form { position:fixed; top:0; left:0; visibility:hidden; }
-.book-bar { width:100%; height:80px; line-height:80px;  background:#555; box-sizing:border-box; position:relative; z-index:20; }
+.book-bar { width:100%; height:80px; line-height:80px;  background:#555; margin:-80px auto 80px; box-sizing:border-box; position:relative; z-index:20; }
 .book-bar .center { width:auto; max-width:none; display:table; }
 .book-bar .date-field { padding:0 40px; position:relative; float:left; border-left:1px solid #606060; cursor:pointer; transition:background .2s ease; }
 .book-bar .date-field:last-child { border-right:1px solid #606060; }
