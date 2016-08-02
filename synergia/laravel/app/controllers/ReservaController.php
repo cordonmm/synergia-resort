@@ -232,7 +232,7 @@ class ReservaController extends \BaseController {
             $payer = new Payer();
             $payer->setPaymentMethod("paypal");
             $concepto = "Reserva realizadal por ". $reserva->nombre;
-            $cuota = floatval(Configuracion::first()->precio)*$interval->format('%a');;
+            $cuota = floatval(Configuracion::first()->precio_noche_adicional)*$interval->format('%a');;
             $item1 = new Item();
             $item1->setName('Apartamento Sevilla')
                 ->setDescription($concepto)
