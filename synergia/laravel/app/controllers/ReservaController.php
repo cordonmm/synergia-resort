@@ -161,6 +161,10 @@ class ReservaController extends \BaseController {
 
             $fecha_fin         = date('y-m-d',strtotime(Input::get('fecha_fin')));
 
+            $hoy = date('y-m-d');
+            $fecha_fin_intervalo = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
+            $fecha_fin_intervalo = date ( 'y-m-d' , $fecha_fin_intervalo );
+
             $ch = curl_init("https://api.airbnb.com/v1/authorize");
             curl_setopt($ch, CURLOPT_POST,true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
@@ -171,7 +175,7 @@ class ReservaController extends \BaseController {
             $access = json_decode($response,true);
             if(array_key_exists("access_token",$access)) {
                 $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-                $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+                $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fecha_fin_intervalo.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
                 $ch = curl_init($url);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
                 curl_setopt($ch, CURLOPT_POST, true);
@@ -350,6 +354,9 @@ class ReservaController extends \BaseController {
         $execution = new PaymentExecution();
         $execution->setPayerId(Input::get('PayerID'));
 
+        $hoy = date('y-m-d');
+        $fecha_fin_intervalo = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
+        $fecha_fin_intervalo = date ( 'y-m-d' , $fecha_fin_intervalo );
 
         $ch = curl_init("https://api.airbnb.com/v1/authorize");
         curl_setopt($ch, CURLOPT_POST,true);
@@ -361,7 +368,7 @@ class ReservaController extends \BaseController {
         $access = json_decode($response,true);
         if(array_key_exists("access_token",$access)) {
             $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fecha_fin_intervalo.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
             curl_setopt($ch, CURLOPT_POST, true);
@@ -397,7 +404,7 @@ class ReservaController extends \BaseController {
 
 
                     if ($reserva->save()) {
-                        $url = "https://api.airbnb.com/v2/calendars/12878755/2017-06-15/2017-06-15";
+                        $url = "https://api.airbnb.com/v2/calendars/12878755/2018-06-15/2018-06-15";
                         $data_json = '{"availability":"available"}';
                         $ch = curl_init($url);
                         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
@@ -409,7 +416,7 @@ class ReservaController extends \BaseController {
                         curl_close($ch);
                         // Redirect to the new entrada post page
 
-                        return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe sus correo');
+                        return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe su correo');
 
                     }
 
@@ -437,6 +444,9 @@ class ReservaController extends \BaseController {
         return Redirect::to('/');
     }
     private function unavailable(){
+        $hoy = date('y-m-d');
+        $fechafin = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
+        $fechafin = date ( 'y-m-d' , $fechafin );
         $ch = curl_init("https://api.airbnb.com/v1/authorize");
         curl_setopt($ch, CURLOPT_POST,true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
@@ -448,7 +458,7 @@ class ReservaController extends \BaseController {
         $unavailable = null;
         if(array_key_exists("access_token",$access)) {
             $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
+            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fechafin.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
             curl_setopt($ch, CURLOPT_POST, true);
