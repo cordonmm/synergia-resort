@@ -10,10 +10,10 @@
     <!-- ./ tabs -->
     {{-- Delete Post Form --}}
 
-    {{ Form::open(array('action' => array('AdminReservasController@destroy', $reserva->id), 'method' => 'delete', 'id' => 'deleteForm')) }}
+    {{ Form::open(array('action' => array('AdminConfiguracionesController@destroy', $configuracion->id), 'method' => 'delete', 'id' => 'deleteForm')) }}
         <div class="form-group">
             <div class="controls">
-                Va a proceder a borrar definitivamente la reserva, ¿está seguro?
+                Va a proceder a borrar definitivamente la configuración, ¿está seguro?
                 <button type="submit" class="btn btn-danger">Borrar</button>
             </div>
         </div>

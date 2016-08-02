@@ -80,18 +80,6 @@ class AdminConfiguracionesController extends \BaseController {
 
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show(Configuracion $configuracion)
-	{
-		//
-	}
-
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
@@ -99,7 +87,9 @@ class AdminConfiguracionesController extends \BaseController {
 	 */
 	public function edit(Configuracion $configuracion)
 	{
-		//
+        $text_button_submit =   'Actualizar';
+        $title              =   'Actualizar una Configuración';
+        return View::make('admin.configuraciones.create_edit', compact('configuracion', 'text_button_submit', 'title'));
 	}
 
 
@@ -111,7 +101,48 @@ class AdminConfiguracionesController extends \BaseController {
 	 */
 	public function update(Configuracion $configuracion)
 	{
-		//
+        $validator  =   Configuracion::validate(Input::all());
+
+        if($validator->fails())
+            return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->withErrors($validator);
+
+        //Comprobar que el intervalo dado no pisa uno existente.
+
+        $intervalos_pisados   = DB::table('configuraciones')
+            ->select('alias', 'fecha_ini', 'fecha_fin')
+            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
+            ->where(function($query){
+                $query  ->where('fecha_ini', '<=', Input::get('fecha_ini'))
+                    ->where('fecha_fin', '>=', Input::get('fecha_ini'))
+
+                    ->orWhere(function($query){
+                        $query  ->where('fecha_ini', '<=', Input::get('fecha_fin'))
+                            ->where('fecha_fin', '>=', Input::get('fecha_fin'));
+                    })
+                    ->orWhere(function($query){
+                        $query  ->where('fecha_ini', '>=', Input::get('fecha_ini'))
+                            ->where('fecha_fin', '<=', Input::get('fecha_fin'));
+                    });
+            })
+            ->where('id', '<>', $configuracion->id)
+            ->orderBy('fecha_ini', 'DESC')
+            ->get();
+
+        if(count($intervalos_pisados) > 0)
+            return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('intervalos_pisados', $intervalos_pisados);
+
+
+        $configuracion->fecha_ini                   =   Input::get('fecha_ini');
+        $configuracion->fecha_fin                   =   Input::get('fecha_fin');
+        $configuracion->alias                       =   Input::get('alias');
+        $configuracion->tarifa_minima               =   Input::get('tarifa_minima');
+        $configuracion->precio_noche_adicional      =   Input::get('precio_noche_adicional');
+        $configuracion->precio_semana               =   Input::get('precio_semana');
+        $configuracion->noches_minimas              =   Input::get('noches_minimas');
+
+        $configuracion->save();
+
+        return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('success', 'La configuración fue actualizada con éxito');
 	}
 
 
@@ -124,6 +155,9 @@ class AdminConfiguracionesController extends \BaseController {
 	public function destroy(Configuracion $configuracion)
 	{
 		//
+        $configuracion->delete();
+
+        return Redirect::to('admin/configuraciones');
 	}
 
     public function getData(){
@@ -171,6 +205,16 @@ class AdminConfiguracionesController extends \BaseController {
             ->remove_column('id')
 
             ->make();
+    }
+
+    public function getDelete($configuracion){
+        // titulo
+
+        $title = 'Borrar una configuración';
+
+        // Show the page
+
+        return View::make('admin/configuraciones/delete', compact('configuracion', 'title'));
     }
 
     public function __call($method, $parameters){

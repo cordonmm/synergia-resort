@@ -80,12 +80,8 @@ class AdminReservasController extends \BaseController {
 
         if($reserva_disponible['success'] == 0){
 
-            $title = 'Crear Reserva';
-            $text_button_submit = 'Crear';
-
             Input::flash();
-
-            return View::make('admin/reservas/create_edit', compact('title', 'text_button_submit', 'reserva_disponible'));
+            return Redirect::to('admin/reservas/create')->with('error', 'No puede haber una reserva existente entre el intervalo de las dos fechas seleccionadas.');
 
         }
 
@@ -212,7 +208,8 @@ class AdminReservasController extends \BaseController {
         $text_button_submit = 'Actualizar';
 
         if($reserva_disponible['success'] == 0)
-            return View::make('admin/reservas/create_edit', compact('reserva', 'title', 'text_button_submit', 'reserva_disponible'));
+            return Redirect::to('admin/reservas/'.$id.'/edit')->with('error', 'No puede haber una reserva existente entre el intervalo de las dos fechas seleccionadas.');
+
 
 
         //Almacenar en la BBDD
@@ -252,9 +249,7 @@ class AdminReservasController extends \BaseController {
             );
 
 
-        Session::flash('success', 'Reserva actualizada correctamente.');
-        Input::flash();
-        return View::make('admin/reservas/create_edit', compact('reserva', 'title', 'text_button_submit'));
+        return Redirect::to('admin/reservas/'.$id.'/edit')->with('success', 'Reserva actualizada correctamente.');
 	}
 
 
