@@ -21,7 +21,7 @@ class AdminConfiguracionesController extends \BaseController {
 	public function create()
 	{
         $text_button_submit =   'Crear';
-        $title              =   'Crear Nueva Configuración';
+        $title              =   'Crear Nueva Tarifa';
         return View::make('admin.configuraciones.create_edit', compact('text_button_submit', 'title'));
 	}
 
@@ -88,7 +88,7 @@ class AdminConfiguracionesController extends \BaseController {
 	public function edit(Configuracion $configuracion)
 	{
         $text_button_submit =   'Actualizar';
-        $title              =   'Actualizar una Configuración';
+        $title              =   'Actualizar una Tarifa';
         return View::make('admin.configuraciones.create_edit', compact('configuracion', 'text_button_submit', 'title'));
 	}
 
@@ -108,33 +108,34 @@ class AdminConfiguracionesController extends \BaseController {
 
         //Comprobar que el intervalo dado no pisa uno existente.
 
-        $intervalos_pisados   = DB::table('configuraciones')
-            ->select('alias', 'fecha_ini', 'fecha_fin')
-            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
-            ->where(function($query){
-                $query  ->where('fecha_ini', '<=', Input::get('fecha_ini'))
-                    ->where('fecha_fin', '>=', Input::get('fecha_ini'))
+        if($configuracion->id != 1){
+            $intervalos_pisados   = DB::table('configuraciones')
+                ->select('alias', 'fecha_ini', 'fecha_fin')
+                ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
+                ->where(function($query){
+                    $query  ->where('fecha_ini', '<=', Input::get('fecha_ini'))
+                        ->where('fecha_fin', '>=', Input::get('fecha_ini'))
 
-                    ->orWhere(function($query){
-                        $query  ->where('fecha_ini', '<=', Input::get('fecha_fin'))
-                            ->where('fecha_fin', '>=', Input::get('fecha_fin'));
-                    })
-                    ->orWhere(function($query){
-                        $query  ->where('fecha_ini', '>=', Input::get('fecha_ini'))
-                            ->where('fecha_fin', '<=', Input::get('fecha_fin'));
-                    });
-            })
-            ->where('id', '<>', $configuracion->id)
-            ->orderBy('fecha_ini', 'DESC')
-            ->get();
+                        ->orWhere(function($query){
+                            $query  ->where('fecha_ini', '<=', Input::get('fecha_fin'))
+                                ->where('fecha_fin', '>=', Input::get('fecha_fin'));
+                        })
+                        ->orWhere(function($query){
+                            $query  ->where('fecha_ini', '>=', Input::get('fecha_ini'))
+                                ->where('fecha_fin', '<=', Input::get('fecha_fin'));
+                        });
+                })
+                ->where('id', '<>', $configuracion->id)
+                ->orderBy('fecha_ini', 'DESC')
+                ->get();
 
-        if(count($intervalos_pisados) > 0)
-            return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('intervalos_pisados', $intervalos_pisados);
-
+            if(count($intervalos_pisados) > 0)
+                return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('intervalos_pisados', $intervalos_pisados);
+        }
 
         $configuracion->fecha_ini                   =   Input::get('fecha_ini');
         $configuracion->fecha_fin                   =   Input::get('fecha_fin');
-        $configuracion->alias                       =   Input::get('alias');
+        $configuracion->alias                       =   Input::has('alias') ? Input::get('alias') : 'Estándar';
         $configuracion->tarifa_minima               =   Input::get('tarifa_minima');
         $configuracion->precio_noche_adicional      =   Input::get('precio_noche_adicional');
         $configuracion->precio_semana               =   Input::get('precio_semana');
@@ -145,7 +146,6 @@ class AdminConfiguracionesController extends \BaseController {
         return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('success', 'La configuración fue actualizada con éxito');
 	}
 
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -155,7 +155,8 @@ class AdminConfiguracionesController extends \BaseController {
 	public function destroy(Configuracion $configuracion)
 	{
 		//
-        $configuracion->delete();
+        if($configuracion->id != 1)
+            $configuracion->delete();
 
         return Redirect::to('admin/configuraciones');
 	}
@@ -163,9 +164,8 @@ class AdminConfiguracionesController extends \BaseController {
     public function getData(){
 
         $configuraciones = Configuracion::select(array('configuraciones.id', 'configuraciones.alias', 'configuraciones.fecha_ini', 'configuraciones.fecha_fin', 'configuraciones.tarifa_minima', 'configuraciones.precio_noche_adicional', 'configuraciones.precio_semana', 'configuraciones.noches_minimas'))
-                            ->where('fecha_ini', '<>', 'NULL')
-                            ->orWhere('fecha_fin', '<>', 'NULL')
-                            ->orderBy('fecha_fin', 'DESC');
+            ->orderBy('id')
+            ->orderBy('fecha_fin', 'DESC');
 
         return Datatables::of($configuraciones)
 
@@ -194,12 +194,16 @@ class AdminConfiguracionesController extends \BaseController {
 
             ->add_column('actions',
 
-                '@if(new DateTime($fecha_fin) < new DateTime)
-                    <span class="out-of-date"><strong>CADUCADO</strong></span>
-            	@else
-            	    <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
-            	    <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>
-            	@endif
+                '@if($fecha_fin == NULL || $fecha_ini == NULL)
+                       <a style="width: 100%;" href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+                @else
+                    @if(new DateTime($fecha_fin) < new DateTime)
+                        <span class="out-of-date"><strong>CADUCADO</strong></span>
+                    @else
+                        <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+                        <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>
+                    @endif
+                @endif
             	')
 
             ->remove_column('id')
@@ -210,7 +214,7 @@ class AdminConfiguracionesController extends \BaseController {
     public function getDelete($configuracion){
         // titulo
 
-        $title = 'Borrar una configuración';
+        $title = 'Borrar una tarifa';
 
         // Show the page
 

@@ -13,10 +13,10 @@
 @section('content')
     <div class="page-header">
         <h3>
-            Configuraciones
+            Tarifas
 
             <div class="pull-right">
-                <a href="{{{ URL::to('admin/configuraciones/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva configuración</a>
+                <a href="{{{ URL::to('admin/configuraciones/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva tarifa</a>
             </div>
         </h3>
     </div>
@@ -25,12 +25,12 @@
         <thead>
         <tr>
             <th class="col-md-2">alias</th>
-            <th class="col-md-2">fecha_ini</th>
-            <th class="col-md-2">fecha_fin</th>
-            <th class="col-md-1">tarifa_min</th>
-            <th class="col-md-1">noche_adicional</th>
+            <th class="col-md-2">f.&nbsp;inicio</th>
+            <th class="col-md-2">f.&nbsp;fin</th>
+            <th class="col-md-1">tarifa&nbsp;min</th>
+            <th class="col-md-1">noche</th>
             <th class="col-md-1">semana</th>
-            <th class="col-md-1">noches_min</th>
+            <th class="col-md-1">noches&nbsp;min</th>
             <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         </thead>
