@@ -43,8 +43,7 @@ class ReservaController extends \BaseController {
         ]);
 
         if($unavailable == null){
-            $error = "El servicio de reserva no está disponible en este momento, intentelo de nuevo más tarde";
-            return View::make('site/reservar',compact('error'));
+            return View::make('site/notservice');
         }
         return View::make('site/reservar');
 	}
@@ -60,13 +59,9 @@ class ReservaController extends \BaseController {
 
         $unavailable = $this->unavailable();
 
-        JavaScript::put([
-            'unavailable' => $unavailable,
-        ]);
 
         if($unavailable == null){
-            $error = "El servicio de reserva no está disponible en este momento, intentelo de nuevo más tarde";
-            return View::make('site/reservar',compact('error'));
+           return View::make('site/notservice');
         }
         JavaScript::put([
             'unavailable' => $unavailable,
@@ -78,18 +73,14 @@ class ReservaController extends \BaseController {
 
     public function postCreateWithInput(){
         $unavailable = $this->unavailable();
-
-
-        JavaScript::put([
-            'unavailable' => $unavailable,
-        ]);
-
         if($unavailable == null){
-            $error = "El servicio de reserva no está disponible en este momento, intentelo de nuevo más tarde";
-            return View::make('site/reservar',compact('error'));
+            return View::make('site/notservice');
         }
         $fecha_ini = Input::get("fecha_ini");
         $fecha_fin = Input::get("fecha_fin");
+        JavaScript::put([
+            'unavailable' => $unavailable,
+        ]);
         return View::make('site/reservar',compact('fecha_ini','fecha_fin'));
     }
 
@@ -456,7 +447,7 @@ class ReservaController extends \BaseController {
         curl_close($ch);
         $access = json_decode($response,true);
         $unavailable = null;
-        if(array_key_exists("access_token",$access)) {
+        if($access != null and array_key_exists("access_token",$access)) {
             $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
             $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fechafin.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
             $ch = curl_init($url);
@@ -477,5 +468,70 @@ class ReservaController extends \BaseController {
 
         }
         return $unavailable;
+    }
+    public function getPrecio($fecha_ini,$fecha_fin){
+        $precio = 0.0;
+        $intervalos_pisados   = DB::table('configuraciones')
+            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
+            ->where('fecha_ini', '>=', $fecha_ini)
+            ->where('fecha_fin', '<=', $fecha_fin)
+            ->orderBy('fecha_ini', 'DESC')
+            ->get();
+
+        $intervalo_entandar = Configuracion::where('alias','like','Estándar')->first();
+        $intervalo1 = Configuracion::where('fecha_ini','<=',$fecha_ini)->where('fecha_fin','>=',$fecha_ini)->first();
+        $intervalo2 = Configuracion::where('fecha_ini','<=',$fecha_fin)->where('fecha_fin','>=',$fecha_fin)->first();
+        if($intervalo1 == null){
+            $intervalo1 = new Configuracion;
+            $intervalo1->id = 0;
+        }
+        if($intervalo2 == null){
+            $intervalo2 = new Configuracion;
+            $intervalo2->id = 1;
+        }
+
+        $dias = $this->difDias($fecha_ini,$fecha_fin);
+        $dias_totales = 0;
+        $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin)+ $this->difDias($intervalo2->fecha_ini, $fecha_fin);
+        if($dias < 7){
+            if(($intervalo1->id != $intervalo2->id)) {
+                $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin)) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
+
+            }else{
+                $precio = ($intervalo1->precio_noche_adicional * $dias);
+            }
+
+        }else{
+            if($intervalo1->id != $intervalo2->id) {
+                $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin)) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
+            }else{
+                $precio = (($intervalo1->precio_semana/7) * $dias);
+            }
+        }
+        foreach($intervalos_pisados as $intervalo_pisado){
+            $dias_int = $this->difDias($intervalo_pisado->fecha_ini,$intervalo_pisado->fecha_fin);
+            if($dias < 7){
+                $precio += $intervalo_pisado->precio_noche_adicional * $dias_int;
+            }else{
+                $precio += ($intervalo_pisado->precio_semana/7) * $dias_int;
+            }
+            $dias_totales += $dias_int;
+        }
+        if($dias < 7){
+            $precio += $intervalo_entandar->precio_noche_adicional * $dias - $dias_totales;
+        }else{
+            $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
+        }
+        return Response::json(array('success'=>true,'precio'=>$precio),200);
+    }
+
+    private function difDias($fecha_ini,$fecha_fin){
+        if($fecha_ini == null or $fecha_fin == null){
+            return 0;
+        }
+        $dias	= (strtotime($fecha_ini)-strtotime($fecha_fin))/86400;
+        $dias 	= abs($dias);
+        $dias = floor($dias);
+        return $dias;
     }
 }

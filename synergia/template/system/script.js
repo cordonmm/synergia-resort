@@ -98,26 +98,44 @@ $(document).ready(function () {
 	/******************** Date Picker ********************/
 	
 	var months = 2;
-    var hoy = new Date();
-    var bandera = true;
-    var cont = 0;
-    while (bandera){
-        var fecha = hoy.toJSON().slice(0,10);
-        bandera = false;
-        for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-            if(fecha ==  Laracasts.unavailable[i]){
-                bandera = true;
+
+    if (!typeof Laracasts === 'undefined') {
+        var hoy = new Date();
+        var bandera = true;
+        var cont = 0;
+        while (bandera){
+            var fecha = hoy.toJSON().slice(0,10);
+            bandera = false;
+            for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                if(fecha ==  Laracasts.unavailable[i]){
+                    bandera = true;
+                }
             }
+            hoy.setDate(hoy.getDate()+1);
+            cont = cont + 1;
         }
-        hoy.setDate(hoy.getDate()+1);
-        cont = cont + 1;
     }
 	if ($(window).width() < 1000) {
 		var months = 1;
 	}
-		
+    if (typeof Laracasts !== 'undefined') {
+        var hoy = new Date();
+        var bandera = true;
+        var cont = 0;
+        while (bandera){
+            var fecha = hoy.toJSON().slice(0,10);
+            bandera = false;
+            for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                if(fecha ==  Laracasts.unavailable[i]){
+                    bandera = true;
+                }
+            }
+            hoy.setDate(hoy.getDate()+1);
+            cont = cont + 1;
+        }
+
 	if ($('.book-bar').length){
-		
+
 		// Booking Bar
 		
 		$('.arrival').datepicker({
@@ -138,6 +156,19 @@ $(document).ready(function () {
                 $('.departure').datepicker('setDate',date);
 				$('.departure-day').html($('.departure').val().split(' ')[0]);
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
+                $.ajax({
+                    url:'Reservar/Precio/'+jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate'))+'/'+jQuery.datepicker.formatDate('yy-mm-dd', date),
+                    type:'GET',
+                    dataType:'json',
+                    //cache:false,
+                    success:function(data){
+                        if(data['success']) {
+
+                                console.log(data['precio']);
+
+                        }
+                    }
+                });
 			}
 		});
 		$('.departure').datepicker({
@@ -162,6 +193,20 @@ $(document).ready(function () {
                     $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
                     dateArribal.setDate(dateArribal.getDate()+1);
                     $(this).datepicker('setDate',dateArribal);
+                }else{
+                    $.ajax({
+                        url:'Reservar/Precio/'+jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)+'/'+jQuery.datepicker.formatDate('yy-mm-dd', date),
+                        type:'GET',
+                        dataType:'json',
+                        //cache:false,
+                        success:function(data){
+                            if(data['success']) {
+
+                                console.log(data['precio']);
+
+                            }
+                        }
+                    });
                 }
 				$('.departure-day').html($('.departure').val().split(' ')[0]);
 				$('.departure-month').html($('.departure').val().split(' ')[1]);
@@ -242,9 +287,9 @@ $(document).ready(function () {
 
 	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', ''+(cont-1)); }
 	if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', ''+cont); }
-	
-	
-	
+
+
+    }
 	/******************** Sections ********************/
     
     // Background Image Replace
