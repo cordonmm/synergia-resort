@@ -20,6 +20,7 @@ class CreateComentariosTable extends Migration {
             $table->string('nombre');
             $table->string('email');
             $table->longtext ('texto');
+            $table->integer('valoracion')->unsigned()->nullable();
             $table->boolean('publicado')->default(false);
             $table->timestamps();
         });

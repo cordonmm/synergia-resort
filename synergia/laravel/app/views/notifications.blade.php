@@ -2,8 +2,6 @@
 
 <div class="alert alert-danger alert-block">
 
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
-
 	<h4 style="color: #dc5957;">Error</h4>
 
 	Por favor, revise los errores de los campos del formulario.
@@ -18,7 +16,6 @@
 
 <div class="alert alert-success alert-block">
 
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
 
 	<h4>Correcto.</h4>
 
@@ -46,7 +43,6 @@
 
 <div class="alert alert-danger alert-block">
 
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
 
 	<h4>Error</h4>
 
@@ -74,7 +70,6 @@
 
 <div class="alert alert-warning alert-block">
 
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
 
 	<h4>Warning</h4>
 
@@ -102,7 +97,6 @@
 
 <div class="alert alert-info alert-block">
 
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
 
 	<h4>Info</h4>
 

@@ -21,25 +21,44 @@ class ComentarioController extends \BaseController {
         }
 
         if (!($response != null && $response->success)){
-            Input::flash();
+            Input::flashExcept('valoracion');
             return Redirect::to('Comentar');
         }
 
-        $validator = Validator::make(
-            Input::all(),
-            array(
+
+        if(!isset($_REQUEST['valoracion']) || $_REQUEST['valoracion']==''){
+            $rules  =   array(
                 'contact-name' => 'required',
                 'contact-email' => 'required|email',
                 'contact-message' => 'required'
-            ),
+            );
+            $valoracion = NULL;
+        }
+        else{
+            $rules  =   array(
+                'contact-name' => 'required',
+                'contact-email' => 'required|email',
+                'contact-message' => 'required',
+                'valoracion'        =>  'integer|min:1|max:5'
+            );
+            $valoracion = Input::get('valoracion');
+        }
+
+
+        $validator = Validator::make(
+            Input::all(),
+            $rules,
             array(
                 'required'  =>  'Debe rellenar este campo.',
-                'email'     =>  'El formato es inválido.'
+                'email'     =>  'El formato es inválido.',
+                'integer'   =>  'La puntuación debe ser un número entero.',
+                'min'       =>  'La puntuación no puede ser inferior a 1.',
+                'max'       =>  'La puntuación no puede ser superior a 5.'
             )
         );
 
         if($validator->fails()){
-            Input::flash();
+            Input::flashExcept('valoracion');
             return Redirect::to('Comentar')->withErrors($validator);
         }
 
@@ -49,6 +68,7 @@ class ComentarioController extends \BaseController {
         $comentario->email      =       strip_tags(Input::get('contact-email'));
         $comentario->texto      =       strip_tags(Input::get('contact-message'));
         $comentario->publicado  =       0;
+        $comentario->valoracion =       $valoracion;
 
         $comentario->save();
 

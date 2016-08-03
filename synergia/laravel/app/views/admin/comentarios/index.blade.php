@@ -24,7 +24,8 @@
             <tr>
                 <th class="col-md-2">Nombre</th>
                 <th class="col-md-2">Email</th>
-                <th class="col-md-4">Comentario</th>
+                <th class="col-md-3">Comentario</th>
+                <th class="col-md-1">Valoración</th>
                 <th class="col-md-2">Publicado</th>
                 <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
             </tr>

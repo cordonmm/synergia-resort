@@ -240,8 +240,36 @@ $(document).ready(function () {
         }
 	});
 
+    $('.fecha-nacimiento').datepicker({
+        numberOfMonths: 1,
+        regional: 'es',
+        dateFormat: 'd MM yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1900:'+hoy.getFullYear(),
+        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr",
+            "May", "Jun", "Jul", "Ago", "Sep",
+            "Oct", "Nov", "Dec" ],
+        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+    });
+
+    $('.fecha-expedicion').datepicker({
+        numberOfMonths: 1,
+        regional: 'es',
+        dateFormat: 'd MM yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1900:'+hoy.getFullYear(),
+        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr",
+            "May", "Jun", "Jul", "Ago", "Sep",
+            "Oct", "Nov", "Dec" ],
+        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+    });
+
 	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', ''+(cont-1)); }
-	if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', ''+cont); }
+    if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', ''+cont); }
+    $('.fecha-nacimiento').datepicker().datepicker('setDate', ''+0);
+    $('.fecha-expedicion').datepicker().datepicker('setDate', ''+0);
 	
 	
 	

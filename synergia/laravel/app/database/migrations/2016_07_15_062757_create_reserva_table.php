@@ -19,14 +19,17 @@ class CreateReservaTable extends Migration {
             $table->increments('id')->unsigned();
             $table->date('fecha_ini');
             $table->date('fecha_fin');
+            $table->date('fecha_nacimiento');
+            $table->date('fecha_expedicion');
             $table->string('nombre');
             $table->string('email');
-            $table->string('telefono');
+            $table->string('telefono')->nullable();
             $table->string('dni');
+            $table->string('pais_nacionalidad');
             $table->integer('adultos');
             $table->integer('ninos');
             $table->float('precio');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
 
         });

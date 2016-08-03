@@ -826,7 +826,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .form h5, .form p { max-width:500px; margin-left:auto; margin-right:auto; color:#AAA; }
 .form form { margin-top:50px; }
 .form .field { width:100%; max-width:600px; margin:0 auto 12px; background:#606060; position:relative; }
-.form .field input, .form .field select, .form .field textarea { width:100%; padding:17px 15px;font:300 15px 'Work Sans'; color:#FFF; letter-spacing:.2px; box-sizing:border-box; border:none; display:block; background:none; position:relative; z-index:2; }
+.form .field input, .form .field select, .form .field textarea, .ui-datepicker-month, .ui-datepicker-year { width:100%; padding:17px 15px;font:300 15px 'Work Sans'; color:#FFF; letter-spacing:.2px; box-sizing:border-box; border:none; display:block; background:none; position:relative; z-index:2; }
+.ui-datepicker-month, .ui-datepicker-year{
+    width: 50% !important;
+    display: inline-block !important;
+}
+
 .form .field textarea { height:116px; }
 .form .field.calendar, .form .field.calendar input { cursor:pointer; }
 .form .field.calendar input { padding-left:43px; font-weight:500; color:#FFF; }
@@ -1004,3 +1009,69 @@ footer .stars { margin-bottom:15px; }
 /******************** 6.0 - Transitions ********************/
 
 a { transition:.2s ease; }
+
+
+
+/***********************  Estrellas ***************************/
+
+.ec-stars-wrapper {
+    font-size: 0;
+    display: inline-block;
+}
+.ec-stars-wrapper a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    font-size: 2rem;
+    color: #888;
+}
+
+.ec-stars-wrapper:hover a{
+    color: rgb(39, 130, 228);
+}
+
+.estrella-puntuada{
+    color: rgb(39, 130, 228) !important;
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+    color: #888;
+}
+
+.ec-stars-wrapper a, .ec-stars-wrapper a:hover{
+    border: 0 !important;
+}
+
+.datos-comentario .ec-stars-wrapper:hover a{
+    color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
