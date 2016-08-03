@@ -87,35 +87,33 @@ class AdminReservasController extends \BaseController {
 
         //Almacenar en la BBDD
 
-        if(!Input::has('observaciones')){
-            $observaciones = '';
-        }
-        else{
-            $observaciones = Input::get('observaciones');
-        }
-
         $nombre             =   Input::get('nombre');
         $email              =   Input::get('email');
-        $telefono           =   Input::get('telefono');
         $dni                =   Input::get('dni');
         $adultos            =   Input::get('adultos');
         $ninos              =   Input::get('ninos');
         $precio             =   Input::get('precio');
         $fecha_ini          =   Input::get('fecha_ini');
         $fecha_fin          =   Input::get('fecha_fin');
+        $pais               =   Input::get('pais_nacionalidad');
+        $fecha_nacimiento   =   Input::get('fecha_nacimiento');
+        $fecha_expedicion   =   Input::get('fecha_expedicion');
 
         DB::table('reservas')->insert(array(
             array(
                 'nombre'            => $nombre,
                 'email'             => $email,
-                'telefono'          => $telefono,
+                'telefono'          => Input::get('telefono'),
                 'dni'               => $dni,
                 'adultos'           => $adultos,
                 'ninos'             => $ninos,
                 'precio'            => $precio,
-                'observaciones'     => $observaciones,
+                'observaciones'     => Input::get('observaciones'),
                 'fecha_ini'         => $fecha_ini,
-                'fecha_fin'         => $fecha_fin
+                'fecha_fin'         => $fecha_fin,
+                'fecha_nacimiento'  => $fecha_nacimiento,
+                'fecha_expedicion'  => $fecha_expedicion,
+                'pais_nacionalidad' => $pais
             )
         ));
 
@@ -214,22 +212,17 @@ class AdminReservasController extends \BaseController {
 
         //Almacenar en la BBDD
 
-        if(!Input::has('observaciones')){
-            $observaciones = '';
-        }
-        else{
-            $observaciones = Input::get('observaciones');
-        }
-
         $nombre             =   Input::get('nombre');
         $email              =   Input::get('email');
-        $telefono           =   Input::get('telefono');
         $dni                =   Input::get('dni');
         $adultos            =   Input::get('adultos');
         $ninos              =   Input::get('ninos');
         $precio             =   Input::get('precio');
         $fecha_ini          =   Input::get('fecha_ini');
         $fecha_fin          =   Input::get('fecha_fin');
+        $pais               =   Input::get('pais_nacionalidad');
+        $fecha_nacimiento   =   Input::get('fecha_nacimiento');
+        $fecha_expedicion   =   Input::get('fecha_expedicion');
 
 
         DB::table('reservas')
@@ -237,14 +230,17 @@ class AdminReservasController extends \BaseController {
             ->update(array(
                     'nombre'            => $nombre,
                     'email'             => $email,
-                    'telefono'          => $telefono,
+                    'telefono'          => Input::get('telefono'),
                     'dni'               => $dni,
                     'adultos'           => $adultos,
                     'ninos'             => $ninos,
                     'precio'            => $precio,
-                    'observaciones'     => $observaciones,
+                    'observaciones'     => Input::get('observaciones'),
                     'fecha_ini'         => $fecha_ini,
-                    'fecha_fin'         => $fecha_fin
+                    'fecha_fin'         => $fecha_fin,
+                    'fecha_nacimiento'  => $fecha_nacimiento,
+                    'fecha_expedicion'  => $fecha_expedicion,
+                    'pais_nacionalidad' => $pais
                 )
             );
 

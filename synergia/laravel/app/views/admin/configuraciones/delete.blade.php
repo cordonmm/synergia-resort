@@ -13,7 +13,7 @@
     {{ Form::open(array('action' => array('AdminConfiguracionesController@destroy', $configuracion->id), 'method' => 'delete', 'id' => 'deleteForm')) }}
         <div class="form-group">
             <div class="controls">
-                Va a proceder a borrar definitivamente la configuración, ¿está seguro?
+                Va a proceder a borrar definitivamente la tarifa, ¿está seguro?
                 <button type="submit" class="btn btn-danger">Borrar</button>
             </div>
         </div>

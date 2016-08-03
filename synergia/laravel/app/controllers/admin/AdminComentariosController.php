@@ -107,7 +107,7 @@ class AdminComentariosController extends \BaseController {
 
     public function getData(){
 
-        $comentarios = Comentario::select(DB::raw('comentarios.id, comentarios.nombre, comentarios.email, concat(substr(comentarios.texto, 1, 20), "...") as texto, comentarios.publicado'));
+        $comentarios = Comentario::select(DB::raw('comentarios.id, comentarios.nombre, comentarios.email, concat(substr(comentarios.texto, 1, 20), "...") as texto, comentarios.valoracion, comentarios.publicado'));
 
         return Datatables::of($comentarios)
 
@@ -116,6 +116,13 @@ class AdminComentariosController extends \BaseController {
                     <input type="checkbox" name="comentarios[]" value="{{ $id }}" checked="checked"/>
                 @else
                     <input type="checkbox" name="comentarios[]" value="{{ $id }}"/>
+                @endif')
+
+            ->edit_column('valoracion',
+                '@if($valoracion === null)
+                    X
+                @else
+                    {{ $valoracion }}
                 @endif')
 
             ->add_column('actions',

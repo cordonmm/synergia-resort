@@ -122,25 +122,54 @@ class ReservaController extends \BaseController {
         );
         Input::merge(array('fecha_ini'=> str_replace($meses,$months,Input::get('fecha_ini'))));
         Input::merge(array('fecha_fin'=> str_replace($meses,$months,Input::get('fecha_fin'))));
+        Input::merge(array('fecha_nacimiento'=> str_replace($meses,$months,Input::get('fecha_nacimiento'))));
+        Input::merge(array('fecha_expedicion'=> str_replace($meses,$months,Input::get('fecha_expedicion'))));
+
+
+        /*$cadena = '<ul><li>'.Input::get('fecha_ini').'</li><li>'.Input::get('fecha_fin').'</li><li>'.Input::get('fecha_nacimiento').'</li><li>'.Input::get('fecha_expedicion').'</li></ul>';
+        die($cadena);*/
+
+
+        /*
+         * NUEVOS CAMPOS:
+         *
+         * Fecha Nacimiento
+         * Fecha Expedicion
+         * Pais
+         * Pasaporte
+         * Condiciones de uso
+         *
+         * */
+
         //Reglas de validación
+
+        $rule_date =    'required|date|date_format:d M Y|before:fecha_fin';
+
+        if(Input::get('fecha_ini') == Input::get('fecha_fin'))
+            $rule_date = 'required|date|date_format:d M Y';
+
         $rules = array(
             'nombre'   => 'required|min:3',
-            'dni' => array('required','regex:/^(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/i'),
+            'dni' => 'required',
             'email' => 'required|email',
-            'fecha_ini' => 'required|date_format:d M Y',
-            'fecha_fin' => 'required|date_format:d M Y',
-            'adultos' => 'required|integer',
-            'ninos' => 'required|integer',
-
-
+            'fecha_ini' => $rule_date,
+            'fecha_fin' => 'required|date|date_format:d M Y',
+            'fecha_nacimiento'  =>  'required|date|date_format:d M Y',
+            'fecha_expedicion'  =>  'required|date|date_format:d M Y',
+            'pais_nacionalidad' =>  'required',
+            'adultos' => 'required|integer|min:1|max:8',
+            'ninos' => 'required|integer|min:0|max:4',
+            'condiciones_uso' => 'required',
         );
 
 
 
         // Validate the inputs
 
-        $validator = Validator::make(Input::all(), $rules);
-
+        $validator = Validator::make(Input::all(), $rules, array(
+            'condiciones_uso.required'   =>  'Por favor, lea atentamente las condiciones de uso y aceptelas para tramitar la reserva.',
+            'pais_nacionalidad.required'    =>  'El campo país es requerido',
+        ));
 
 
         // Check if the form validates with success
@@ -148,9 +177,14 @@ class ReservaController extends \BaseController {
         if ($validator->passes())
 
         {
+
             $fecha_ini         = date('y-m-d',strtotime(Input::get('fecha_ini')));
 
             $fecha_fin         = date('y-m-d',strtotime(Input::get('fecha_fin')));
+
+            $fecha_nacimiento  = date('y-m-d', strtotime(Input::get('fecha_nacimiento')));
+
+            $fecha_expedicion  = date('y-m-d', strtotime(Input::get('fecha_expedicion')));
 
             $hoy = date('y-m-d');
             $fecha_fin_intervalo = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
@@ -199,7 +233,14 @@ class ReservaController extends \BaseController {
 
 
             //nombre, apellido, telefono. observaciones, nºadultos, nºniños, dni, fecha llegada, fecha salida, precio, email
+
             $reserva->nombre            = Input::get('nombre');
+
+            $reserva->fecha_expedicion  = $fecha_expedicion;
+
+            $reserva->fecha_nacimiento  = $fecha_nacimiento;
+
+            $reserva->pais_nacionalidad = Input::get('pais_nacionalidad');
 
             $reserva->email             = Input::get('email');
 
@@ -223,7 +264,8 @@ class ReservaController extends \BaseController {
             $payer = new Payer();
             $payer->setPaymentMethod("paypal");
             $concepto = "Reserva realizadal por ". $reserva->nombre;
-            $cuota = floatval(Configuracion::first()->precio_noche_adicional)*$interval->format('%a');;
+            $cuota = floatval(Configuracion::first()->precio_noche_adicional)*$interval->format('%a');
+
             $item1 = new Item();
             $item1->setName('Apartamento Sevilla')
                 ->setDescription($concepto)

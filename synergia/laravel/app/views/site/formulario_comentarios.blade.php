@@ -37,7 +37,23 @@
                                 {{ $errors->first('contact-message') }}
                             </div>
                         @endif
-
+                        <div class="field" style="text-align: left; background-color: transparent;">
+                            <!-- Puntuación -->
+                            <div class="ec-stars-wrapper">
+                                <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                                <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+                                <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+                                <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+                                <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+                                <input type="hidden" name="valoracion" id="valoracion"/>
+                            </div>
+                            <noscript>Necesitas tener habilitado javascript para poder votar</noscript>
+                        </div>
+                        @if($errors->has('valoracion'))
+                            <div style="text-align: left; max-width: 600px; margin: 0 auto 12px auto;">
+                                {{ $errors->first('valoracion') }}
+                            </div>
+                        @endif
                         <!--
                             Nocaptcha Recaptcha de Google
                         -->
@@ -57,6 +73,21 @@
 
 @section('scripts')
     <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+    <script type="text/javascript">
+        window.addEventListener('load', function(){
+            $('.ec-stars-wrapper a').click(function(){
+                $('#valoracion').val($(this).get(0).dataset.value);
+
+                //Colorear estrellas
+
+                $('.ec-stars-wrapper a').removeClass('estrella-puntuada');
+
+                for(var i=1; i<=$(this).get(0).dataset.value;i++){
+                    $("a[data-value="+i+"]").addClass('estrella-puntuada');
+                }
+            });
+        }, false);
+    </script>
 @stop
 
 
