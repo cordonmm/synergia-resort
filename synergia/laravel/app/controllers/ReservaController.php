@@ -515,8 +515,8 @@ class ReservaController extends \BaseController {
         $precio = 0.0;
         $intervalos_pisados   = DB::table('configuraciones')
             ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
-            ->where('fecha_ini', '>=', $fecha_ini)
-            ->where('fecha_fin', '<=', $fecha_fin)
+            ->where('fecha_ini', '>', $fecha_ini)
+            ->where('fecha_fin', '<', $fecha_fin)
             ->orderBy('fecha_ini', 'DESC')
             ->get();
 
@@ -534,20 +534,22 @@ class ReservaController extends \BaseController {
 
         $dias = $this->difDias($fecha_ini,$fecha_fin);
         $dias_totales = 0;
-        $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin)+ $this->difDias($intervalo2->fecha_ini, $fecha_fin);
         if($dias < 7){
             if(($intervalo1->id != $intervalo2->id)) {
                 $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin)) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-
+                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin)+ $this->difDias($intervalo2->fecha_ini, $fecha_fin);
             }else{
                 $precio = ($intervalo1->precio_noche_adicional * $dias);
+                $dias_totales += $dias;
             }
 
         }else{
             if($intervalo1->id != $intervalo2->id) {
                 $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin)) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
+                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin)+ $this->difDias($intervalo2->fecha_ini, $fecha_fin);
             }else{
                 $precio = (($intervalo1->precio_semana/7) * $dias);
+                $dias_totales += $dias;
             }
         }
         foreach($intervalos_pisados as $intervalo_pisado){
@@ -560,7 +562,7 @@ class ReservaController extends \BaseController {
             $dias_totales += $dias_int;
         }
         if($dias < 7){
-            $precio += $intervalo_entandar->precio_noche_adicional * $dias - $dias_totales;
+            $precio += $intervalo_entandar->precio_noche_adicional * ($dias - $dias_totales);
         }else{
             $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
         }

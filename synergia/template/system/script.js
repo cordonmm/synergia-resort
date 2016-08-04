@@ -99,22 +99,6 @@ $(document).ready(function () {
 	
 	var months = 2;
 
-    if (!typeof Laracasts === 'undefined') {
-        var hoy = new Date();
-        var bandera = true;
-        var cont = 0;
-        while (bandera){
-            var fecha = hoy.toJSON().slice(0,10);
-            bandera = false;
-            for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-                if(fecha ==  Laracasts.unavailable[i]){
-                    bandera = true;
-                }
-            }
-            hoy.setDate(hoy.getDate()+1);
-            cont = cont + 1;
-        }
-    }
 	if ($(window).width() < 1000) {
 		var months = 1;
 	}
@@ -122,85 +106,47 @@ $(document).ready(function () {
         var hoy = new Date();
         var bandera = true;
         var cont = 0;
-        while (bandera){
-            var fecha = hoy.toJSON().slice(0,10);
+        while (bandera) {
+            var fecha = hoy.toJSON().slice(0, 10);
             bandera = false;
             for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-                if(fecha ==  Laracasts.unavailable[i]){
+                if (fecha == Laracasts.unavailable[i]) {
                     bandera = true;
                 }
             }
-            hoy.setDate(hoy.getDate()+1);
+            hoy.setDate(hoy.getDate() + 1);
             cont = cont + 1;
         }
 
-	if ($('.book-bar').length){
+        if ($('.book-bar').length) {
 
-		// Booking Bar
-		
-		$('.arrival').datepicker({
-			minDate: '0M',
-            regional: 'es',
-			numberOfMonths: months,
-			dateFormat: 'd MM yy',
-            beforeShowDay: function(date){
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [Laracasts.unavailable.indexOf(string) == -1 ]
-            },
-			onSelect: function() {
-				$('.arrival-day').html($('.arrival').val().split(' ')[0]);
-				$('.arrival-month').html($('.arrival').val().split(' ')[1]);
-				var date = $(this).datepicker('getDate');
-				date.setDate(date.getDate() + 1);
-				$('.departure').datepicker('option', 'minDate', date);
-                $('.departure').datepicker('setDate',date);
-				$('.departure-day').html($('.departure').val().split(' ')[0]);
-				$('.departure-month').html($('.departure').val().split(' ')[1]);
-                $.ajax({
-                    url:'Reservar/Precio/'+jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate'))+'/'+jQuery.datepicker.formatDate('yy-mm-dd', date),
-                    type:'GET',
-                    dataType:'json',
-                    //cache:false,
-                    success:function(data){
-                        if(data['success']) {
+            // Booking Bar
 
-                                console.log(data['precio']);
-
-                        }
-                    }
-                });
-			}
-		});
-		$('.departure').datepicker({
-			minDate: '0M',
-            regional: 'es',
-			numberOfMonths: months,
-			dateFormat: 'd MM yy',
-            beforeShowDay: function(date){
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [string == jQuery.datepicker.formatDate('yy-mm-dd',$(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1 ]
-            },
-			onSelect: function() {
-                var date = $(this).datepicker('getDate');
-                var bandera = false;
-                var dateArribal = $('.arrival').datepicker('getDate');
-                for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-                    if(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
-                        bandera = true;
-                    }
-                }
-                if(bandera){
-                    $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
-                    dateArribal.setDate(dateArribal.getDate()+1);
-                    $(this).datepicker('setDate',dateArribal);
-                }else{
+            $('.arrival').datepicker({
+                minDate: '0M',
+                regional: 'es',
+                numberOfMonths: months,
+                dateFormat: 'd MM yy',
+                beforeShowDay: function (date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [Laracasts.unavailable.indexOf(string) == -1]
+                },
+                onSelect: function () {
+                    $('.arrival-day').html($('.arrival').val().split(' ')[0]);
+                    $('.arrival-month').html($('.arrival').val().split(' ')[1]);
+                    var date = $(this).datepicker('getDate');
+                    date.setDate(date.getDate() + 1);
+                    $('.departure').datepicker('option', 'minDate', date);
+                    $('.departure').datepicker('setDate', date);
+                    $('.departure-day').html($('.departure').val().split(' ')[0]);
+                    $('.departure-month').html($('.departure').val().split(' ')[1]);
                     $.ajax({
-                        url:'Reservar/Precio/'+jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)+'/'+jQuery.datepicker.formatDate('yy-mm-dd', date),
-                        type:'GET',
-                        dataType:'json',
+                        url: 'Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                        type: 'GET',
+                        dataType: 'json',
                         //cache:false,
-                        success:function(data){
-                            if(data['success']) {
+                        success: function (data) {
+                            if (data['success']) {
 
                                 console.log(data['precio']);
 
@@ -208,115 +154,162 @@ $(document).ready(function () {
                         }
                     });
                 }
-				$('.departure-day').html($('.departure').val().split(' ')[0]);
-				$('.departure-month').html($('.departure').val().split(' ')[1]);
-			}
-		});
+            });
+            $('.departure').datepicker({
+                minDate: '0M',
+                regional: 'es',
+                numberOfMonths: months,
+                dateFormat: 'd MM yy',
+                beforeShowDay: function (date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [string == jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1]
+                },
+                onSelect: function () {
+                    var date = $(this).datepicker('getDate');
+                    var bandera = false;
+                    var dateArribal = $('.arrival').datepicker('getDate');
+                    for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                        if (jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) < Laracasts.unavailable[i] && Laracasts.unavailable[i] < jQuery.datepicker.formatDate('yy-mm-dd', date)) {
+                            bandera = true;
+                        }
+                    }
+                    if (bandera) {
+                        $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
+                        dateArribal.setDate(dateArribal.getDate() + 1);
+                        $(this).datepicker('setDate', dateArribal);
+                    } else {
+                        $.ajax({
+                            url: 'Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                            type: 'GET',
+                            dataType: 'json',
+                            //cache:false,
+                            success: function (data) {
+                                if (data['success']) {
 
+                                    console.log(data['precio']);
 
-		$('.arrival').datepicker().datepicker('setDate', ''+(cont-1));
-		$('.arrival-day').html($('.arrival').val().split(' ')[0]);
-		$('.arrival-month').html($('.arrival').val().split(' ')[1]);
-		
-		$('.departure').datepicker().datepicker('setDate', ''+cont);
-
-		var date = $('.arrival').datepicker('getDate');
-		date.setDate(date.getDate() + 1);
-		$('.departure').datepicker('option', 'minDate', date);
-		$('.departure-day').html($('.departure').val().split(' ')[0]);
-		$('.departure-month').html($('.departure').val().split(' ')[1]);
-		
-		$('.date-arrival').click(function() { $('.arrival').datepicker('show'); });
-		$('.date-departure').click(function() { $('.departure').datepicker('show'); });
-		$('.date-book').click(function() {
-			$('form.book-form').submit();
-		});
-		
-		$('.hover .book-bar').hover(
-			function () {
-				$(this).parent().find('.section').addClass('over');
-			}, 
-			function () {
-				$(this).parent().find('.section').removeClass('over');
-			}
-		);
-	}
-	
-	// Contact Form
-		
-	$('.contact-arrival').datepicker({
-		minDate: '0M',
-        regional: 'es',
-		numberOfMonths: months,
-		dateFormat: 'd MM yy',
-        beforeShowDay: function(date){
-            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [Laracasts.unavailable.indexOf(string) == -1 ]
-        },
-		onSelect: function() {
-			var date = $(this).datepicker('getDate');
-			date.setDate(date.getDate() + 1);
-			$('.contact-departure').datepicker('option', 'minDate', date);
-		}
-	});
-	$('.contact-departure').datepicker({
-		minDate: '0M',
-		numberOfMonths: months,
-		dateFormat: 'd MM yy',
-        beforeShowDay: function(date){
-            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [string == jQuery.datepicker.formatDate('yy-mm-dd',$(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1 ]
-        },
-        onSelect: function() {
-            var date = $(this).datepicker('getDate');
-            var bandera = false;
-            var dateArribal = $('.contact-arrival').datepicker('getDate');
-            for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
-                if(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)<Laracasts.unavailable[i] && Laracasts.unavailable[i]<jQuery.datepicker.formatDate('yy-mm-dd',date)){
-                    bandera = true;
+                                }
+                            }
+                        });
+                    }
+                    $('.departure-day').html($('.departure').val().split(' ')[0]);
+                    $('.departure-month').html($('.departure').val().split(' ')[1]);
                 }
-            }
-            if(bandera){
-                $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
-                dateArribal.setDate(dateArribal.getDate()+1);
-                $(this).datepicker('setDate',dateArribal);
-            }
+            });
 
+
+            $('.arrival').datepicker().datepicker('setDate', '' + (cont - 1));
+            $('.arrival-day').html($('.arrival').val().split(' ')[0]);
+            $('.arrival-month').html($('.arrival').val().split(' ')[1]);
+
+            $('.departure').datepicker().datepicker('setDate', '' + cont);
+
+            var date = $('.arrival').datepicker('getDate');
+            date.setDate(date.getDate() + 1);
+            $('.departure').datepicker('option', 'minDate', date);
+            $('.departure-day').html($('.departure').val().split(' ')[0]);
+            $('.departure-month').html($('.departure').val().split(' ')[1]);
+
+            $('.date-arrival').click(function () {
+                $('.arrival').datepicker('show');
+            });
+            $('.date-departure').click(function () {
+                $('.departure').datepicker('show');
+            });
+            $('.date-book').click(function () {
+                $('form.book-form').submit();
+            });
+
+            $('.hover .book-bar').hover(
+                function () {
+                    $(this).parent().find('.section').addClass('over');
+                },
+                function () {
+                    $(this).parent().find('.section').removeClass('over');
+                }
+            );
         }
-	});
 
-    $('.fecha-nacimiento').datepicker({
-        numberOfMonths: 1,
-        regional: 'es',
-        dateFormat: 'd MM yy',
-        changeMonth: true,
-        changeYear: true,
-        yearRange: '1900:'+hoy.getFullYear(),
-        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr",
-            "May", "Jun", "Jul", "Ago", "Sep",
-            "Oct", "Nov", "Dec" ],
-        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
-    });
+        // Contact Form
 
-    $('.fecha-expedicion').datepicker({
-        numberOfMonths: 1,
-        regional: 'es',
-        dateFormat: 'd MM yy',
-        changeMonth: true,
-        changeYear: true,
-        yearRange: '1900:'+hoy.getFullYear(),
-        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr",
-            "May", "Jun", "Jul", "Ago", "Sep",
-            "Oct", "Nov", "Dec" ],
-        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
-    });
+        $('.contact-arrival').datepicker({
+            minDate: '0M',
+            regional: 'es',
+            numberOfMonths: months,
+            dateFormat: 'd MM yy',
+            beforeShowDay: function (date) {
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [Laracasts.unavailable.indexOf(string) == -1]
+            },
+            onSelect: function () {
+                var date = $(this).datepicker('getDate');
+                date.setDate(date.getDate() + 1);
+                $('.contact-departure').datepicker('option', 'minDate', date);
+            }
+        });
+        $('.contact-departure').datepicker({
+            minDate: '0M',
+            numberOfMonths: months,
+            dateFormat: 'd MM yy',
+            beforeShowDay: function (date) {
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [string == jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1]
+            },
+            onSelect: function () {
+                var date = $(this).datepicker('getDate');
+                var bandera = false;
+                var dateArribal = $('.contact-arrival').datepicker('getDate');
+                for (var i = 0, len = Laracasts.unavailable.length; i < len; i++) {
+                    if (jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) < Laracasts.unavailable[i] && Laracasts.unavailable[i] < jQuery.datepicker.formatDate('yy-mm-dd', date)) {
+                        bandera = true;
+                    }
+                }
+                if (bandera) {
+                    $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
+                    dateArribal.setDate(dateArribal.getDate() + 1);
+                    $(this).datepicker('setDate', dateArribal);
+                }
 
-	if ($('.contact-arrival').val() === ''){ $('.contact-arrival').datepicker().datepicker('setDate', ''+(cont-1)); }
-    if ($('.contact-departure').val() === ''){ $('.contact-departure').datepicker().datepicker('setDate', ''+cont); }
-    $('.fecha-nacimiento').datepicker().datepicker('setDate', ''+0);
-    $('.fecha-expedicion').datepicker().datepicker('setDate', ''+0);
-	
-	
+            }
+        });
+
+        $('.fecha-nacimiento').datepicker({
+            numberOfMonths: 1,
+            regional: 'es',
+            dateFormat: 'd MM yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:' + hoy.getFullYear(),
+            monthNamesShort: ["Ene", "Feb", "Mar", "Abr",
+                "May", "Jun", "Jul", "Ago", "Sep",
+                "Oct", "Nov", "Dec"],
+            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+        });
+
+        $('.fecha-expedicion').datepicker({
+            numberOfMonths: 1,
+            regional: 'es',
+            dateFormat: 'd MM yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:' + hoy.getFullYear(),
+            monthNamesShort: ["Ene", "Feb", "Mar", "Abr",
+                "May", "Jun", "Jul", "Ago", "Sep",
+                "Oct", "Nov", "Dec"],
+            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+        });
+
+        if ($('.contact-arrival').val() === '') {
+            $('.contact-arrival').datepicker().datepicker('setDate', '' + (cont - 1));
+        }
+        if ($('.contact-departure').val() === '') {
+            $('.contact-departure').datepicker().datepicker('setDate', '' + cont);
+        }
+
+        $('.fecha-nacimiento').datepicker().datepicker('setDate', '' + 0);
+        $('.fecha-expedicion').datepicker().datepicker('setDate', '' + 0);
+
+    }
 	
 	/******************** Sections ********************/
     

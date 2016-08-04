@@ -11,8 +11,8 @@ class ComposerStaticInita4d2422df2b2fb8f513382f2919dcb64
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
         'fad373d645dd668e85d44ccf3c38fbd6' => __DIR__ . '/..' . '/guzzlehttp/streams/src/functions.php',
         'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
-        '154e0d165f5fe76e8e9695179d0a7345' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '154e0d165f5fe76e8e9695179d0a7345' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions.php',
         '3919eeb97e98d4648304477f8ef734ba' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/Random.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
@@ -263,6 +263,10 @@ class ComposerStaticInita4d2422df2b2fb8f513382f2919dcb64
             array (
                 0 => __DIR__ . '/..' . '/predis/predis/lib',
             ),
+            'PayPal' => 
+            array (
+                0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
+            ),
             'PHPParser' => 
             array (
                 0 => __DIR__ . '/..' . '/nikic/php-parser/lib',
@@ -388,12 +392,15 @@ class ComposerStaticInita4d2422df2b2fb8f513382f2919dcb64
     );
 
     public static $classMap = array (
+        'AdminComentariosController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminComentariosController.php',
+        'AdminConfiguracionesController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminConfiguracionesController.php',
         'AdminContactoController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminContactoController.php',
         'AdminController' => __DIR__ . '/../..' . '/app/controllers/AdminController.php',
         'AdminDashboardController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminDashboardController.php',
         'AdminEntradasController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminEntradasController.php',
         'AdminEventosController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminEventosController.php',
         'AdminHistoricoTutoriasController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminHistoricoTutoriasController.php',
+        'AdminReservasController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminReservasController.php',
         'AdminRolesController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminRolesController.php',
         'AdminTutoriasController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminTutoriasController.php',
         'AdminUsersController' => __DIR__ . '/../..' . '/app/controllers/admin/AdminUsersController.php',
@@ -404,12 +411,21 @@ class ComposerStaticInita4d2422df2b2fb8f513382f2919dcb64
         'BaseControllerTestCase' => __DIR__ . '/../..' . '/app/tests/library/BaseControllerTestCase.php',
         'Carpeta' => __DIR__ . '/../..' . '/app/models/Carpeta.php',
         'CarpetasTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/CarpetasTableSeeder.php',
+        'Comentario' => __DIR__ . '/../..' . '/app/models/Comentario.php',
+        'ComentarioController' => __DIR__ . '/../..' . '/app/controllers/ComentarioController.php',
+        'ComentariosTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/ComentariosTableSeeder.php',
         'ConfideSetupUsersTable' => __DIR__ . '/../..' . '/app/database/migrations/2013_02_05_024934_confide_setup_users_table.php',
+        'Configuracion' => __DIR__ . '/../..' . '/app/models/Configuracion.php',
+        'ConfiguracionesTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/ConfiguracionesTableSeeder.php',
         'CreateCarpetasTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_01_01_043505_create_carpetas_table.php',
+        'CreateComentariosTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_07_20_091602_create_comentarios_table.php',
+        'CreateConfiguracionesTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_07_18_120419_create_configuraciones_table.php',
         'CreateEnlacesTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_03_05_043506_create_enlaces_table.php',
         'CreateEntradasTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_03_05_043505_create_entradas_table.php',
         'CreateEventosTable' => __DIR__ . '/../..' . '/app/database/migrations/2014_04_05_043505_create_eventos_table.php',
+        'CreateReservaTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_07_15_062757_create_reserva_table.php',
         'CreateTutoria' => __DIR__ . '/../..' . '/app/database/migrations/2016_03_09_110447_create_tutoria.php',
+        'CreateUbicacionTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_08_02_092926_create_ubicacion_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/app/database/seeds/DatabaseSeeder.php',
         'Enlace' => __DIR__ . '/../..' . '/app/models/Enlace.php',
         'EnlacesTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/EnlacesTableSeeder.php',
@@ -890,6 +906,9 @@ class ComposerStaticInita4d2422df2b2fb8f513382f2919dcb64
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Permission' => __DIR__ . '/../..' . '/app/models/Permission.php',
         'PermissionsTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/PermissionsTableSeeder.php',
+        'Reserva' => __DIR__ . '/../..' . '/app/models/Reserva.php',
+        'ReservaController' => __DIR__ . '/../..' . '/app/controllers/ReservaController.php',
+        'ReservasTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/ReservasTableSeeder.php',
         'Role' => __DIR__ . '/../..' . '/app/models/Role.php',
         'RolesTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/RolesTableSeeder.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
