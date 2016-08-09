@@ -24,12 +24,14 @@
     <table id="reservas" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th class="col-md-2">fecha_ini</th>
-            <th class="col-md-2">fecha_fin</th>
-            <th class="col-md-2">teléfono</th>
-            <th class="col-md-2">email</th>
-            <th class="col-md-2">nombre</th>
-            <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
+
+            <th class="fit">Llegada</th>
+            <th class="fit">Salida</th>
+            <th class="fit">Teléfono</th>
+            <th class="fit">Email</th>
+            <th class="fit">Nombre</th>
+            <th class="fit">Pagado</th>
+            <th class="fit">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         </thead>
         <tbody>
@@ -37,12 +39,22 @@
     </table>
 @stop
 
+@section('styles')
+    <style>
+    .table td.fit,
+    .table th.fit {
+    white-space: nowrap;
+    width: 1%;
+    }
+    </style>
+@stop
 {{-- Scripts --}}
 @section('scripts')
     <script type="text/javascript">
         var oTable;
         $(document).ready(function() {
             oTable = $('#reservas').dataTable( {
+                "autoWidth": true,
                 "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
@@ -59,5 +71,14 @@
                 }
             });
         });
+
+    </script>
+    <script>
+        window.addEventListener('load', function(){
+            $('tr').addClass('fit');
+            $('td').addClass('fit');
+            $('table').addClass('fit');
+        }, false);
+
     </script>
 @stop

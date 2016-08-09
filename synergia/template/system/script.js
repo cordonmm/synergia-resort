@@ -161,8 +161,12 @@ $(document).ready(function () {
                 numberOfMonths: months,
                 dateFormat: 'd MM yy',
                 beforeShowDay: function (date) {
+                    var dateArribal = $('.arrival').datepicker('getDate');
+                    while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1){
+                        dateArribal.setDate(dateArribal.getDate() + 1);
+                    }
                     var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    return [string == jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1]
+                    return [string == jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) || Laracasts.unavailable.indexOf(string) == -1]
                 },
                 onSelect: function () {
                     var date = $(this).datepicker('getDate');
@@ -177,20 +181,6 @@ $(document).ready(function () {
                         $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
                         dateArribal.setDate(dateArribal.getDate() + 1);
                         $(this).datepicker('setDate', dateArribal);
-                    } else {
-                        $.ajax({
-                            url: 'Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
-                            type: 'GET',
-                            dataType: 'json',
-                            //cache:false,
-                            success: function (data) {
-                                if (data['success']) {
-
-                                    console.log(data['precio']);
-
-                                }
-                            }
-                        });
                     }
                     $('.departure-day').html($('.departure').val().split(' ')[0]);
                     $('.departure-month').html($('.departure').val().split(' ')[1]);
@@ -202,6 +192,9 @@ $(document).ready(function () {
             $('.arrival-day').html($('.arrival').val().split(' ')[0]);
             $('.arrival-month').html($('.arrival').val().split(' ')[1]);
 
+            var date = $('.arrival').datepicker('getDate');
+            date.setDate(date.getDate() + 1);
+            $('.departure').datepicker('option', 'minDate', date);
             $('.departure').datepicker().datepicker('setDate', '' + cont);
 
             var date = $('.arrival').datepicker('getDate');
@@ -245,6 +238,19 @@ $(document).ready(function () {
                 var date = $(this).datepicker('getDate');
                 date.setDate(date.getDate() + 1);
                 $('.contact-departure').datepicker('option', 'minDate', date);
+                $('.contact-departure').datepicker('setDate', date);
+                $.ajax({
+                    url: './Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                    type: 'GET',
+                    dataType: 'json',
+                    //cache:false,
+                    success: function (data) {
+                        if (data['success']) {
+
+                            $('input[name=total]').val(data['precio']+'€');
+                        }
+                    }
+                });
             }
         });
         $('.contact-departure').datepicker({
@@ -252,8 +258,15 @@ $(document).ready(function () {
             numberOfMonths: months,
             dateFormat: 'd MM yy',
             beforeShowDay: function (date) {
+
+                var dateArribal = $('.contact-arrival').datepicker('getDate');
+                while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1){
+                    dateArribal.setDate(dateArribal.getDate() + 1);
+                }
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [string == jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) || Laracasts.unavailable.indexOf(string) == -1]
+                return [string == jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) || Laracasts.unavailable.indexOf(string) == -1]
+
+
             },
             onSelect: function () {
                 var date = $(this).datepicker('getDate');
@@ -268,6 +281,18 @@ $(document).ready(function () {
                     $(".alert-fechas").fadeTo(4000, 500).slideUp(500);
                     dateArribal.setDate(dateArribal.getDate() + 1);
                     $(this).datepicker('setDate', dateArribal);
+                }else {
+                    $.ajax({
+                        url: './Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                        type: 'GET',
+                        dataType: 'json',
+                        //cache:false,
+                        success: function (data) {
+                            if (data['success']) {
+                                $('input[name=total]').val(data['precio']+'€');
+                            }
+                        }
+                    });
                 }
 
             }
@@ -301,6 +326,9 @@ $(document).ready(function () {
 
         if ($('.contact-arrival').val() === '') {
             $('.contact-arrival').datepicker().datepicker('setDate', '' + (cont - 1));
+            var date = $('.contact-arrival').datepicker('getDate');
+            date.setDate(date.getDate() + 1);
+            $('.contact-departure').datepicker('option', 'minDate', date);
         }
         if ($('.contact-departure').val() === '') {
             $('.contact-departure').datepicker().datepicker('setDate', '' + cont);
@@ -308,6 +336,7 @@ $(document).ready(function () {
 
         $('.fecha-nacimiento').datepicker().datepicker('setDate', '' + 0);
         $('.fecha-expedicion').datepicker().datepicker('setDate', '' + 0);
+
 
     }
 	

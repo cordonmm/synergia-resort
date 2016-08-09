@@ -29,6 +29,9 @@ class CreateReservaTable extends Migration {
             $table->integer('adultos');
             $table->integer('ninos');
             $table->float('precio');
+            $table->boolean('pagado')->default(false);
+            $table->boolean('pendiente')->default(true);
+            $table->string('clave_pago');
             $table->text('observaciones')->nullable();
             $table->timestamps();
 
