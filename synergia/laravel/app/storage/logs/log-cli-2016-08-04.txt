@@ -1,0 +1,5 @@
+[2016-08-04 10:44:27] production.ERROR: 500 - Cannot redeclare class UbicacionTableSeeder @ /
+exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Cannot redeclare class UbicacionTableSeeder' in C:\Users\10code\PhpstormProjects\synergia-resort\synergia\laravel\app\database\seeds\AnfitrionTableSeeder.php:32
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

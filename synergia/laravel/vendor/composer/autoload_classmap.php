@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminAnfitrionController' => $baseDir . '/app/controllers/admin/AdminAnfitrionController.php',
     'AdminComentariosController' => $baseDir . '/app/controllers/admin/AdminComentariosController.php',
     'AdminConfiguracionesController' => $baseDir . '/app/controllers/admin/AdminConfiguracionesController.php',
     'AdminContactoController' => $baseDir . '/app/controllers/admin/AdminContactoController.php',
@@ -17,8 +18,11 @@ return array(
     'AdminReservasController' => $baseDir . '/app/controllers/admin/AdminReservasController.php',
     'AdminRolesController' => $baseDir . '/app/controllers/admin/AdminRolesController.php',
     'AdminTutoriasController' => $baseDir . '/app/controllers/admin/AdminTutoriasController.php',
+    'AdminUbicacionController' => $baseDir . '/app/controllers/admin/AdminUbicacionController.php',
     'AdminUsersController' => $baseDir . '/app/controllers/admin/AdminUsersController.php',
     'Andrew13\\Helpers\\String' => $baseDir . '/app/library/Andrew13/Helpers/String.php',
+    'Anfitrion' => $baseDir . '/app/models/Anfitrion.php',
+    'AnfitrionTableSeeder' => $baseDir . '/app/database/seeds/AnfitrionTableSeeder.php',
     'AssignedRoles' => $baseDir . '/app/models/AssignedRoles.php',
     'AuthorizedController' => $baseDir . '/app/controllers/AuthorizedController.php',
     'Barryvdh\\LaravelIdeHelper\\GeneratorCommand' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Barryvdh/LaravelIdeHelper/GeneratorCommand.php',
@@ -58,6 +62,7 @@ return array(
     'ConfideSetupUsersTable' => $baseDir . '/app/database/migrations/2013_02_05_024934_confide_setup_users_table.php',
     'Configuracion' => $baseDir . '/app/models/Configuracion.php',
     'ConfiguracionesTableSeeder' => $baseDir . '/app/database/seeds/ConfiguracionesTableSeeder.php',
+    'CreateAnfitrionTable' => $baseDir . '/app/database/migrations/2016_08_04_103528_create_anfitrion_table.php',
     'CreateCarpetasTable' => $baseDir . '/app/database/migrations/2014_01_01_043505_create_carpetas_table.php',
     'CreateComentariosTable' => $baseDir . '/app/database/migrations/2016_07_20_091602_create_comentarios_table.php',
     'CreateConfiguracionesTable' => $baseDir . '/app/database/migrations/2016_07_18_120419_create_configuraciones_table.php',
@@ -3136,6 +3141,8 @@ return array(
     'Thujohn\\Twitter\\Twitter' => $vendorDir . '/thujohn/twitter/src/Thujohn/Twitter/Twitter.php',
     'Thujohn\\Twitter\\TwitterServiceProvider' => $vendorDir . '/thujohn/twitter/src/Thujohn/Twitter/TwitterServiceProvider.php',
     'Tutoria' => $baseDir . '/app/models/Tutoria.php',
+    'Ubicacion' => $baseDir . '/app/models/Ubicacion.php',
+    'UbicacionTableSeeder' => $baseDir . '/app/database/seeds/UbicacionTableSeeder.php',
     'User' => $baseDir . '/app/models/User.php',
     'UserController' => $baseDir . '/app/controllers/user/UserController.php',
     'UsersTableSeeder' => $baseDir . '/app/database/seeds/UsersTableSeeder.php',
