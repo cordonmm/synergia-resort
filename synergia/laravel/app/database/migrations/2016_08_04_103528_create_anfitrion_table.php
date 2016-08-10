@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUbicacionTable extends Migration {
+class CreateAnfitrionTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,15 @@ class CreateUbicacionTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('ubicacion', function($table) {
+        Schema::create('anfitrion', function($table) {
             //
             $table->engine = 'InnoDB';
             $table->integer('id')->unsigned();
             $table->primary('id');
-            $table->string('titulo')->nullable();
-            $table->string('descripcion')->nullable();
-            $table->longtext('iframe');
+            $table->string('nombre');
+            $table->string('apellidos')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('telefono')->nullable();
         });
 	}
 
@@ -30,7 +31,7 @@ class CreateUbicacionTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('ubicacion');
+        Schema::drop('anfitrion');
 	}
 
 }

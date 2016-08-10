@@ -34,6 +34,10 @@ class AdminConfiguracionesController extends \BaseController {
 	public function store()
 	{
 		//
+
+        Input::merge(array('fecha_ini' => date('Y-m-d', strtotime(Input::get('fecha_ini')))));
+        Input::merge(array('fecha_fin' => date('Y-m-d', strtotime(Input::get('fecha_fin')))));
+
         $validator  =   Configuracion::validate(Input::all());
 
         if($validator->fails())
@@ -101,6 +105,11 @@ class AdminConfiguracionesController extends \BaseController {
 	 */
 	public function update(Configuracion $configuracion)
 	{
+        if($configuracion->id != 1){
+            Input::merge(array('fecha_ini' => date('Y-m-d', strtotime(Input::get('fecha_ini')))));
+            Input::merge(array('fecha_fin' => date('Y-m-d', strtotime(Input::get('fecha_fin')))));
+        }
+
         $validator  =   Configuracion::validate(Input::all());
 
         if($validator->fails())
@@ -164,8 +173,9 @@ class AdminConfiguracionesController extends \BaseController {
     public function getData(){
 
         $configuraciones = Configuracion::select(array('configuraciones.id', 'configuraciones.alias', 'configuraciones.fecha_ini', 'configuraciones.fecha_fin', 'configuraciones.tarifa_minima', 'configuraciones.precio_noche_adicional', 'configuraciones.precio_semana', 'configuraciones.noches_minimas'))
-            ->orderBy('id')
+            ->orderByRaw('fecha_ini IS NULL DESC')
             ->orderBy('fecha_fin', 'DESC');
+
 
         return Datatables::of($configuraciones)
 
