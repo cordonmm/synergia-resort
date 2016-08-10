@@ -18,6 +18,7 @@ class CreateReservaTable extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->date('fecha_ini');
+            $table->string('hora_llegada');
             $table->date('fecha_fin');
             $table->date('fecha_nacimiento');
             $table->date('fecha_expedicion');
