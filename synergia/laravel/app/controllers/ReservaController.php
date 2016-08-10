@@ -17,8 +17,8 @@ class ReservaController extends \BaseController {
 	 * Parametros para api paypal
 	 */
     private $_api_context;
-    private $_ClientId='AQe9z3SXB_oTk2KwMI204QyZ7FZtaZKGP-l4V6z5zwYemBH5CHjskoRcwkuQnnWjdjS1VG_PLNvOAMIj';
-    private $_ClientSecret='EN2swwMeiaj2HUr2Z6Fx8K0RoKRE4Du95xqqXhsWb3m1Bo0Zqvsu7rx6sFJcIbWURcd-Fz0M5snT2hpb';
+    private $_ClientId='ARfbWm2_1lMBeW1wQgqZvCT7g4TuxpsR1kO0uKi6NaPcNIr5h5F-zWmg5k9UQlhH46ETD1YVars99pyK';
+    private $_ClientSecret='EDpmeTpZDpsUdwCjFXUqOarephJJNZFAB7UkvNL4dBYFkfraibowkB2XhgQUCRpvJ91R9gNObFR_plAJ';
 
     /*
      * Inicializamos api paypal
