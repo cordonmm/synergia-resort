@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="en-US">
+<html lang="es">
 
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
 </head>
 
 <body>
 
-<p>
-   Reserva confirmada. ¡Enhorabuena, {{ $data->nombre }}! ¡Has reservado nuestro apartamento!. <br>
-</p>
-    <hr>
-        <p>Datos de la Reserva:</p>
-    <hr>
+<div>
+    <p>
+        Reserva confirmada. ¡Enhorabuena, {{ $data->nombre }}! ¡Has reservado nuestro apartamento!. <br/>
+    </p>
+    <hr/>
+    <p>Datos de la Reserva:</p>
+    <hr/>
 
 
     <p>Nombre: {{ $data->nombre }}</p>
@@ -27,6 +28,12 @@
     <p>Salida: {{ date('d/m/Y',strtotime($data->fecha_fin)) }}</p>
     <p>Precio: {{  $data->precio }}&euro; IVA incluido.</p>
 
+    <p>
+        Para realizar algún cambio en la reserva pongase en contacto a traves del siguiente email cristina@synergia.es.
+
+        Gracias por reservar en nuestro apartamento. ¡Nos vemos pronto!<br/>
+
+    </p>
 
     <h4>CONDICIONES DE USO</h4>
     <p style="text-align: justify; font-size: 10px">
@@ -41,13 +48,7 @@
         In case of delay exceeding 1 hour you will be charged with an extra cost of 20€ per hour.
         Some exception such an flight delays or major accidents will be accepted as long as any proof can be provided.
     </p>
-    <p>
-        Para realizar algún cambio en la reserva pongase en contacto a traves del siguiente email cristina@synergia.es.
-
-        Gracias por reservar en nuestro apartamento. ¡Nos vemos pronto!<br>
-
-    </p>
-    
+</div>
 
 </body>
 

@@ -140,19 +140,6 @@ $(document).ready(function () {
                     $('.departure').datepicker('setDate', date);
                     $('.departure-day').html($('.departure').val().split(' ')[0]);
                     $('.departure-month').html($('.departure').val().split(' ')[1]);
-                    $.ajax({
-                        url: 'Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
-                        type: 'GET',
-                        dataType: 'json',
-                        //cache:false,
-                        success: function (data) {
-                            if (data['success']) {
-
-                                console.log(data['precio']);
-
-                            }
-                        }
-                    });
                 }
             });
             $('.departure').datepicker({
@@ -242,7 +229,7 @@ $(document).ready(function () {
                 $('.contact-departure').datepicker('option', 'minDate', date);
                 $('.contact-departure').datepicker('setDate', date);
                 $.ajax({
-                    url: '/Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                    url: RESERVA_URL+'/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
                     type: 'GET',
                     dataType: 'json',
                     //cache:false,
@@ -287,8 +274,9 @@ $(document).ready(function () {
                     dateArribal.setDate(dateArribal.getDate() + 1);
                     $(this).datepicker('setDate', dateArribal);
                 }else {
+
                     $.ajax({
-                        url: '/Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                        url: RESERVA_URL+'/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
                         type: 'GET',
                         dataType: 'json',
                         //cache:false,
