@@ -8,12 +8,12 @@
 </head>
 
 <body>
-<p>
-    Se ha realizado la siguiente solicitud de reserva a traves de la plataforma web. <br>
-</p>
 
+<p>
+   Pago de Reserva confirmado.<br>
+</p>
     <hr>
-        <p>Datos de la solicitud de reserva:</p>
+        <p>Datos de la Reserva:</p>
     <hr>
 
 
@@ -26,13 +26,12 @@
     <p>Niños: {{ $data->ninos }}</p>
     <p>Llegada: {{ date('d/m/Y',strtotime($data->fecha_ini)) }}</p>
     <p>Salida: {{ date('d/m/Y',strtotime($data->fecha_fin)) }}</p>
-    <p>Precio: {{  $data->precio }}&euro;</p>
-
-
+    <p>Precio: {{  $data->precio }}&euro; IVA incluido.</p>
 
 <p>
- Puede acceder al historico de reservas a traves del siguiente enlace: {{URL::to('admin/reservas')}}
+    Puede acceder al historico de reservas a traves del siguiente enlace: {{URL::to('admin/reservas')}}
 </p>
+    
 
 </body>
 

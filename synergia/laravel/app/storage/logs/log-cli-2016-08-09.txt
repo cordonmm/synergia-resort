@@ -1,0 +1,7 @@
+[2016-08-09 11:57:58] production.ERROR: 500 - Command "composer" is not defined. @ /
+exception 'InvalidArgumentException' with message 'Command "composer" is not defined.' in C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php:564
+Stack trace:
+#0 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(190): Symfony\Component\Console\Application->find('composer')
+#1 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
+#3 {main} [] []

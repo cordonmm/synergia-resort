@@ -162,11 +162,13 @@ $(document).ready(function () {
                 dateFormat: 'd MM yy',
                 beforeShowDay: function (date) {
                     var dateArribal = $('.arrival').datepicker('getDate');
-                    while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1){
+                    var cont = 0;
+                    while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1 && cont < 60){
                         dateArribal.setDate(dateArribal.getDate() + 1);
+                        cont++;
                     }
                     var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    return [string == jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) || Laracasts.unavailable.indexOf(string) == -1]
+                    return [date <= dateArribal]
                 },
                 onSelect: function () {
                     var date = $(this).datepicker('getDate');
@@ -240,7 +242,7 @@ $(document).ready(function () {
                 $('.contact-departure').datepicker('option', 'minDate', date);
                 $('.contact-departure').datepicker('setDate', date);
                 $.ajax({
-                    url: './Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                    url: '/Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', $(this).datepicker('getDate')) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
                     type: 'GET',
                     dataType: 'json',
                     //cache:false,
@@ -263,12 +265,12 @@ $(document).ready(function () {
             beforeShowDay: function (date) {
 
                 var dateArribal = $('.contact-arrival').datepicker('getDate');
-                while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1){
+                var cont = 0;
+                while( Laracasts.unavailable.indexOf(jQuery.datepicker.formatDate('yy-mm-dd', dateArribal)) == -1 && cont<60){
                     dateArribal.setDate(dateArribal.getDate() + 1);
                 }
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [string == jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) || Laracasts.unavailable.indexOf(string) == -1]
-
+                return [date <= dateArribal];
 
             },
             onSelect: function () {
@@ -286,7 +288,7 @@ $(document).ready(function () {
                     $(this).datepicker('setDate', dateArribal);
                 }else {
                     $.ajax({
-                        url: './Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
+                        url: '/Reservar/Precio/' + jQuery.datepicker.formatDate('yy-mm-dd', dateArribal) + '/' + jQuery.datepicker.formatDate('yy-mm-dd', date),
                         type: 'GET',
                         dataType: 'json',
                         //cache:false,
@@ -305,12 +307,14 @@ $(document).ready(function () {
 
         if ($('.contact-arrival').val() === '') {
             $('.contact-arrival').datepicker().datepicker('setDate', '' + (cont - 1));
-            var date = $('.contact-arrival').datepicker('getDate');
-            date.setDate(date.getDate() + 1);
-            $('.contact-departure').datepicker('option', 'minDate', date);
         }
         if ($('.contact-departure').val() === '') {
             $('.contact-departure').datepicker().datepicker('setDate', '' + cont);
+        }
+        if ($('.contact-arrival').length) {
+            var date = $('.contact-arrival').datepicker('getDate');
+            date.setDate(date.getDate() + 1);
+            $('.contact-departure').datepicker('option', 'minDate', date);
         }
 
         //$('.fecha-nacimiento').datepicker().datepicker('setDate', '' + 0);
