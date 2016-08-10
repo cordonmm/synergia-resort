@@ -42,41 +42,7 @@ class AdminReservasController extends \BaseController {
         if($validator->fails())
             return Redirect::action('AdminReservasController@create')->withInput()->withErrors($validator);
 
-
-        $ch = curl_init("https://api.airbnb.com/v1/authorize");
-        curl_setopt($ch, CURLOPT_POST,true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $access = json_decode($response,true);
-        if(array_key_exists("access_token",$access)) {
-            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response  = curl_exec($ch);
-            curl_close($ch);
-            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
-            $unavailable = array();
-            foreach($calendar_days as $dia){
-                if(!$dia["available"]){
-                    array_push($unavailable,$dia["date"]);
-                }
-            }
-            //var_dump($unavailable);
-            //exit;
-        }else{
-            //var_dump(json_decode($response,true));
-            //exit;
-        }
-
-        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'), $unavailable);
+        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'));
 
         if($reserva_disponible['success'] == 0){
 
@@ -165,41 +131,7 @@ class AdminReservasController extends \BaseController {
         if($validator->fails())
             return Redirect::action('AdminReservasController@edit', array($id))->withErrors($validator);
 
-
-        $ch = curl_init("https://api.airbnb.com/v1/authorize");
-        curl_setopt($ch, CURLOPT_POST,true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $access = json_decode($response,true);
-        if(array_key_exists("access_token",$access)) {
-            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"2016-01-30","listing_id":"12878755","_format":"host_calendar","end_date":"2017-03-30"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response  = curl_exec($ch);
-            curl_close($ch);
-            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
-            $unavailable = array();
-            foreach($calendar_days as $dia){
-                if(!$dia["available"]){
-                    array_push($unavailable,$dia["date"]);
-                }
-            }
-            //var_dump($unavailable);
-            //exit;
-        }else{
-            //var_dump(json_decode($response,true));
-            //exit;
-        }
-
-        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'), $unavailable);
+        $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'));
 
         $reserva = Reserva::find($id);
         $title = 'Editar Reserva';
@@ -271,9 +203,9 @@ class AdminReservasController extends \BaseController {
         return Datatables::of($reservas)
 
             ->add_column('actions',
-                '<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
-            	<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>
-                @if($pendiente)<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/pago\' ) }}}" class="btn btn-xs btn-success iframe">Solicitar Pago</a>@endif'
+                '@if($pendiente)<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/pago\' ) }}}" class="btn btn-xs btn-success iframe"><span title="Solicitar pago" class="glyphicon glyphicon-credit-card"></a>@endif
+                <a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" ><span title="Editar reserva" class="glyphicon glyphicon-edit"></a>
+            	<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe"><span title="Eliminar reserva" class="glyphicon glyphicon-trash"></span></a>'
 
             )
             ->edit_column('pagado', '{{ $pagado ? "Pagado" : "Pendiente" }}')
@@ -291,6 +223,29 @@ class AdminReservasController extends \BaseController {
         // Show the page
 
         return View::make('admin/reservas/delete', compact('reserva', 'title'));
+    }
+
+    public function getPago($id)
+    {
+        $reserva = Reserva::find($id);
+        $title = 'Solicitar pago reserva';
+        $text_button_submit = 'Solicitar';
+
+        return View::make('admin/reservas/solicitar_pago', compact('reserva', 'title', 'text_button_submit'));
+    }
+
+    public function postPago($reserva){
+
+
+        Mail::send('emails.solicitud_pago', array('data' => $reserva), function ($message) use($reserva) {
+            //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
+            $message->to( $reserva->email)->subject('Synergia-resort. Reserva confirmada.');
+        });
+
+        $reserva->pendiente = false;
+        $reserva->save();
+
+        return Redirect::to('admin/reservas/'.$reserva->id.'/edit')->with('success', 'Ha solicitado el pago correctamente.');
     }
 
 

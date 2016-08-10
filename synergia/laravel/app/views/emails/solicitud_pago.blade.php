@@ -8,17 +8,16 @@
 </head>
 
 <body>
-<p>
-    Se ha realizado la siguiente solicitud de reserva a traves de la plataforma web. <br>
-</p>
 
+<p>
+    Su reserva a sido aceptada y está a la espera de pago. <br>
+</p>
     <hr>
-        <p>Datos de la solicitud de reserva:</p>
+        <p>Datos de la Reserva:</p>
     <hr>
 
 
     <p>Nombre: {{ $data->nombre }}</p>
-    <p>Email: {{ $data->email }}</p>
     <p>Fecha Nacimiento: {{ $data->fecha_nacimiento }}</p>
     <p>País: {{ $data->pais_nacionalidad }}</p>
     <p>Teléfono: {{ $data->telefono }}</p>
@@ -29,10 +28,13 @@
     <p>Precio: {{  $data->precio }}&euro;</p>
 
 
+    <p>
+        Vaya al siguiente link para realizar el pago.
+        {{URL::to('Reservar/').'/Pago/'.$data->clave_pago}}
+        Gracias por reservar en nuestro apartamento. <br>
 
-<p>
- Puede acceder al historico de reservas a traves del siguiente enlace: {{URL::to('admin/reservas')}}
-</p>
+    </p>
+    
 
 </body>
 

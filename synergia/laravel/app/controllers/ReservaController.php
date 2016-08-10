@@ -173,47 +173,15 @@ class ReservaController extends \BaseController {
 
             $fecha_expedicion  = date('y-m-d', strtotime(Input::get('fecha_expedicion')));
 
-            $hoy = date('y-m-d');
-            $fecha_fin_intervalo = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
-            $fecha_fin_intervalo = date ( 'y-m-d' , $fecha_fin_intervalo );
+            $reserva_disponible     =   Reserva::validate_dates_reserva(Input::get('fecha_ini'), Input::get('fecha_fin'));
 
-            $ch = curl_init("https://api.airbnb.com/v1/authorize");
-            curl_setopt($ch, CURLOPT_POST,true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $access = json_decode($response,true);
-            if(array_key_exists("access_token",$access)) {
-                $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-                $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fecha_fin_intervalo.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $response  = curl_exec($ch);
-                curl_close($ch);
-                $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
-                $unavailable = array();
-                $bandera = true;
-                foreach($calendar_days as $dia){
-                    if(!$dia["available"]){
-                        array_push($unavailable,$dia["date"]);
-                        if (($fecha_ini==date('y-m-d',strtotime($dia["date"]))) or  ($fecha_ini <= date('y-m-d',strtotime($dia["date"])) and date('y-m-d',strtotime($dia["date"]))< $fecha_fin)){
-                            $bandera = false;
-                            echo $fecha_ini;
-                            die(date('y-m-d',strtotime($dia["date"])));
-                        }
-                    }
-                }
-                if(!$bandera) {
-                    return Redirect::to('/Reservar')->withInput()->with('error', 'Error al reservar, fechas no validas');
-                }
 
+
+            if($reserva_disponible['success'] == 0) {
+                return Redirect::to('/Reservar')->withInput()->with('error', 'Error al reservar, fechas no validas');
             }
+
+
 
             $reserva = new Reserva();
 
@@ -271,7 +239,7 @@ class ReservaController extends \BaseController {
 	}
 
 
-    public function realizar_pago($uniq){
+    public function getRealizarPago($uniq){
 
         $reserva = Reserva::where('clave_pago','like',$uniq)->first();
 
@@ -401,10 +369,10 @@ class ReservaController extends \BaseController {
         if($access != null and array_key_exists("access_token",$access)) {
                 if ($result->getState() == 'approved') { // payment made
                     $reserva->precio =  $this->getPrecioPrivate($reserva->fecha_ini,$reserva->fecha_fin);
-
-
-                        $url = "https://api.airbnb.com/v2/calendars/12878755/2018-06-15/2018-06-15";
-                        $data_json = '{"availability":"available"}';
+                    $reserva->pagado = true;
+                    $reserva->save();
+                        $url = "https://api.airbnb.com/v2/calendars/12878755/2018-06-15/2018-06-20";
+                        $data_json = '{"availability":"unavailable"}';
                         $ch = curl_init($url);
                         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
                         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
@@ -414,7 +382,14 @@ class ReservaController extends \BaseController {
                         $response  = curl_exec($ch);
                         curl_close($ch);
                         // Redirect to the new entrada post page
-
+                        Mail::send('emails.fin_reserva', array('data' => $reserva), function ($message) use($reserva) {
+                            //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
+                            $message->to( $reserva->email)->subject('Synergia-resort. Gracias por su reserva.');
+                        });
+                        Mail::send('emails.fin_reserva_admin', array('data' => $reserva), function ($message) {
+                            //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
+                            $message->to('jose1561991@gmail.com')->subject('Synergia-resort. Pago de reserva.');
+                        });
                         return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe su correo');
 
 
