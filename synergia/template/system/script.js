@@ -252,7 +252,10 @@ $(document).ready(function () {
                     }
                 });
             }
+        }).click(function(){
+            $('#ui-datepicker-div').removeClass('no-buttons-next-prev');
         });
+
         $('.contact-departure').datepicker({
             minDate: '0M',
             numberOfMonths: months,
@@ -296,32 +299,8 @@ $(document).ready(function () {
                 }
 
             }
-        });
-
-        $('.fecha-nacimiento').datepicker({
-            numberOfMonths: 1,
-            regional: 'es',
-            dateFormat: 'd MM yy',
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '1900:' + hoy.getFullYear(),
-            monthNamesShort: ["Ene", "Feb", "Mar", "Abr",
-                "May", "Jun", "Jul", "Ago", "Sep",
-                "Oct", "Nov", "Dec"],
-            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
-        });
-
-        $('.fecha-expedicion').datepicker({
-            numberOfMonths: 1,
-            regional: 'es',
-            dateFormat: 'd MM yy',
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '1900:' + hoy.getFullYear(),
-            monthNamesShort: ["Ene", "Feb", "Mar", "Abr",
-                "May", "Jun", "Jul", "Ago", "Sep",
-                "Oct", "Nov", "Dec"],
-            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+        }).click(function(){
+            $('#ui-datepicker-div').removeClass('no-buttons-next-prev');
         });
 
         if ($('.contact-arrival').val() === '') {
@@ -334,8 +313,8 @@ $(document).ready(function () {
             $('.contact-departure').datepicker().datepicker('setDate', '' + cont);
         }
 
-        $('.fecha-nacimiento').datepicker().datepicker('setDate', '' + 0);
-        $('.fecha-expedicion').datepicker().datepicker('setDate', '' + 0);
+        //$('.fecha-nacimiento').datepicker().datepicker('setDate', '' + 0);
+        //$('.fecha-expedicion').datepicker().datepicker('setDate', '' + 0);
 
 
     }

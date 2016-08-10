@@ -29,7 +29,7 @@ class AdminUbicacionController extends \BaseController {
 
         $ubicacion->save();
 
-        return Redirect::to('admin/anfitrion')->with('success', 'La <b>Ubicación</b> ha sido creada con éxito.');
+        return Redirect::to('admin/ubicacion')->with('success', 'La <b>Ubicación</b> ha sido creada con éxito.');
 	}
 
     public function __call($method, $parameters){

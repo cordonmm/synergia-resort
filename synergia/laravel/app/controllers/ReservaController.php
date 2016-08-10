@@ -154,7 +154,7 @@ class ReservaController extends \BaseController {
         // Validate the inputs
 
         $validator = Validator::make(Input::all(), $rules, array(
-            'condiciones_uso.required'   =>  'Por favor, lea atentamente las condiciones de uso y aceptelas para tramitar la reserva.',
+            'condiciones_uso.required'   =>  'Por favor, lea atentamente las condiciones de uso y acéptelas para tramitar la reserva.',
             'pais_nacionalidad.required'    =>  'El campo país es requerido',
         ));
 
