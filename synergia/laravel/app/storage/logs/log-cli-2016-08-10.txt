@@ -1,0 +1,46 @@
+[2016-08-10 13:10:50] production.ERROR: 500 - include(C:\xampp\htdocs\synergia-resort\synergia\laravel/app/database/seeds/GaleriaTableSeeder.php): failed to open stream: No such file or directory @ /
+exception 'ErrorException' with message 'include(C:\xampp\htdocs\synergia-resort\synergia\laravel/app/database/seeds/GaleriaTableSeeder.php): failed to open stream: No such file or directory' in C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php:412
+Stack trace:
+#0 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(412): Illuminate\Exception\Handler->handleError(2, 'include(C:\\xamp...', 'C:\\xampp\\htdocs...', 412, Array)
+#1 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(412): Composer\Autoload\includeFile()
+#2 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(301): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('GaleriaTableSee...')
+#4 [internal function]: spl_autoload_call('GaleriaTableSee...')
+#5 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(504): ReflectionClass->__construct('GaleriaTableSee...')
+#6 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(428): Illuminate\Container\Container->build('GaleriaTableSee...', Array)
+#7 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(462): Illuminate\Container\Container->make('GaleriaTableSee...', Array)
+#8 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(55): Illuminate\Foundation\Application->make('GaleriaTableSee...')
+#9 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(37): Illuminate\Database\Seeder->resolve('GaleriaTableSee...')
+#10 C:\xampp\htdocs\synergia-resort\synergia\laravel\app\database\seeds\DatabaseSeeder.php(41): Illuminate\Database\Seeder->call('GaleriaTableSee...')
+#11 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Console\SeedCommand.php(57): DatabaseSeeder->run()
+#12 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#13 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
+#19 {main} [] []
+[2016-08-10 13:12:13] production.ERROR: 500 - include(C:\xampp\htdocs\synergia-resort\synergia\laravel/app/database/seeds/GaleriaTableSeeder.php): failed to open stream: No such file or directory @ /
+exception 'ErrorException' with message 'include(C:\xampp\htdocs\synergia-resort\synergia\laravel/app/database/seeds/GaleriaTableSeeder.php): failed to open stream: No such file or directory' in C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php:412
+Stack trace:
+#0 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(412): Illuminate\Exception\Handler->handleError(2, 'include(C:\\xamp...', 'C:\\xampp\\htdocs...', 412, Array)
+#1 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(412): Composer\Autoload\includeFile()
+#2 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\composer\ClassLoader.php(301): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('GaleriaTableSee...')
+#4 [internal function]: spl_autoload_call('GaleriaTableSee...')
+#5 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(504): ReflectionClass->__construct('GaleriaTableSee...')
+#6 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(428): Illuminate\Container\Container->build('GaleriaTableSee...', Array)
+#7 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(462): Illuminate\Container\Container->make('GaleriaTableSee...', Array)
+#8 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(55): Illuminate\Foundation\Application->make('GaleriaTableSee...')
+#9 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(37): Illuminate\Database\Seeder->resolve('GaleriaTableSee...')
+#10 C:\xampp\htdocs\synergia-resort\synergia\laravel\app\database\seeds\DatabaseSeeder.php(41): Illuminate\Database\Seeder->call('GaleriaTableSee...')
+#11 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Database\Console\SeedCommand.php(57): DatabaseSeeder->run()
+#12 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#13 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\synergia-resort\synergia\laravel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\synergia-resort\synergia\laravel\artisan(117): Symfony\Component\Console\Application->run()
+#19 {main} [] []

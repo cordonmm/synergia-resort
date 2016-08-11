@@ -9,11 +9,11 @@
 
 <body>
     <p>
-        Un nuevo comentario ha sido enviado por un usuario de la web, revise el panel para validarlo(Por defecto todos los nuevos comentarios no están publicados).
+        Has recibido un mensaje a través de la web de Synergia Resort.
     </p>
 
     <hr>
-        <p>Datos del comentario en cuestión:</p>
+        <p>Datos del contacto:</p>
     <hr>
 
     <p>Autor: {{ $data['contact-name'] }}</p>
@@ -22,11 +22,7 @@
     <p>
         {{ $data['contact-message'] }}
     </p>
-    
-    <p>
-        Para hacer la gestión del comentario haz click en el siguiente enlace:<br>
-        <a href="{{ URL::to('admin/comentarios') }}">{{ URL::to('admin/comentarios') }}</a>
-    </p>
+
     
 
 </body>

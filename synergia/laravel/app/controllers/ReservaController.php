@@ -17,8 +17,14 @@ class ReservaController extends \BaseController {
 	 * Parametros para api paypal
 	 */
     private $_api_context;
-    private $_ClientId='AQe9z3SXB_oTk2KwMI204QyZ7FZtaZKGP-l4V6z5zwYemBH5CHjskoRcwkuQnnWjdjS1VG_PLNvOAMIj';
-    private $_ClientSecret='EN2swwMeiaj2HUr2Z6Fx8K0RoKRE4Du95xqqXhsWb3m1Bo0Zqvsu7rx6sFJcIbWURcd-Fz0M5snT2hpb';
+    private $_ClientId='AZw-zNOxegZjFxOjTjC1ulkjpki3WlSL6wAW0EwtRURWN_sjzR7OQV54U2OwEKJbZXAAu21wKILKBTHq';
+    private $_ClientSecret='ECqBhqmJp6iO7cm9PXxHBhDmz-QhiRKELHAEtvfwnzjp0fYw45a_L6Pj0S7Pj7FShOjvJ_DjLPD7hkew';
+    /**
+     * SandBoxKeys
+     * private $_ClientId='ARfbWm2_1lMBeW1wQgqZvCT7g4TuxpsR1kO0uKi6NaPcNIr5h5F-zWmg5k9UQlhH46ETD1YVars99pyK';
+     * private $_ClientSecret='EDpmeTpZDpsUdwCjFXUqOarephJJNZFAB7UkvNL4dBYFkfraibowkB2XhgQUCRpvJ91R9gNObFR_plAJ';
+     **/
+
 
     /*
      * Inicializamos api paypal
@@ -224,7 +230,7 @@ class ReservaController extends \BaseController {
                 });
                 Mail::send('emails.solicitud_reserva_admin', array('data' => $reserva), function ($message) {
                     //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                    $message->to('jose1561991@gmail.com')->subject('Synergia-resort. Solicitud de reserva.');
+                    $message->to('cristina@synergia.es')->subject('Synergia-resort. Solicitud de reserva.');
                 });
                 return Redirect::to('/Reservar')->with('success', 'La reserva se ha solicitado correctamente, compruebe su correo');
             }
@@ -375,7 +381,10 @@ class ReservaController extends \BaseController {
                     $reserva->precio =  $this->getPrecioPrivate($reserva->fecha_ini,$reserva->fecha_fin);
                     $reserva->pagado = true;
                     $reserva->save();
-                        $url = "https://api.airbnb.com/v2/calendars/12878755/2018-06-15/2018-06-20";
+                    $fecha_fin_periodo = strtotime ( '-1 day' , strtotime ( $reserva->fecha_fin ) ) ;
+                    $fecha_fin_periodo = date ( 'y-m-d' , $fecha_fin_periodo  );
+
+                        $url = "https://api.airbnb.com/v2/calendars/12878755/". $reserva->fecha_ini."/".$fecha_fin_periodo;
                         $data_json = '{"availability":"unavailable"}';
                         $ch = curl_init($url);
                         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
@@ -392,7 +401,7 @@ class ReservaController extends \BaseController {
                         });
                         Mail::send('emails.fin_reserva_admin', array('data' => $reserva), function ($message) {
                             //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                            $message->to('jose1561991@gmail.com')->subject('Synergia-resort. Pago de reserva.');
+                            $message->to('cristina@synergia.es')->subject('Synergia-resort. Pago de reserva.');
                         });
                         return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe su correo');
 

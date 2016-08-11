@@ -74,10 +74,10 @@ class ComentarioController extends \BaseController {
 
         //Enviar correo a Admin
 
-        Mail::send('emails.contacto', array('data' => Input::all()), function($message)
+        Mail::send('emails.comentario', array('data' => Input::all()), function($message)
         {
-            //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-            $message->to('jotelo969.informatico@gmail.com')->subject('Synergia-resort. Nuevo Comentario.');
+            $message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
+            //$message->to('jotelo969.informatico@gmail.com')->subject('Synergia-resort. Nuevo Comentario.');
         });
 
         return Redirect::to('Comentar')->with('success', '<b>Su email está pendiente de confirmación para ser publicado, Muchas gracias por su aportación.</b>');
