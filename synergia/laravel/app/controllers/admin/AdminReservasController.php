@@ -90,9 +90,9 @@ class AdminReservasController extends \BaseController {
         $dni                =   Input::get('dni');
         $adultos            =   Input::get('adultos');
         $ninos              =   Input::get('ninos');
-        $precio             =   Input::get('precio');
         $fecha_ini          =   Input::get('fecha_ini');
         $fecha_fin          =   Input::get('fecha_fin');
+        $precio             =   floatval($this->getPrecioPrivate($fecha_ini,$fecha_fin));
         $pais               =   Input::get('pais_nacionalidad');
         $fecha_nacimiento   =   Input::get('fecha_nacimiento');
         $fecha_expedicion   =   Input::get('fecha_expedicion');
@@ -331,5 +331,63 @@ class AdminReservasController extends \BaseController {
         }
         return $unavailable;
     }
+    private function getPrecioPrivate($fecha_ini,$fecha_fin){
+        $precio = 0.0;
+        $intervalos_pisados   = DB::table('configuraciones')
+            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
+            ->where('fecha_ini', '>', $fecha_ini)
+            ->where('fecha_fin', '<', $fecha_fin)
+            ->orderBy('fecha_ini', 'DESC')
+            ->get();
 
+        $intervalo_entandar = Configuracion::where('alias','like','Estándar')->first();
+        $intervalo1 = Configuracion::where('fecha_ini','<=',$fecha_ini)->where('fecha_fin','>=',$fecha_ini)->first();
+        $intervalo2 = Configuracion::where('fecha_ini','<=',$fecha_fin)->where('fecha_fin','>=',$fecha_fin)->first();
+        if($intervalo1 == null){
+            $intervalo1 = new Configuracion;
+            $intervalo1->id = -1;
+        }
+        if($intervalo2 == null){
+            $intervalo2 = new Configuracion;
+            $intervalo2->id = -2;
+        }
+        //die($this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))));
+        $dias = $this->difDias($fecha_ini,$fecha_fin);
+        $dias_totales = 0;
+        if($dias < 7){
+            if(($intervalo1->id != $intervalo2->id)) {
+                $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
+                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
+            }else{
+                $precio = ($intervalo1->precio_noche_adicional * $dias);
+                $dias_totales += $dias;
+            }
+
+        }else{
+            if($intervalo1->id != $intervalo2->id) {
+                $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
+                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
+            }else{
+                $precio = (($intervalo1->precio_semana/7) * $dias);
+                $dias_totales += $dias;
+            }
+        }
+
+        foreach($intervalos_pisados as $intervalo_pisado){
+            $dias_int = $this->difDias($intervalo_pisado->fecha_ini,$intervalo_pisado->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo_pisado->fecha_fin))));
+            if($dias < 7){
+                $precio += $intervalo_pisado->precio_noche_adicional * $dias_int;
+            }else{
+                $precio += ($intervalo_pisado->precio_semana/7) * $dias_int;
+            }
+            $dias_totales += $dias_int;
+        }
+
+        if($dias < 7){
+            $precio += $intervalo_entandar->precio_noche_adicional * ($dias - $dias_totales);
+        }else{
+            $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
+        }
+        return $precio;
+    }
 }
