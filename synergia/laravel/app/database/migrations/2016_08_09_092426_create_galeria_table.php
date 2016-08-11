@@ -19,6 +19,7 @@ class CreateGaleriaTable extends Migration {
             $table->string('ruta');
             $table->string('nombre_original');
             $table->string('nombre_asignado');
+            $table->string('clave');
             $table->string('extension');
             $table->string('tamanyo');
         });

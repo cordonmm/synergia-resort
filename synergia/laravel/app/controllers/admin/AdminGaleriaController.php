@@ -72,31 +72,45 @@ class AdminGaleriaController extends \BaseController {
 
                 $tamanyo            =   $imagen->getSize()/1024/1024;
                 $tamanyo            =   $tamanyo.' MB';
+                $clave              =   uniqid();
 
-                if($patron != null){
-                    $nuevoID = Galeria::all()->last() ? intval(Galeria::all()->last()->id) + 1 : 1;
-                    $nombre_asignado = $patron.$nuevoID.'.'.$extension;
-                }
-                else{
-                    $nombre_asignado = md5(date_format(date_create(), 'U = Y-m-d H:i:s')).'.'.$extension;
-                }
+                $item = new Galeria;
+                $item->nombre_original      =   $nombre_original;
+                $item->clave                =   $clave;
+                $item->extension            =   $extension;
+                $item->tamanyo              =   $tamanyo;
 
-                $ruta = 'galeria/'.$nombre_asignado;
+                $item->save();
+                $item = Galeria::where('clave','like',$clave)->first();
+                if($item != null) {
+                    if ($patron != null) {
 
-                if($imagen->move(public_path().'/galeria', $nombre_asignado)){
-                    $item = new Galeria;
+                        $nombre_asignado = $patron . $item->id . '.' . $extension;
+                    } else {
+                        $nombre_asignado =  $item->clave . '.' . $extension;
+                    }
+                    $ruta = 'galeria/' . $nombre_asignado;
+                    $item->ruta = $ruta;
+                    $item->nombre_asignado = $nombre_asignado;
 
-                    $item->ruta                 =   $ruta;
-                    $item->nombre_original      =   $nombre_original;
-                    $item->nombre_asignado      =   $nombre_asignado;
-                    $item->extension            =   $extension;
-                    $item->tamanyo              =   $tamanyo;
+                    if ($imagen->move(public_path() . '/galeria', $nombre_asignado)) {
+                        try{
+                            $item->save();
+                        }catch (Exception $e){
+                            $item->delete();
+                            return 'error';
+                        }
 
-                    $item->save();
 
-                    Image::make(public_path().'/galeria/'.$nombre_asignado)->fit(150, 150)->save(public_path().'/galeria/thumbnails/150x150_'.$nombre_asignado)->destroy();
 
-                    return 'good';
+
+                        Image::make(public_path() . '/galeria/' . $nombre_asignado)->fit(150, 150)->save(public_path() . '/galeria/thumbnails/150x150_' . $nombre_asignado)->destroy();
+
+                        return 'good';
+                    } else {
+                        $item->delete();
+                        return 'error';
+                    }
                 }
                 else{
                     return 'error';
