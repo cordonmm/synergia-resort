@@ -241,7 +241,7 @@ $(document).ready(function () {
                     }
                 });
             }
-        }).click(function(){
+        }).focus(function(){
             $('#ui-datepicker-div').removeClass('no-buttons-next-prev');
         });
 
@@ -289,7 +289,7 @@ $(document).ready(function () {
                 }
 
             }
-        }).click(function(){
+        }).focus(function(){
             $('#ui-datepicker-div').removeClass('no-buttons-next-prev');
         });
 
