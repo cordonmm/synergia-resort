@@ -17,13 +17,13 @@ class ReservaController extends \BaseController {
 	 * Parametros para api paypal
 	 */
     private $_api_context;
-    private $_ClientId='AZw-zNOxegZjFxOjTjC1ulkjpki3WlSL6wAW0EwtRURWN_sjzR7OQV54U2OwEKJbZXAAu21wKILKBTHq';
-    private $_ClientSecret='ECqBhqmJp6iO7cm9PXxHBhDmz-QhiRKELHAEtvfwnzjp0fYw45a_L6Pj0S7Pj7FShOjvJ_DjLPD7hkew';
+    //private $_ClientId='AZw-zNOxegZjFxOjTjC1ulkjpki3WlSL6wAW0EwtRURWN_sjzR7OQV54U2OwEKJbZXAAu21wKILKBTHq';
+    //private $_ClientSecret='ECqBhqmJp6iO7cm9PXxHBhDmz-QhiRKELHAEtvfwnzjp0fYw45a_L6Pj0S7Pj7FShOjvJ_DjLPD7hkew';
     /**
-     * SandBoxKeys
-     * private $_ClientId='ARfbWm2_1lMBeW1wQgqZvCT7g4TuxpsR1kO0uKi6NaPcNIr5h5F-zWmg5k9UQlhH46ETD1YVars99pyK';
-     * private $_ClientSecret='EDpmeTpZDpsUdwCjFXUqOarephJJNZFAB7UkvNL4dBYFkfraibowkB2XhgQUCRpvJ91R9gNObFR_plAJ';
-     **/
+      *SandBoxKeys**/
+      private $_ClientId='ARfbWm2_1lMBeW1wQgqZvCT7g4TuxpsR1kO0uKi6NaPcNIr5h5F-zWmg5k9UQlhH46ETD1YVars99pyK';
+      private $_ClientSecret='EDpmeTpZDpsUdwCjFXUqOarephJJNZFAB7UkvNL4dBYFkfraibowkB2XhgQUCRpvJ91R9gNObFR_plAJ';
+
 
 
     /*
@@ -47,15 +47,7 @@ class ReservaController extends \BaseController {
      */
     public function index()
 	{
-        $unavailable = $this->unavailable();
 
-        JavaScript::put([
-            'unavailable' => $unavailable,
-        ]);
-
-        if($unavailable == null){
-            return View::make('site/notservice');
-        }
         return View::make('site/reservar');
 	}
 
@@ -69,15 +61,9 @@ class ReservaController extends \BaseController {
       * @return fecha_fin, fecha de fin del intervalo de reserva
 	 * */
     public function postCreateWithInput(){
-        $unavailable = $this->unavailable();
-        if($unavailable == null){
-            return View::make('site/notservice');
-        }
+
         $fecha_ini = Input::get("fecha_ini");
         $fecha_fin = Input::get("fecha_fin");
-        JavaScript::put([
-            'unavailable' => $unavailable,
-        ]);
         return View::make('site/reservar',compact('fecha_ini','fecha_fin'));
     }
 
@@ -209,6 +195,8 @@ class ReservaController extends \BaseController {
 
             $reserva->ninos             = Input::get('ninos');
 
+            $reserva->dni               = Input::get('dni');
+
             $reserva->fecha_ini         = $fecha_ini;
 
             $reserva->fecha_fin         = $fecha_fin;
@@ -217,7 +205,7 @@ class ReservaController extends \BaseController {
 
             $reserva->observaciones     = Input::get('observaciones');
 
-            $reserva->precio            = floatval($this->getPrecioPrivate($reserva->fecha_ini,$reserva->fecha_fin));
+            $reserva->precio            = Reserva::precio_dates($reserva->fecha_ini,$reserva->fecha_fin);
 
             $reserva->clave_pago       = uniqid();
 
@@ -226,11 +214,11 @@ class ReservaController extends \BaseController {
 
                 Mail::send('emails.solicitud_reserva', array('data' => $reserva), function ($message) use($reserva) {
                     //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                    $message->to( $reserva->email)->subject('Synergia-resort. Solicitud de reserva.');
+                    $message->to( $reserva->email)->subject('Synergia-Resort. Solicitud de reserva.');
                 });
                 Mail::send('emails.solicitud_reserva_admin', array('data' => $reserva), function ($message) {
                     //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                    $message->to('cristina@synergia.es')->subject('Synergia-resort. Solicitud de reserva.');
+                    $message->to('cristina@synergia.es')->subject('Synergia-Resort. Solicitud de reserva.');
                 });
                 return Redirect::to('/Reservar')->with('success', 'La reserva se ha solicitado correctamente, compruebe su correo');
             }
@@ -260,8 +248,7 @@ class ReservaController extends \BaseController {
         $payer = new Payer();
         $payer->setPaymentMethod("paypal");
         $concepto = "Reserva realizadal por ". $reserva->nombre;
-        $cuota = floatval($this->getPrecioPrivate($reserva->fecha_ini,$reserva->fecha_fin));
-
+        $cuota = Reserva::precio_dates($reserva->fecha_ini,$reserva->fecha_fin);
         $item1 = new Item();
         $item1->setName('Apartamento Sevilla')
             ->setDescription($concepto)
@@ -378,7 +365,7 @@ class ReservaController extends \BaseController {
         $unavailable = null;
         if($access != null and array_key_exists("access_token",$access)) {
                 if ($result->getState() == 'approved') { // payment made
-                    $reserva->precio =  $this->getPrecioPrivate($reserva->fecha_ini,$reserva->fecha_fin);
+                    $reserva->precio =  Reserva::precio_dates($reserva->fecha_ini,$reserva->fecha_fin);
                     $reserva->pagado = true;
                     $reserva->save();
                     $fecha_fin_periodo = strtotime ( '-1 day' , strtotime ( $reserva->fecha_fin ) ) ;
@@ -397,11 +384,11 @@ class ReservaController extends \BaseController {
                         // Redirect to the new entrada post page
                         Mail::send('emails.fin_reserva', array('data' => $reserva), function ($message) use($reserva) {
                             //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                            $message->to( $reserva->email)->subject('Synergia-resort. Gracias por su reserva.');
+                            $message->to( $reserva->email)->subject('Synergia-Resort. Gracias por su reserva.');
                         });
                         Mail::send('emails.fin_reserva_admin', array('data' => $reserva), function ($message) {
                             //$message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
-                            $message->to('cristina@synergia.es')->subject('Synergia-resort. Pago de reserva.');
+                            $message->to('cristina@synergia.es')->subject('Synergia-Resort. Pago de reserva.');
                         });
                         return Redirect::to('/Reservar')->with('success', 'La reserva se ha realizado correctamente, compruebe su correo');
 
@@ -426,167 +413,17 @@ class ReservaController extends \BaseController {
     public function __call($a,$b){
         return Redirect::to('/');
     }
-    private function unavailable(){
-        $hoy = date('y-m-d');
-        $fechafin = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
-        $fechafin = date ( 'y-m-d' , $fechafin );
-        $ch = curl_init("https://api.airbnb.com/v1/authorize");
-        curl_setopt($ch, CURLOPT_POST,true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $access = json_decode($response,true);
-        $unavailable = null;
-        if($access != null and array_key_exists("access_token",$access)) {
-            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fechafin.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response  = curl_exec($ch);
-            curl_close($ch);
-            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
-            $unavailable = array();
-            foreach($calendar_days as $dia){
-                if(!$dia["available"]){
-                    array_push($unavailable,$dia["date"]);
-                }
-            }
 
-        }
-        return $unavailable;
+    public function getUnavailables(){
+        $unavailables = Reserva::unavailables();
+        return Response::json(array('success'=>true,'unavailables'=>$unavailables),200);
     }
+
     public function getPrecio($fecha_ini,$fecha_fin){
-        $precio = 0.0;
-        $intervalos_pisados   = DB::table('configuraciones')
-            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
-            ->where('fecha_ini', '>', $fecha_ini)
-            ->where('fecha_fin', '<', $fecha_fin)
-            ->orderBy('fecha_ini', 'DESC')
-            ->get();
-
-        $intervalo_entandar = Configuracion::where('alias','like','Estándar')->first();
-        $intervalo1 = Configuracion::where('fecha_ini','<=',$fecha_ini)->where('fecha_fin','>=',$fecha_ini)->first();
-        $intervalo2 = Configuracion::where('fecha_ini','<=',$fecha_fin)->where('fecha_fin','>=',$fecha_fin)->first();
-        if($intervalo1 == null){
-            $intervalo1 = new Configuracion;
-            $intervalo1->id = -1;
-        }
-        if($intervalo2 == null){
-            $intervalo2 = new Configuracion;
-            $intervalo2->id = -2;
-        }
-        //die($this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))));
-        $dias = $this->difDias($fecha_ini,$fecha_fin);
-        $dias_totales = 0;
-        if($dias < 7){
-            if(($intervalo1->id != $intervalo2->id)) {
-                $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = ($intervalo1->precio_noche_adicional * $dias);
-                $dias_totales += $dias;
-            }
-
-        }else{
-            if($intervalo1->id != $intervalo2->id) {
-                $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = (($intervalo1->precio_semana/7) * $dias);
-                $dias_totales += $dias;
-            }
-        }
-
-        foreach($intervalos_pisados as $intervalo_pisado){
-            $dias_int = $this->difDias($intervalo_pisado->fecha_ini,$intervalo_pisado->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo_pisado->fecha_fin))));
-            if($dias < 7){
-                $precio += $intervalo_pisado->precio_noche_adicional * $dias_int;
-            }else{
-                $precio += ($intervalo_pisado->precio_semana/7) * $dias_int;
-            }
-            $dias_totales += $dias_int;
-        }
-
-        if($dias < 7){
-            $precio += $intervalo_entandar->precio_noche_adicional * ($dias - $dias_totales);
-        }else{
-            $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
-        }
+        $precio = Reserva::precio_dates($fecha_ini,$fecha_fin);
         return Response::json(array('success'=>true,'precio'=>$precio),200);
     }
 
-    private function getPrecioPrivate($fecha_ini,$fecha_fin){
-        $precio = 0.0;
-        $intervalos_pisados   = DB::table('configuraciones')
-            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
-            ->where('fecha_ini', '>', $fecha_ini)
-            ->where('fecha_fin', '<', $fecha_fin)
-            ->orderBy('fecha_ini', 'DESC')
-            ->get();
 
-        $intervalo_entandar = Configuracion::where('alias','like','Estándar')->first();
-        $intervalo1 = Configuracion::where('fecha_ini','<=',$fecha_ini)->where('fecha_fin','>=',$fecha_ini)->first();
-        $intervalo2 = Configuracion::where('fecha_ini','<=',$fecha_fin)->where('fecha_fin','>=',$fecha_fin)->first();
-        if($intervalo1 == null){
-            $intervalo1 = new Configuracion;
-            $intervalo1->id = -1;
-        }
-        if($intervalo2 == null){
-            $intervalo2 = new Configuracion;
-            $intervalo2->id = -2;
-        }
-        //die($this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))));
-        $dias = $this->difDias($fecha_ini,$fecha_fin);
-        $dias_totales = 0;
-        if($dias < 7){
-            if(($intervalo1->id != $intervalo2->id)) {
-                $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = ($intervalo1->precio_noche_adicional * $dias);
-                $dias_totales += $dias;
-            }
 
-        }else{
-            if($intervalo1->id != $intervalo2->id) {
-                $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = (($intervalo1->precio_semana/7) * $dias);
-                $dias_totales += $dias;
-            }
-        }
-
-        foreach($intervalos_pisados as $intervalo_pisado){
-            $dias_int = $this->difDias($intervalo_pisado->fecha_ini,$intervalo_pisado->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo_pisado->fecha_fin))));
-            if($dias < 7){
-                $precio += $intervalo_pisado->precio_noche_adicional * $dias_int;
-            }else{
-                $precio += ($intervalo_pisado->precio_semana/7) * $dias_int;
-            }
-            $dias_totales += $dias_int;
-        }
-
-        if($dias < 7){
-            $precio += $intervalo_entandar->precio_noche_adicional * ($dias - $dias_totales);
-        }else{
-            $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
-        }
-        return $precio;
-    }
-    private function difDias($fecha_ini,$fecha_fin){
-        if($fecha_ini == null or $fecha_fin == null){
-            return 0;
-        }
-        $dias	= (strtotime($fecha_ini)-strtotime($fecha_fin))/86400;
-        $dias 	= abs($dias);
-        $dias = floor($dias);
-        return $dias;
-    }
 }

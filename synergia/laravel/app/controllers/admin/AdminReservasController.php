@@ -21,7 +21,7 @@ class AdminReservasController extends \BaseController {
 	 */
 	public function create()
 	{
-        $unavailable = $this->unavailable();
+        $unavailable = Reserva::unavailables();
         $unavailable_on = '';
 
         JavaScript::put([
@@ -92,7 +92,7 @@ class AdminReservasController extends \BaseController {
         $ninos              =   Input::get('ninos');
         $fecha_ini          =   Input::get('fecha_ini');
         $fecha_fin          =   Input::get('fecha_fin');
-        $precio             =   floatval($this->getPrecioPrivate($fecha_ini,$fecha_fin));
+        $precio             =   Reserva::precio_dates($fecha_ini,$fecha_fin);
         $pais               =   Input::get('pais_nacionalidad');
         $fecha_nacimiento   =   Input::get('fecha_nacimiento');
         $fecha_expedicion   =   Input::get('fecha_expedicion');
@@ -253,7 +253,7 @@ class AdminReservasController extends \BaseController {
             ->add_column('actions',
                 '@if($pendiente)<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/pago\' ) }}}" class="btn btn-xs btn-success iframe"><span title="Solicitar pago" class="glyphicon glyphicon-credit-card"></a>@endif
                 <a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" ><span title="Editar reserva" class="glyphicon glyphicon-edit"></a>
-            	@if($pendiente)<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe"><span title="Eliminar reserva" class="glyphicon glyphicon-trash"></span></a>@endif'
+            	@if(!$pagado)<a href="{{{ URL::to(\'admin/reservas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe"><span title="Eliminar reserva" class="glyphicon glyphicon-trash"></span></a>@endif'
 
             )
             ->edit_column('pagado', '{{ $pagado ? "Pagado" : "Pendiente" }}')
@@ -296,98 +296,6 @@ class AdminReservasController extends \BaseController {
         return Redirect::to('admin/reservas/'.$reserva->id.'/edit')->with('success', 'Ha solicitado el pago correctamente.');
     }
 
-    private function unavailable(){
-        $hoy = date('y-m-d');
-        $fechafin = strtotime ( '+2 year' , strtotime ( $hoy ) ) ;
-        $fechafin = date ( 'y-m-d' , $fechafin );
-        $ch = curl_init("https://api.airbnb.com/v1/authorize");
-        curl_setopt($ch, CURLOPT_POST,true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR&grant_type=password&password=alojamiento16&username=cristina@synergia.es");
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $access = json_decode($response,true);
-        $unavailable = null;
-        if($access != null and array_key_exists("access_token",$access)) {
-            $url = "https://api.airbnb.com/v2/batch/?client_id=3092nxybyb0otqw18e8nh5nty&locale=es-ES&currency=EUR";
-            $data_json = '{"operations":[{"method":"GET","path":"/calendar_days","query":{"start_date":"'.$hoy.'","listing_id":"12878755","_format":"host_calendar","end_date":"'.$fechafin.'"}},{"method":"GET","path":"/dynamic_pricing_controls/12878755","query":{}}],"_transaction":false}';
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-Airbnb-OAuth-Token: '.$access["access_token"],'Content-Type: application/json; charset=UTF-8','Content-Length: ' . strlen($data_json)));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response  = curl_exec($ch);
-            curl_close($ch);
-            $calendar_days = json_decode($response,true)["operations"][0]["response"]["calendar_days"];
-            $unavailable = array();
-            foreach($calendar_days as $dia){
-                if(!$dia["available"]){
-                    array_push($unavailable,$dia["date"]);
-                }
-            }
 
-        }
-        return $unavailable;
-    }
-    private function getPrecioPrivate($fecha_ini,$fecha_fin){
-        $precio = 0.0;
-        $intervalos_pisados   = DB::table('configuraciones')
-            ->whereNotNull('fecha_ini')->whereNotNull('fecha_fin')
-            ->where('fecha_ini', '>', $fecha_ini)
-            ->where('fecha_fin', '<', $fecha_fin)
-            ->orderBy('fecha_ini', 'DESC')
-            ->get();
 
-        $intervalo_entandar = Configuracion::where('alias','like','Estándar')->first();
-        $intervalo1 = Configuracion::where('fecha_ini','<=',$fecha_ini)->where('fecha_fin','>=',$fecha_ini)->first();
-        $intervalo2 = Configuracion::where('fecha_ini','<=',$fecha_fin)->where('fecha_fin','>=',$fecha_fin)->first();
-        if($intervalo1 == null){
-            $intervalo1 = new Configuracion;
-            $intervalo1->id = -1;
-        }
-        if($intervalo2 == null){
-            $intervalo2 = new Configuracion;
-            $intervalo2->id = -2;
-        }
-        //die($this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))));
-        $dias = $this->difDias($fecha_ini,$fecha_fin);
-        $dias_totales = 0;
-        if($dias < 7){
-            if(($intervalo1->id != $intervalo2->id)) {
-                $precio = ($intervalo1->precio_noche_adicional * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + ($intervalo2->precio_noche_adicional * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = ($intervalo1->precio_noche_adicional * $dias);
-                $dias_totales += $dias;
-            }
-
-        }else{
-            if($intervalo1->id != $intervalo2->id) {
-                $precio = (($intervalo1->precio_semana/7) * $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin))))) + (($intervalo2->precio_semana/7) * $this->difDias($intervalo2->fecha_ini, $fecha_fin));
-                $dias_totales += $this->difDias($fecha_ini,$intervalo1->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo1->fecha_fin)))) + $this->difDias($intervalo2->fecha_ini, $fecha_fin);
-            }else{
-                $precio = (($intervalo1->precio_semana/7) * $dias);
-                $dias_totales += $dias;
-            }
-        }
-
-        foreach($intervalos_pisados as $intervalo_pisado){
-            $dias_int = $this->difDias($intervalo_pisado->fecha_ini,$intervalo_pisado->fecha_fin == null ? null : date ( 'Y-m-d' ,strtotime ('+1 day' , strtotime($intervalo_pisado->fecha_fin))));
-            if($dias < 7){
-                $precio += $intervalo_pisado->precio_noche_adicional * $dias_int;
-            }else{
-                $precio += ($intervalo_pisado->precio_semana/7) * $dias_int;
-            }
-            $dias_totales += $dias_int;
-        }
-
-        if($dias < 7){
-            $precio += $intervalo_entandar->precio_noche_adicional * ($dias - $dias_totales);
-        }else{
-            $precio += ($intervalo_entandar->precio_semana/7) * ($dias - $dias_totales);
-        }
-        return $precio;
-    }
 }

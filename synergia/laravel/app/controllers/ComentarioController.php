@@ -76,7 +76,7 @@ class ComentarioController extends \BaseController {
 
         Mail::send('emails.comentario', array('data' => Input::all()), function($message)
         {
-            $message->to('cristina@synergia.es')->subject('Synergia-resort. Nuevo Comentario.');
+            $message->to('cristina@synergia.es')->subject('Synergia-Resort. Nuevo Comentario.');
             //$message->to('jotelo969.informatico@gmail.com')->subject('Synergia-resort. Nuevo Comentario.');
         });
 

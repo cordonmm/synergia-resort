@@ -1,2 +1,0 @@
-<?php $__env->startSection('title'); ?>    Title    @parent<?php $__env->stopSection(); ?><?php /* content */ ?><?php $__env->startSection('content'); ?>   Contenido Welcome<?php $__env->stopSection(); ?><?php $__env->startSection('scripts'); ?><?php $__env->stopSection(); ?>
-<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
