@@ -41,7 +41,7 @@ class AdminConfiguracionesController extends \BaseController {
         $validator  =   Configuracion::validate(Input::all());
 
         if($validator->fails())
-            return Redirect::to('admin/configuraciones/create')->withInput()->withErrors($validator);
+            return Redirect::to('admin/tarifas/create')->withInput()->withErrors($validator);
 
         //Comprobar que el intervalo dado no pisa uno existente.
 
@@ -65,7 +65,7 @@ class AdminConfiguracionesController extends \BaseController {
                                 ->get();
 
         if(count($intervalos_pisados) > 0)
-            return Redirect::to('admin/configuraciones/create')->withInput()->with('intervalos_pisados', $intervalos_pisados);
+            return Redirect::to('admin/tarifas/create')->withInput()->with('intervalos_pisados', $intervalos_pisados);
 
         $configuracion  =   new Configuracion;
 
@@ -79,7 +79,7 @@ class AdminConfiguracionesController extends \BaseController {
 
         $configuracion->save();
 
-        return Redirect::to('admin/configuraciones/create')->with('success', 'La configuración fue creada con éxito');
+        return Redirect::to('admin/tarifas/create')->with('success', 'La configuración fue creada con éxito');
 	}
 
 
@@ -113,7 +113,7 @@ class AdminConfiguracionesController extends \BaseController {
         $validator  =   Configuracion::validate(Input::all());
 
         if($validator->fails())
-            return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->withErrors($validator);
+            return Redirect::to('admin/tarifas/'.$configuracion->id.'/edit')->withErrors($validator);
 
         //Comprobar que el intervalo dado no pisa uno existente.
 
@@ -139,7 +139,7 @@ class AdminConfiguracionesController extends \BaseController {
                 ->get();
 
             if(count($intervalos_pisados) > 0)
-                return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('intervalos_pisados', $intervalos_pisados);
+                return Redirect::to('admin/tarifas/'.$configuracion->id.'/edit')->with('intervalos_pisados', $intervalos_pisados);
         }
 
         $configuracion->fecha_ini                   =   Input::get('fecha_ini');
@@ -152,7 +152,7 @@ class AdminConfiguracionesController extends \BaseController {
 
         $configuracion->save();
 
-        return Redirect::to('admin/configuraciones/'.$configuracion->id.'/edit')->with('success', 'La configuración fue actualizada con éxito');
+        return Redirect::to('admin/tarifas/'.$configuracion->id.'/edit')->with('success', 'La configuración fue actualizada con éxito');
 	}
 
 	/**
@@ -167,7 +167,7 @@ class AdminConfiguracionesController extends \BaseController {
         if($configuracion->id != 1)
             $configuracion->delete();
 
-        return Redirect::to('admin/configuraciones');
+        return Redirect::to('admin/tarifas');
 	}
 
     public function getData(){
@@ -205,13 +205,13 @@ class AdminConfiguracionesController extends \BaseController {
             ->add_column('actions',
 
                 '@if($fecha_fin == NULL || $fecha_ini == NULL)
-                       <a style="width: 100%;" href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+                       <a style="width: 100%;" href="{{{ URL::to(\'admin/tarifas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
                 @else
                     @if(new DateTime($fecha_fin) < new DateTime)
                         <span class="out-of-date"><strong>CADUCADO</strong></span>
                     @else
-                        <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
-                        <a href="{{{ URL::to(\'admin/configuraciones/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>
+                        <a href="{{{ URL::to(\'admin/tarifas/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-xs iframe" >{{{ Lang::get(\'button.edit\') }}}</a>
+                        <a href="{{{ URL::to(\'admin/tarifas/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger iframe">{{{ Lang::get(\'button.delete\') }}}</a>
                     @endif
                 @endif
             	')

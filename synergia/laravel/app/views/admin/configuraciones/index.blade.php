@@ -16,7 +16,7 @@
             Tarifas
 
             <div class="pull-right">
-                <a href="{{{ URL::to('admin/configuraciones/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva tarifa</a>
+                <a href="{{{ URL::to('admin/tarifas/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Nueva tarifa</a>
             </div>
         </h3>
     </div>
@@ -24,13 +24,13 @@
     <table id="configuraciones" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th class="col-md-2">alias</th>
-            <th class="col-md-2">f.&nbsp;inicio</th>
-            <th class="col-md-2">f.&nbsp;fin</th>
-            <th class="col-md-1">tarifa&nbsp;min</th>
-            <th class="col-md-1">noche</th>
-            <th class="col-md-1">semana</th>
-            <th class="col-md-1">noches&nbsp;min</th>
+            <th class="col-md-2">Alias</th>
+            <th class="col-md-2">F.&nbsp;inicio</th>
+            <th class="col-md-2">F.&nbsp;fin</th>
+            <th class="col-md-1">Tarifa&nbsp;mín.</th>
+            <th class="col-md-1">Noche</th>
+            <th class="col-md-1">Semana</th>
+            <th class="col-md-1">Noches&nbsp;mín.</th>
             <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         </thead>
@@ -52,7 +52,7 @@
                 },
                 "bProcessing": true,
                 "bServerSide": true,
-                "sAjaxSource": "{{ URL::to('admin/configuraciones/data') }}",
+                "sAjaxSource": "{{ URL::to('admin/tarifas/data') }}",
                 "fnDrawCallback": function ( oSettings ) {
                     $(".iframe").colorbox({iframe:true, width:"80%", height:"80%",
                         onLoad: function(){
